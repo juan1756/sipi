@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SIPI.Core.Vistas;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,5 +16,7 @@ namespace SIPI.Core.Entidades
         public string Apellido { get; private set; }
 
         public string Contrasena { get; private set; }
+
+        public abstract UsuarioView GetView();
     }
 }

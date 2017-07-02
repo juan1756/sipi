@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SIPI.Core.Vistas;
 
 namespace SIPI.Core.Entidades
 {
@@ -21,5 +22,10 @@ namespace SIPI.Core.Entidades
         public string Piso { get; private set; }
 
         public virtual Provincia Provincia { get; private set; }
+
+        public override UsuarioView GetView()
+        {
+            return new MiembroView(Nombre, Apellido, Email);
+        }
     }
 }

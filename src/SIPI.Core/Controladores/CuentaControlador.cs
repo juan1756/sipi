@@ -1,4 +1,7 @@
-﻿using System;
+﻿using SIPI.Core.Data;
+using SIPI.Core.Data.Mappers;
+using SIPI.Core.Vistas;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,20 +11,25 @@ namespace SIPI.Core.Controladores
 {
     public class CuentaControlador
     {
-        //public CuentaControlador(UsuarioMapper mapper, Algo algo)
-        //{
+        private readonly IDataContext _dataCtx;
+        private readonly IUsuarioMapper _mapper;
 
-        //}
-
-        public void IniciarSesion(string email, string contrasena)
+        public CuentaControlador(
+            IUsuarioMapper mapper, 
+            IDataContext dataCtx)
         {
-            // Ir a buscar el usuario por email
-            // DS => var usuario = usuarioRepository.buscar(email);
+            _mapper = mapper;
+            _dataCtx = dataCtx;
+        }
 
-            // usuario != null ? usuario.ValidarContrasena() : null;
-            throw new NotImplementedException();
+        public UsuarioView IniciarSesion(string email, string contrasena)
+        {
+            var usuario = _mapper.BuscarUsuario(email, contrasena);
 
-            // Algo.Guarda();
+            if (usuario == null)
+                return null;
+
+            return usuario.GetView();
         }
 
         public void RecuperarContrasena(string email)

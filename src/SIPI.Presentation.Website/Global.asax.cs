@@ -13,6 +13,7 @@ namespace SIPI.Presentation.Website
     {
         protected void Application_Start()
         {
+            DependenciesConfig.RegisterDependencies();
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);

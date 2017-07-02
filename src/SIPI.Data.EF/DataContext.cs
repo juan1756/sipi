@@ -1,4 +1,5 @@
-﻿using SIPI.Core.Entidades;
+﻿using SIPI.Core.Data;
+using SIPI.Core.Entidades;
 using SIPI.Data.EF.Mapping;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace SIPI.Data.EF
 {
-    public class DataContext : DbContext
+    public class DataContext : DbContext, IDataContext
     {
         public DataContext()
             : base("SIPI")
@@ -37,6 +38,11 @@ namespace SIPI.Data.EF
         private void RegisterMappings(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new UsuarioMapping());
+        }
+
+        public void Save()
+        {
+            SaveChanges();
         }
     }
 }

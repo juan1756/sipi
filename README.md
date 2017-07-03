@@ -1,7 +1,5 @@
 # Seminario de Integracion I
 
-[TOC]
-
 ## Requisitos
 
 Para poder desarrollar en este proyecto se requiere lo siguiente:
@@ -9,6 +7,21 @@ Para poder desarrollar en este proyecto se requiere lo siguiente:
 - Visual studio 2015+
 - .Net Framework 4.5.2
 - Base de datos (SQLExpress, SQLServer, MySQL)
+
+## Logins
+
+La URL para acceder al login manualmente es `~/cuenta/login`. 
+
+Para desloguear manualmente la URL es: `~/cuenta/logout`.
+
+Existen diferentes perfiles necesarios para acceder al sistema, estos son:
+
+- **Miembro**: `miembro@mail.com`
+- **Operador Contenido**: `operador_contenido@mail.com`
+- **Operador Packaging**: `operador_packaging@mail.com`
+- **Operador Vendedor**: `operador_vendedor@mail.com`
+
+La contraseña es `1234` para todos.
 
 ## Inicialización
 

@@ -1,0 +1,53 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Iglesia Calle Brasil</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <!-- Place favicon.ico in the root directory -->
+        <link rel="stylesheet" href="css/vendor.css">
+        <!-- Theme initialization -->
+		<link rel="stylesheet" id="theme-style" href="css/app.css">
+    </head>
+
+    <body>
+        <div class="auth">
+            <div class="auth-container">
+                <div class="card">
+                    <header class="auth-header">
+                        <h1 class="auth-title">
+                            <div><img class="logo" src="assets/logo.png" alt="logo" /></div>Iglesia Calle Brasil</h1>
+                    </header>
+                    <div class="auth-content">
+                        <p class="text-xs-center">BIENVENIDO</p>
+                        <form id="login-form" action="/index.html" method="GET" novalidate="">
+                            <div class="form-group"> <input type="email" class="form-control underlined" name="username" id="username" placeholder="E-mail" required> </div>
+                            <div class="form-group"> <input type="password" class="form-control underlined" name="password" id="password" placeholder="Contraseña" required> </div>
+                            <div class="form-group"> <button type="submit" class="btn btn-block btn-primary">Ingresar</button> </div>
+							<div class="form-group has-error"> <span class="has-error">El usuario o la contraseña son incorrectos.</span> </div>
+                            <div class="form-group">
+                                <p class="text-muted text-xs-center"><a href="signup.html">Registrarse</a></p>
+								<p class="text-muted text-xs-center"><a href="signup.html">Recordar contraseña</a></p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Reference block for JS -->
+        <div class="ref" id="ref">
+            <div class="color-primary"></div>
+            <div class="chart">
+                <div class="color-primary"></div>
+                <div class="color-secondary"></div>
+            </div>
+        </div>
+        <script src="js/vendor.js"></script>
+        <script src="js/app.js"></script>
+    </body>
+
+</html>

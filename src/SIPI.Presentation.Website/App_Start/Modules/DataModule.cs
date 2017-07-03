@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Autofac;
 using System.Linq;
-using System.Web;
-using Autofac;
 using System.Reflection;
 
 namespace SIPI.Presentation.Website.App_Start.Modules

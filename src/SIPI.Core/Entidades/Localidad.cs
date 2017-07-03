@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SIPI.Core.Entidades
+﻿namespace SIPI.Core.Entidades
 {
     public class Localidad
     {
-        private Localidad() { }
+        private Localidad()
+        {
+        }
 
         public Localidad(int id, string nombre, Provincia provincia)
         {

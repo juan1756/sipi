@@ -1,15 +1,12 @@
 ﻿using SIPI.Core.Vistas;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SIPI.Core.Entidades
 {
     public abstract class Usuario
     {
-        protected Usuario() { }
+        protected Usuario()
+        {
+        }
 
         protected Usuario(string email, string nombre, string apellido, string contrasena)
         {

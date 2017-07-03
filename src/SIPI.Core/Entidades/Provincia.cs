@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SIPI.Core.Entidades
 {
@@ -15,7 +11,7 @@ namespace SIPI.Core.Entidades
         }
 
         public Provincia(int id, string nombre)
-            :this()
+            : this()
         {
             Id = id;
             Nombre = nombre;

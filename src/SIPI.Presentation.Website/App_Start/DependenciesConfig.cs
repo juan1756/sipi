@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Autofac;
-using SIPI.Presentation.Website.App_Start.Modules;
-using System.Web.Mvc;
-using System.Web.Http;
+﻿using Autofac;
 using Autofac.Integration.Mvc;
 using Autofac.Integration.WebApi;
+using SIPI.Presentation.Website.App_Start.Modules;
 using System.Reflection;
+using System.Web.Http;
+using System.Web.Mvc;
 
 namespace SIPI.Presentation.Website
 {

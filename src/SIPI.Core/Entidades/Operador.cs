@@ -1,10 +1,7 @@
-﻿using System;
+﻿using SIPI.Core.Vistas;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using SIPI.Core.Vistas;
 
 namespace SIPI.Core.Entidades
 {
@@ -16,7 +13,7 @@ namespace SIPI.Core.Entidades
         }
 
         public Operador(string email, string nombre, string apellido, string contrasena, Rol rol)
-            :base(email, nombre, apellido, contrasena)
+            : base(email, nombre, apellido, contrasena)
         {
             Roles = new Collection<Rol>();
             Roles.Add(rol);

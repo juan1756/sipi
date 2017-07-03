@@ -2,10 +2,6 @@
 using SIPI.Core.Data.Mappers;
 using SIPI.Core.Vistas;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SIPI.Core.Controladores
 {
@@ -15,7 +11,7 @@ namespace SIPI.Core.Controladores
         private readonly IUsuarioMapper _mapper;
 
         public CuentaControlador(
-            IUsuarioMapper mapper, 
+            IUsuarioMapper mapper,
             IDataContext dataCtx)
         {
             _mapper = mapper;

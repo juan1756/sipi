@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using SIPI.Core.Vistas;
+﻿using SIPI.Core.Vistas;
 
 namespace SIPI.Core.Entidades
 {
     public class Miembro : Usuario
     {
-        private Miembro() : base() { }
+        private Miembro() : base()
+        {
+        }
 
         public Miembro(string email, string nombre, string apellido, string contrasena,
             string calle, string direccion, int altura, string piso, string telefono, Localidad localidad, Provincia provincia)

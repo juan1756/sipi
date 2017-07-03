@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using System.Web.Routing;
 
 namespace SIPI.Presentation.Website
@@ -13,7 +9,7 @@ namespace SIPI.Presentation.Website
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            // More to less specific 
+            // More to less specific
 
             routes.MapRoute(
                 name: "Default",

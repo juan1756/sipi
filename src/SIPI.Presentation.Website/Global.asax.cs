@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
+﻿using System.Net;
 using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
@@ -25,8 +22,8 @@ namespace SIPI.Presentation.Website
 
         protected virtual void Application_EndRequest()
         {
-            if (FormsAuthentication.IsEnabled 
-                && HttpContext.Current.Response.StatusCode == (int)HttpStatusCode.Found 
+            if (FormsAuthentication.IsEnabled
+                && HttpContext.Current.Response.StatusCode == (int)HttpStatusCode.Found
                 && HttpContext.Current.Request.RequestContext.HttpContext.Request.IsAjaxRequest())
             {
                 HttpContext.Current.Response.Clear();

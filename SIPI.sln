@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIPI.Core", "src\SIPI.Core\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIPI.Data.EF", "src\SIPI.Data.EF\SIPI.Data.EF.csproj", "{40953DE9-6C15-4391-AB27-4688F752514E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{BEACCBAD-A8C6-4B2A-8D61-C1093EBCBB67}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8EE9399D-55A9-4107-BA92-1B9207E6D386} = {BEACCBAD-A8C6-4B2A-8D61-C1093EBCBB67}
+		{39FEE8F7-5AD5-4C26-A256-F5263BD09151} = {BEACCBAD-A8C6-4B2A-8D61-C1093EBCBB67}
+		{40953DE9-6C15-4391-AB27-4688F752514E} = {BEACCBAD-A8C6-4B2A-8D61-C1093EBCBB67}
 	EndGlobalSection
 EndGlobal

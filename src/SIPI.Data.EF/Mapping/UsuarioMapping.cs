@@ -13,6 +13,15 @@ namespace SIPI.Data.EF.Mapping
         public UsuarioMapping()
         {
             HasKey(x => x.Email);
+
+            Property(x => x.Nombre)
+                .IsRequired();
+
+            Property(x => x.Apellido)
+                .IsRequired();
+
+            Property(x => x.Contrasena)
+                .IsRequired();
         }
     }
 }

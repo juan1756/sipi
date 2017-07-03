@@ -24,23 +24,29 @@ namespace SIPI.Data.EF
 
         public DbSet<Provincia> Provincias { get; set; }
 
+        public DbSet<Rol> Roles { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+            modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
+            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
 
-            modelBuilder.Properties<string>().Configure(p => p.IsUnicode(false).HasMaxLength(100));
+            modelBuilder.Properties<string>().Configure(p => p.IsUnicode(false).HasMaxLength(150));
 
             RegisterMappings(modelBuilder);
+
+            modelBuilder.Entity<Operador>().HasMany(x => x.Roles).WithMany();
         }
 
         private void RegisterMappings(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Configurations.Add(new UsuarioMapping());
+            modelBuilder.Configurations.AddFromAssembly(GetType().Assembly);
         }
 
-        public void Save()
+        void IDataContext.Save()
         {
             SaveChanges();
         }

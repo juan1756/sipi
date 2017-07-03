@@ -12,5 +12,10 @@ namespace SIPI.Core.Vistas
             : base(nombre, apellido, email)
         {
         }
+
+        public override bool SoyOperador()
+        {
+            return false;
+        }
     }
 }

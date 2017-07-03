@@ -8,5 +8,11 @@ namespace SIPI.Presentation.Website.Controllers
         {
             return View();
         }
+
+        [Authorize]
+        public ActionResult Other()
+        {
+            return Content("OK");
+        }
     }
 }

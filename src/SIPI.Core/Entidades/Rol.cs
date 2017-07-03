@@ -9,6 +9,15 @@ namespace SIPI.Core.Entidades
 {
     public class Rol
     {
+        private Rol() { }
+
+        public Rol(int id, string nombre, string descripcion)
+        {
+            Id = id;
+            Nombre = nombre;
+            Descripcion = descripcion;
+        }
+
         public int Id { get; private set; }
 
         public string Nombre { get; private set; }

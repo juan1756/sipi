@@ -20,5 +20,7 @@ namespace SIPI.Core.Vistas
         public string Apellido { get; private set; }
 
         public string Email { get; private set; }
+
+        public abstract bool SoyOperador();
     }
 }

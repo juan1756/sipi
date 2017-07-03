@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using System.Web.Security;
 
 namespace SIPI.Presentation.Website
 {
@@ -19,6 +21,17 @@ namespace SIPI.Presentation.Website
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+        }
+
+        protected virtual void Application_EndRequest()
+        {
+            if (FormsAuthentication.IsEnabled 
+                && HttpContext.Current.Response.StatusCode == (int)HttpStatusCode.Found 
+                && HttpContext.Current.Request.RequestContext.HttpContext.Request.IsAjaxRequest())
+            {
+                HttpContext.Current.Response.Clear();
+                HttpContext.Current.Response.StatusCode = (int)HttpStatusCode.Unauthorized;
+            }
         }
     }
 }

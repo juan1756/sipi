@@ -1,10 +1,11 @@
 ﻿using SIPI.Core.Controladores;
+using SIPI.Core.Vistas;
 using SIPI.Presentation.Website.Models.Cuenta;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using System.Security.Principal;
+using System.Threading;
 using System.Web.Mvc;
+using System.Linq;
+using System.Web.Security;
 
 namespace SIPI.Presentation.Website.Controllers
 {
@@ -20,25 +21,74 @@ namespace SIPI.Presentation.Website.Controllers
         [HttpGet]
         public ActionResult Login()
         {
-
             return View();
         }
 
-        // what do we need here?
         [HttpPost]
-        public ActionResult Login(LoginModel model)
+        public ActionResult Login(LoginModel model, string returnUrl)
         {
             if (!ModelState.IsValid)
-                // EX
+            {
+                return View(model);
+            }
 
-            //var c = new CuentaControlador();
+            var usuario = _controladorCuenta.IniciarSesion(model.User, model.Password);
 
-            _controladorCuenta.IniciarSesion(model.User, model.Password);
-            //var result = new CuentaControlador().Login(model.User, model.Password);
+            if (usuario == null)
+            {
+                // Mostrar error de auth generico
+                return View(model);
+            }
 
-            //...
+            Authenticate(usuario);
 
-            return null;
+            if (usuario.SoyOperador())
+            {
+                return RedirectToAction("index", "home", new { area = "admin" });
+            }
+            else if (!string.IsNullOrWhiteSpace(returnUrl) && Url.IsLocalUrl(returnUrl))
+            {
+                return Redirect(returnUrl);
+            }
+            return RedirectToHome();
+        }
+
+        [Authorize]
+        public ActionResult Logout()
+        {
+            FormsAuthentication.SignOut();
+            Session.Abandon();
+
+            if (Request.UrlReferrer != null && Url.IsLocalUrl(Request.UrlReferrer.ToString()))
+                return Redirect(Request.UrlReferrer.ToString());
+
+            return RedirectToHome();
+        }
+
+        private ActionResult RedirectToHome()
+        {
+            return RedirectToAction("index", "home", new { area = "" });
+        }
+
+        private void Authenticate(UsuarioView usuario)
+        {
+            var identity = new GenericIdentity($"{usuario.Nombre} {usuario.Apellido}");
+
+            string[] roles;
+            if (usuario.SoyOperador())
+            {
+                roles = (usuario as OperadorView)
+                    .Roles.Select(x => x.Nombre).ToArray();
+            }
+            else
+            {
+                roles = new[] { "Miembro" };
+            }
+
+            var principal = new GenericPrincipal(identity, roles);
+            HttpContext.User = principal;
+            Thread.CurrentPrincipal = principal;
+            FormsAuthentication.SetAuthCookie(usuario.Email, createPersistentCookie: true);
         }
     }
 }

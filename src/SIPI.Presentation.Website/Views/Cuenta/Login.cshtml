@@ -4,6 +4,7 @@
 }
 
 <form action='@Url.Action("Login","Cuenta", new { returnUrl = Request.QueryString["returnUrl"] })' method="post">
+    @Html.AntiForgeryToken()
     @Html.TextBoxFor(m => m.User)
     @Html.PasswordFor(m => m.Password)
     <input type="submit" value="Login" />

@@ -159,19 +159,15 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
-    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Scripts\jquery-1.10.2.js" />
-    <Content Include="Scripts\jquery-1.10.2.min.js" />
-    <None Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery.validate.js" />
-    <Content Include="Scripts\jquery.validate.min.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\modernizr-2.6.2.js" />
-    <Content Include="Scripts\respond.js" />
-    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\plugins\jquery.validate.bootstrap.js" />
+    <Content Include="Scripts\thirdparty\bootstrap.js" />
+    <None Include="Scripts\thirdparty\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\thirdparty\jquery-1.10.2.js" />
+    <None Include="Scripts\thirdparty\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\thirdparty\jquery.validate.js" />
+    <Content Include="Scripts\thirdparty\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\thirdparty\modernizr-2.6.2.js" />
+    <Content Include="Scripts\thirdparty\respond.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -196,7 +192,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
-    <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SIPI.Core\SIPI.Core.csproj">

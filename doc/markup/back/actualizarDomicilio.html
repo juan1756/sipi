@@ -1,0 +1,132 @@
+﻿<!doctype html>
+<html class="no-js" lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Iglesia Calle Brasil</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <!-- Place favicon.ico in the root directory -->
+        <link rel="stylesheet" href="css/vendor.css">
+        <!-- Theme initialization -->
+		<link rel="stylesheet" id="theme-style" href="css/app.css">
+    </head>
+
+    <body>
+        <div class="main-wrapper">
+            <div class="app no-sidebar" id="app">
+                <header class="header no-sidebar">
+                    <div class="header-block header-block-collapse hidden-lg-up"> <button class="collapse-btn" id="sidebar-collapse-btn">
+    			<i class="fa fa-bars"></i>
+    		</button> </div>
+					<div class="sidebar-header">
+						<div class="brand brand-header">
+							<div class="logo"><img class="logo-header" src="assets/logo.png" alt="logo" /></div> <div class="pull-right">Iglesia Calle Brasil</div>
+						</div>
+					</div>
+                    <div class="header-block header-block-nav">
+                        <ul class="nav-profile">
+                            <li class="profile dropdown">
+                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                                    <div class="img" style="background-image: url('https://avatars3.githubusercontent.com/u/3959008?v=3&s=40')"> </div> <span class="name">
+    			      Bienvenido, Rubén Gomez
+    			    </span> </a>
+                                <div class="dropdown-menu profile-dropdown-menu" aria-labelledby="dropdownMenu1">
+								<a class="dropdown-item" href="actualizarDomicilio.html">
+    			      <i class="fa fa-user icon"></i>
+    			      Mis datos
+    			    </a> <a class="dropdown-item" href="listarPedidosHechosMiembro.html">
+    			      <i class="fa fa-shopping-cart icon"></i>
+    			      Mis pedidos
+    			    </a>
+                    <a class="dropdown-item" href="iniciarSesion.html">
+    			      <i class="fa fa-power-off icon"></i>
+    			      Cerrar sesión
+    			    </a> </div>
+                            </li>
+                        </ul>
+                    </div>
+                </header>
+
+               <article class="content items-list-page">
+                    <div class="title-search-block">
+                        <div class="title-block">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h3 class="title"> Mis datos </h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+						<div class="auth-content">
+                        <form id="address-form" action="" method="GET" novalidate="">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-xs-12"> 
+										<!--<input type="text" class="form-control underlined" name="province" id="province" placeholder="Provincia" required="">--> 
+										<select name="province" id="province" class="c-select form-control boxed">
+											<option selected="">Seleccione</option>
+											<option value="1">Provincia 1</option>
+											<option value="2">Provincia 2</option>
+											<option value="3">Provincia 3</option>
+										</select>
+									</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-xs-12"> 
+										<!--<input type="text" class="form-control underlined" name="city" id="city" placeholder="Localidad" required="">-->
+										<select name="city" id="city" class="c-select form-control boxed">
+											<option selected="">Seleccione</option>
+											<option value="1">Localidad 1</option>
+											<option value="2">Localidad 2</option>
+											<option value="3">Localidad 3</option>
+										</select>
+									</div>
+                                </div>
+                            </div>
+							<div class="form-group">
+                                <div class="row">
+                                    <div class="col-xs-12"> <input type="text" class="form-control underlined" name="street" id="street" placeholder="Calle" required=""> </div>
+                                </div>
+                            </div>
+							<div class="form-group">
+                                <div class="row">
+                                    <div class="col-xs-6"> <input type="text" class="form-control underlined" name="number" id="number" placeholder="Altura" required=""> </div>
+									<div class="col-xs-6"> <input type="text" class="form-control underlined" name="floor" id="floor" placeholder="Piso" required=""> </div>
+                                </div>
+                            </div>
+							<div class="form-group has-error"> <span class="has-error">Debe completar los campos obligatorios.</span> 
+							<button type="button" class="btn btn-block btn-primary">Actualizar</button>
+                        </form>
+                    </div>
+                </div>
+                </article>
+				
+                <footer class="footer no-sidebar">
+                    <div class="footer-block author">
+                        <ul>
+                            <li> Iglesia Calle Brasil </li>
+                            <li> 2017 </li>
+                        </ul>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        <!-- Reference block for JS -->
+        <div class="ref" id="ref">
+            <div class="color-primary"></div>
+            <div class="chart">
+                <div class="color-primary"></div>
+                <div class="color-secondary"></div>
+            </div>
+        </div>
+		
+        <script src="js/vendor.js"></script>
+        <script src="js/app.js"></script>
+    </body>
+
+</html>

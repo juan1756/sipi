@@ -34,14 +34,14 @@
     			      Bienvenido, Rubén Gomez
     			    </span> </a>
                                 <div class="dropdown-menu profile-dropdown-menu" aria-labelledby="dropdownMenu1">
-								<a class="dropdown-item" href="#">
+								<a class="dropdown-item" href="actualizarDomicilio.html">
     			      <i class="fa fa-user icon"></i>
     			      Mis datos
-    			    </a> <a class="dropdown-item" href="#">
+    			    </a> <a class="dropdown-item" href="listarPedidosHechosMiembro.html">
     			      <i class="fa fa-shopping-cart icon"></i>
     			      Mis pedidos
     			    </a>
-                    <a class="dropdown-item" href="login.html">
+                    <a class="dropdown-item" href="iniciarSesion.html">
     			      <i class="fa fa-power-off icon"></i>
     			      Cerrar sesión
     			    </a> </div>
@@ -55,7 +55,7 @@
                         <h3 class="title"> Contenido Multimedial </h3>
                     </div>
 					<section class="section">
-						<form>
+						<!--<form>-->
 							<div class="form-group row">
 								<div class="col-md-12">
 									<div class="col-md-6">
@@ -70,12 +70,12 @@
 									<div class="col-md-3">
 										<button type="submit" class="btn btn-block btn-primary">Cancelar</button> 
 									</div>
-									<div class="col-md-3">
-										<button type="submit" class="btn btn-block btn-primary">Confirmar pedido</button> 
+									<div class="col-md-3"> <!-- type="submit" -->
+										<button class="btn btn-block btn-primary" data-toggle="modal" data-target="#modal-media">Confirmar pedido</button> 
 									</div>									
 								</div>
 							</div>
-						</form>
+						<!--</form>-->
 					</section>
                     <section class="section">
                         <div class="row">
@@ -89,10 +89,10 @@
                                         </div>
                                     </div>
                                     <div class="card-block">
-                                        <video width="100%" controls="">
-											<source src="videos/01.mp4" type="video/mp4">			
-											Your browser does not support HTML5 video.
-										</video>
+										<iframe id="ytplayer1" type="text/html" width="100%" height="100%"
+										  src="http://www.youtube.com/embed/Vj_emVFPgJ8?controls=1&showinfo=0"
+										  frameborder="0"/>
+										</iframe>
                                     </div>
                                     <div class="card-footer"> 
 										14/04/2017
@@ -111,10 +111,10 @@
                                         </div>
                                     </div>
                                     <div class="card-block">
-                                        <video width="100%" controls="">
-											<source src="videos/01.mp4" type="video/mp4">			
-											Your browser does not support HTML5 video.
-										</video>
+										<iframe id="ytplayer2" type="text/html" width="100%" height="100%"
+										  src="http://www.youtube.com/embed/Vj_emVFPgJ8?controls=1&showinfo=0"
+										  frameborder="0"/>
+										</iframe>
                                     </div>
                                     <div class="card-footer">
 										14/04/2017
@@ -133,10 +133,10 @@
                                         </div>
                                     </div>
                                     <div class="card-block">
-                                        <video width="100%" controls="">
-											<source src="videos/01.mp4" type="video/mp4">			
-											Your browser does not support HTML5 video.
-										</video>
+										<iframe id="ytplayer3" type="text/html" width="100%" height="100%"
+										  src="http://www.youtube.com/embed/Vj_emVFPgJ8?controls=1&showinfo=0"
+										  frameborder="0"/>
+										</iframe>
                                     </div>
                                     <div class="card-footer">
 										14/04/2017
@@ -155,10 +155,10 @@
                                         </div>
                                     </div>
                                     <div class="card-block">
-                                        <video width="100%" controls="">
-											<source src="videos/01.mp4" type="video/mp4">			
-											Your browser does not support HTML5 video.
-										</video>
+										<iframe id="ytplayer4" type="text/html" width="100%" height="100%"
+										  src="http://www.youtube.com/embed/Vj_emVFPgJ8?controls=1&showinfo=0"
+										  frameborder="0"/>
+										</iframe>
                                     </div>
                                     <div class="card-footer">
 										14/04/2017
@@ -180,10 +180,10 @@
                                         </div>
                                     </div>
                                     <div class="card-block">
-                                        <video width="100%" controls="">
-											<source src="videos/01.mp4" type="video/mp4">			
-											Your browser does not support HTML5 video.
-										</video>
+										<iframe id="ytplayer5" type="text/html" width="100%" height="100%"
+										  src="http://www.youtube.com/embed/Vj_emVFPgJ8?controls=1&showinfo=0"
+										  frameborder="0"/>
+										</iframe>
                                     </div>
                                     <div class="card-footer">
 										14/04/2017
@@ -202,10 +202,10 @@
                                         </div>
                                     </div>
                                     <div class="card-block">
-                                        <video width="100%" controls="">
-											<source src="videos/01.mp4" type="video/mp4">			
-											Your browser does not support HTML5 video.
-										</video>
+										<iframe id="ytplayer6" type="text/html" width="100%" height="100%"
+										  src="http://www.youtube.com/embed/Vj_emVFPgJ8?controls=1&showinfo=0"
+										  frameborder="0"/>
+										</iframe>
                                     </div>
                                     <div class="card-footer">
 										14/04/2017
@@ -224,10 +224,10 @@
                                         </div>
                                     </div>
                                     <div class="card-block">
-                                        <video width="100%" controls="">
-											<source src="videos/01.mp4" type="video/mp4">			
-											Your browser does not support HTML5 video.
-										</video>
+										<iframe id="ytplayer7" type="text/html" width="100%" height="100%"
+										  src="http://www.youtube.com/embed/Vj_emVFPgJ8?controls=1&showinfo=0"
+										  frameborder="0"/>
+										</iframe>
                                     </div>
                                     <div class="card-footer">
 										14/04/2017
@@ -246,10 +246,10 @@
                                         </div>
                                     </div>
                                     <div class="card-block">
-                                        <video width="100%" controls="">
-											<source src="videos/01.mp4" type="video/mp4">			
-											Your browser does not support HTML5 video.
-										</video>
+										<iframe id="ytplayer8" type="text/html" width="100%" height="100%"
+										  src="http://www.youtube.com/embed/Vj_emVFPgJ8?controls=1&showinfo=0"
+										  frameborder="0"/>
+										</iframe>
                                     </div>
                                     <div class="card-footer">
 										14/04/2017
@@ -271,6 +271,68 @@
                         </ul>
                     </div>
                 </footer>
+				<div class="modal fade" id="modal-media">
+                    <div class="modal-dialog modal-xs">
+                        <div class="modal-content">
+                            <div class="modal-header"> <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    					<span aria-hidden="true">&times;</span>
+    					<span class="sr-only">Close</span>
+    				</button>
+                                <h4 class="modal-title">Confirmar Dirección</h4>
+                            </div>
+                            <div class="modal-body">
+						<div class="auth-content">
+                        <p class="text-xs-center">Te enviaremos tu pedido a esta dirección.</p>
+                        <p class="text-xs-center">Si no es correcta, modificala:</p>
+                        <form id="address-form" action="" method="GET" novalidate="">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-xs-12"> 
+										<!--<input type="text" class="form-control underlined" name="province" id="province" placeholder="Provincia" required="">--> 
+										<select name="province" id="province" class="c-select form-control boxed">
+											<option selected="">Seleccione</option>
+											<option value="1">Provincia 1</option>
+											<option value="2">Provincia 2</option>
+											<option value="3">Provincia 3</option>
+										</select>
+									</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-xs-12"> 
+										<!--<input type="text" class="form-control underlined" name="city" id="city" placeholder="Localidad" required="">-->
+										<select name="city" id="city" class="c-select form-control boxed">
+											<option selected="">Seleccione</option>
+											<option value="1">Localidad 1</option>
+											<option value="2">Localidad 2</option>
+											<option value="3">Localidad 3</option>
+										</select>
+									</div>
+                                </div>
+                            </div>
+							<div class="form-group">
+                                <div class="row">
+                                    <div class="col-xs-12"> <input type="text" class="form-control underlined" name="street" id="street" placeholder="Calle" required=""> </div>
+                                </div>
+                            </div>
+							<div class="form-group">
+                                <div class="row">
+                                    <div class="col-xs-6"> <input type="text" class="form-control underlined" name="number" id="number" placeholder="Altura" required=""> </div>
+									<div class="col-xs-6"> <input type="text" class="form-control underlined" name="floor" id="floor" placeholder="Piso" required=""> </div>
+                                </div>
+                            </div>
+							<div class="form-group has-error"> <span class="has-error">Debe completar los campos obligatorios.</span> 
+                        </form>
+                    </div>
+                </div>
+                            </div>
+                            <div class="modal-footer"> <button type="button" class="btn btn-primary">Enviar</button> </div>
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>
             </div>
         </div>
         <!-- Reference block for JS -->

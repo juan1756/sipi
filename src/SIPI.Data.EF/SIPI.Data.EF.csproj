@@ -51,14 +51,18 @@
   <ItemGroup>
     <Compile Include="DataContext.cs" />
     <Compile Include="Mappers\UsuarioMapper.cs" />
+    <Compile Include="Mapping\CategoriaMapping.cs" />
+    <Compile Include="Mapping\MedioAudiovisualMapping.cs" />
+    <Compile Include="Mapping\InsumoMapping.cs" />
     <Compile Include="Mapping\MiembroMapping.cs" />
+    <Compile Include="Mapping\PedidoMapping.cs" />
     <Compile Include="Mapping\RolMapping.cs" />
     <Compile Include="Mapping\LocalidadMapping.cs" />
     <Compile Include="Mapping\ProvinciaMapping.cs" />
     <Compile Include="Mapping\UsuarioMapping.cs" />
-    <Compile Include="Migrations\201707041515452_Initial.cs" />
-    <Compile Include="Migrations\201707041515452_Initial.Designer.cs">
-      <DependentUpon>201707041515452_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201707041814248_Initial.cs" />
+    <Compile Include="Migrations\201707041814248_Initial.Designer.cs">
+      <DependentUpon>201707041814248_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -73,8 +77,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201707041515452_Initial.resx">
-      <DependentUpon>201707041515452_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201707041814248_Initial.resx">
+      <DependentUpon>201707041814248_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

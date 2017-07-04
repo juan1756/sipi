@@ -1,7 +1,6 @@
-﻿using System;
+﻿using SIPI.Core.Servicios;
 using SIPI.Core.Vistas;
-using SIPI.Core.Servicios;
-using System.Text;
+using System;
 
 namespace SIPI.Core.Entidades
 {

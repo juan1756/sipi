@@ -13,7 +13,7 @@ namespace SIPI.Data.EF.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201707041515452_Initial"; }
+            get { return "201707041814248_Initial"; }
         }
         
         string IMigrationMetadata.Source

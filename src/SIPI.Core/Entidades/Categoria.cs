@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SIPI.Core.Vistas;
+using System;
 
 namespace SIPI.Core.Entidades
 {
@@ -23,5 +24,10 @@ namespace SIPI.Core.Entidades
         public DateTime FechaCreacion { get; private set; }
 
         public virtual Operador Operador { get; private set; }
+
+        public CategoriaView GetView()
+        {
+            return new CategoriaView(Id, Nombre);
+        }
     }
 }

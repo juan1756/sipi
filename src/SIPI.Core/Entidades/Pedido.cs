@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SIPI.Core.Vistas;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
@@ -10,7 +11,9 @@ namespace SIPI.Core.Entidades
         public enum Estados
         {
             // TODO: Cambiar al que corresponda
-            Inicial
+            Inicial,
+            Listo,
+            Entregado
         }
 
         private Pedido()
@@ -41,6 +44,32 @@ namespace SIPI.Core.Entidades
 
         public virtual ICollection<Insumo> Insumos { get; private set; }
 
-        public DateTime FechaEntregado { get; private set; }
+        public DateTime? FechaEntregado { get; private set; }
+
+        public PedidoOperadorView GetOperadorView()
+        {
+            // TODO: El Tema esta perdido, revisar docs
+            return new PedidoOperadorView(
+                Numero, 
+                null, 
+                $"{Miembro.Nombre} {Miembro.Apellido}", 
+                CantidadPedido, 
+                Fecha, 
+                (Estados)Estado, 
+                ((Estados)Estado) == Estados.Inicial 
+                    ? Estados.Listo 
+                    : Estados.Entregado);
+        }
+
+        public PedidoMiembroView GetMiembroView()
+        {
+            // TODO: El Tema esta perdido, revisar docs
+            return new PedidoMiembroView(
+                null, 
+                CantidadPedido, 
+                Fecha, 
+                (Estados)Estado, 
+                FechaEntregado);
+        }
     }
 }

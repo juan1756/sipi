@@ -59,7 +59,12 @@
     <Compile Include="Servicios\Hashing.cs" />
     <Compile Include="Vistas\MiembroView.cs" />
     <Compile Include="Vistas\OperadorView.cs" />
+    <Compile Include="Vistas\PedidoMiembroView.cs" />
+    <Compile Include="Vistas\PedidoOperadorView.cs" />
+    <Compile Include="Vistas\PedidoSeguimientoView.cs" />
     <Compile Include="Vistas\RolView.cs" />
+    <Compile Include="Vistas\CategoriaView.cs" />
+    <Compile Include="Vistas\TipoView.cs" />
     <Compile Include="Vistas\UsuarioView.cs" />
   </ItemGroup>
   <ItemGroup />

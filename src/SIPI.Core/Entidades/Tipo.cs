@@ -1,4 +1,6 @@
-﻿namespace SIPI.Core.Entidades
+﻿using SIPI.Core.Vistas;
+
+namespace SIPI.Core.Entidades
 {
     public class Tipo
     {
@@ -15,5 +17,10 @@
         public int Id { get; private set; }
 
         public string Nombre { get; private set; }
+
+        public TipoView GetView()
+        {
+            return new TipoView(Id, Nombre);
+        }
     }
 }

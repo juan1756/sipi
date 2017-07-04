@@ -29,8 +29,10 @@ namespace SIPI.Core.Entidades
 
         public string Contrasena { get; private set; }
 
+        // TODO: Actualizar MC y MDB
         public string ContrasenaNueva { get; private set; }
 
+        // TODO: Actualizar MC y MDB
         public string Hash { get; private set; }
 
         public abstract UsuarioView GetView();
@@ -40,6 +42,7 @@ namespace SIPI.Core.Entidades
             return Contrasena == contrasena;
         }
 
+        // TODO: Actualizar DS
         public byte[] ActualizarContrasena(string contrasena)
         {
             ContrasenaNueva = contrasena;
@@ -48,6 +51,7 @@ namespace SIPI.Core.Entidades
             return hashBytes;
         }
 
+        // TODO: Actualizar DS
         public void ActualizarContrasena(byte[] hashBytes)
         {
             if (Hash != Hashing.HexStringFromHashBytes(hashBytes))

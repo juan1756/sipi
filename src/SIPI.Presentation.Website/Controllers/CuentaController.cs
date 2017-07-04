@@ -2,8 +2,6 @@
 using SIPI.Core.Vistas;
 using SIPI.Presentation.Website.Models.Cuenta;
 using System.Linq;
-using System.Net;
-using System.Net.Mail;
 using System.Security.Principal;
 using System.Threading;
 using System.Web;
@@ -80,9 +78,9 @@ namespace SIPI.Presentation.Website.Controllers
                 return View(model);
 
             _controladorCuenta.RecuperarContrasena(
-                model.Email, 
+                model.Email,
                 hash => RenderViewToString(
-                    "RecuperoMail", 
+                    "RecuperoMail",
                     new RecuperoMailModel(HttpServerUtility.UrlTokenEncode(hash))));
 
             // TODO: Show on layout

@@ -41,11 +41,11 @@ namespace SIPI.Data.EF.Migrations
                 roles_operador_vendedor
             );
 
-            context.Usuarios.AddOrUpdate(x => x.Email,
-                new Miembro("miembro@mail.com", "Don", "Miembro", "1234", "Charcas", "Direccion", 4792, "1", "47760626", localidades_BuenosAires, provincias_BuenosAires),
-                new Operador("operador_contenido@mail.com", "Don", "Operador Contenido", "1234", roles_operador_contenido),
-                new Operador("operador_packaging@mail.com", "Don", "Operador Packaging", "1234", roles_operador_packaging),
-                new Operador("operador_vendedor@mail.com", "Don", "Operador Vendedor", "1234", roles_operador_vendedor)
+            context.Usuarios.AddOrUpdate(x => x.Id,
+                new Miembro(1, "miembro@mail.com", "Don", "Miembro", "1234", "Charcas", "Direccion", 4792, "1", "47760626", localidades_BuenosAires, provincias_BuenosAires),
+                new Operador(2, "operador_contenido@mail.com", "Don", "Operador Contenido", "1234", roles_operador_contenido),
+                new Operador(3, "operador_packaging@mail.com", "Don", "Operador Packaging", "1234", roles_operador_packaging),
+                new Operador(4, "operador_vendedor@mail.com", "Don", "Operador Vendedor", "1234", roles_operador_vendedor)
             );
 
             context.SaveChanges();

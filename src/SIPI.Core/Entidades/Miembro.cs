@@ -8,9 +8,9 @@ namespace SIPI.Core.Entidades
         {
         }
 
-        public Miembro(string email, string nombre, string apellido, string contrasena,
+        public Miembro(int id, string email, string nombre, string apellido, string contrasena,
             string calle, string direccion, int altura, string piso, string telefono, Localidad localidad, Provincia provincia)
-            : base(email, nombre, apellido, contrasena)
+            : base(id, email, nombre, apellido, contrasena)
         {
             Calle = calle;
             Direccion = direccion;

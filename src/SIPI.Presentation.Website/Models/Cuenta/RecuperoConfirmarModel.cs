@@ -6,12 +6,12 @@ using System.Web;
 
 namespace SIPI.Presentation.Website.Models.Cuenta
 {
-    public class RecuperoConfirmarModel : LoginModel
+    public class RecuperoConfirmarModel
     {
         [Required]
         [MaxLength(150)]
-        [Compare(nameof(Contrasena))]
-        public string ConfirmarContrasena { get; set; }
+        [EmailAddress]
+        public string Email { get; set; }
 
         [Required]
         public string Token { get; set; }

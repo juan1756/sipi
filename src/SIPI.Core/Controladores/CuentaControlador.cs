@@ -23,41 +23,36 @@ namespace SIPI.Core.Controladores
 
         public UsuarioView IniciarSesion(string email, string contrasena)
         {
-            var usuario = _mapper.BuscarUsuario(email);
+            var usuario = _mapper.BuscarUsuario(email, contrasena);
 
             if (usuario == null)
-                return null;
-
-            if (!usuario.ContrasenaValida(contrasena))
                 return null;
 
             return usuario.GetView();
         }
 
-        public bool RecuperarContrasena(string email, string contrasena, byte[] hashBytes)
-        {
-            var usuario = _mapper.BuscarUsuario(email);
-
-            if (usuario == null)
-                return false;
-
-            usuario.ActualizarContrasena(contrasena, hashBytes);
-
-            _dataCtx.Save();
-
-            return true;
-        }
-
-        public void RecuperarContrasena(string email, Func<byte[], string> emailBodyFactory)
+        public void RecuperarContrasena(string email, string contrasena, IRecuperoMailBuilder mail)
         {
             var usuario = _mapper.BuscarUsuario(email);
 
             if (usuario == null)
                 return;
 
-            var hash = usuario.GenerarRecuperoContrasena();
+            var hash = usuario.ActualizarContrasena(contrasena);
 
-            EnviarMailRecupero(usuario, emailBodyFactory(hash));
+            EnviarMailRecupero(usuario, mail.RecuperoMailBody(usuario.GetView(), hash));
+
+            _dataCtx.Save();
+        }
+
+        public void RecuperarContrasena(string email, byte[] hashBytes)
+        {
+            var usuario = _mapper.BuscarUsuario(email);
+
+            if (usuario == null)
+                return;
+
+            usuario.ActualizarContrasena(hashBytes);
 
             _dataCtx.Save();
         }
@@ -71,11 +66,17 @@ namespace SIPI.Core.Controladores
             using (var message = new MailMessage(fromAddress, toAddress)
             {
                 Subject = "Recupero contraseña",
-                Body = body
+                Body = body,
+                IsBodyHtml = true
             })
             {
                 smtp.Send(message);
             }
         }
+    }
+
+    public interface IRecuperoMailBuilder
+    {
+        string RecuperoMailBody(UsuarioView usuario, byte[] hash);
     }
 }

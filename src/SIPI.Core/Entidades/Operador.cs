@@ -12,8 +12,8 @@ namespace SIPI.Core.Entidades
             Roles = new Collection<Rol>();
         }
 
-        public Operador(string email, string nombre, string apellido, string contrasena, Rol rol)
-            : base(email, nombre, apellido, contrasena)
+        public Operador(int id, string email, string nombre, string apellido, string contrasena, Rol rol)
+            : base(id, email, nombre, apellido, contrasena)
         {
             Roles = new Collection<Rol>();
             Roles.Add(rol);

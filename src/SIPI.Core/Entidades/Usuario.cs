@@ -11,13 +11,16 @@ namespace SIPI.Core.Entidades
         {
         }
 
-        protected Usuario(string email, string nombre, string apellido, string contrasena)
+        protected Usuario(int id, string email, string nombre, string apellido, string contrasena)
         {
+            Id = id;
             Email = email;
             Nombre = nombre;
             Apellido = apellido;
-            Contrasena = GenerarContrasena(contrasena);
+            Contrasena = contrasena;
         }
+
+        public int Id { get; private set; }
 
         public string Email { get; private set; }
 
@@ -27,36 +30,33 @@ namespace SIPI.Core.Entidades
 
         public string Contrasena { get; private set; }
 
+        public string ContrasenaNueva { get; private set; }
+
         public string Hash { get; private set; }
 
         public abstract UsuarioView GetView();
 
         public bool ContrasenaValida(string contrasena)
         {
-            return Contrasena == GenerarContrasena(contrasena);
+            return Contrasena == contrasena;
         }
 
-        public void ActualizarContrasena(string constrasena, byte[] hashBytes)
+        public byte[] ActualizarContrasena(string contrasena)
         {
-            var hash = Hashing.HexStringFromHashBytes(hashBytes);
-
-            if (Hash != hash)
-                throw new Exception("No se puede modificar la contraseña del usuario");
-
-            Hash = null;
-            Contrasena = GenerarContrasena(constrasena);
-        }
-
-        public byte[] GenerarRecuperoContrasena()
-        {
+            ContrasenaNueva = contrasena;
             var hashBytes = Hashing.Hash(Guid.NewGuid().ToString());
             Hash = Hashing.HexStringFromHashBytes(hashBytes);
             return hashBytes;
         }
 
-        private string GenerarContrasena(string contrasena)
+        public void ActualizarContrasena(byte[] hashBytes)
         {
-            return Hashing.HashToString(contrasena);
+            if (Hash != Hashing.HexStringFromHashBytes(hashBytes))
+                return;
+
+            Contrasena = ContrasenaNueva;
+            ContrasenaNueva = null;
+            Hash = null;
         }
     }
 }

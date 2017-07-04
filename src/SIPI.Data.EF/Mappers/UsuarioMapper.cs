@@ -14,17 +14,17 @@ namespace SIPI.Data.EF.Mappers
             _dbContext = dbContext;
         }
 
-        public Usuario BuscarUsuario(string email)
-        {
-            return _dbContext.Usuarios.Find(email);
-        }
-
         public Usuario BuscarUsuario(string email, string contrasena)
         {
             return _dbContext.Usuarios
                 .Where(x => x.Email == email)
                 .Where(x => x.Contrasena == contrasena)
                 .SingleOrDefault();
+        }
+
+        public Usuario BuscarUsuario(string email)
+        {
+            return _dbContext.Usuarios.Find(email);
         }
     }
 }

@@ -3,5 +3,15 @@
     ViewBag.Title = "Recupero Contraseña";
 }
 
-Seguir el siguiente link para iniciar el recupero de contraseña:
-@Url.Action("recuperoconfirmar", "cuenta", new { token = Model.Token, area = "" }, Request.Url.Scheme)
+<p>Hola @Model.Nombre @Model.Apellido:</p>
+
+<p>Hemos recibido una solicitud de cambio de contraseña</p>
+
+<p>Si no has sido tú quien ha enviado la solicitud, ignora este mensaje. <br />Si  has sido tú, puedes restablecer la contraseña a través de este enlace:</p>
+
+<a href="@Html.Raw(Url.Action("recuperoconfirmar", "cuenta", new { email = Model.Email, token = Model.Token, area = "" }, Request.Url.Scheme))">
+    Confirmar cambio de contraseña
+</a>
+
+<p>Gracias, <br />
+Iglesia Brasil 1750.</p>

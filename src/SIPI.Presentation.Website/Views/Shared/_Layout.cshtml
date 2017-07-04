@@ -25,6 +25,11 @@
         </div>
     </div>
     <div class="container body-content">
+        @if (TempData.ContainsKey("Notification"))
+        {
+            <p>@TempData["Notification"]</p>
+        }
+
         @RenderBody()
         <hr />
         <footer>

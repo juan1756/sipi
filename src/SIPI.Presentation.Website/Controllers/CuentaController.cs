@@ -7,10 +7,11 @@ using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+using System;
 
 namespace SIPI.Presentation.Website.Controllers
 {
-    public class CuentaController : BaseController
+    public class CuentaController : BaseController, IRecuperoMailBuilder
     {
         private readonly CuentaControlador _controladorCuenta;
 
@@ -77,11 +78,8 @@ namespace SIPI.Presentation.Website.Controllers
             if (!ModelState.IsValid)
                 return View(model);
 
-            _controladorCuenta.RecuperarContrasena(
-                model.Email,
-                hash => RenderViewToString(
-                    "RecuperoMail",
-                    new RecuperoMailModel(HttpServerUtility.UrlTokenEncode(hash))));
+            _controladorCuenta
+                .RecuperarContrasena(model.Email, model.Contrasena, this);
 
             // TODO: Show on layout
             TempData.Add("Notification", "Se envió un mail de recupero de contraseña al mail ingresado");
@@ -90,29 +88,41 @@ namespace SIPI.Presentation.Website.Controllers
         }
 
         [HttpGet]
-        public ActionResult RecuperoConfirmar()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult RecuperoConfirmar(RecuperoConfirmarModel model)
         {
             if (!ModelState.IsValid)
-                return View(model);
+                return RedirectToHome();
 
-            var esValido = _controladorCuenta.RecuperarContrasena(
-                model.Email, model.Contrasena, HttpServerUtility.UrlTokenDecode(model.Token));
-
-            if (!esValido)
-            {
-                ModelState.AddModelError("", "El usuario no existe o el token ingresado es inválido");
-                return View(model);
-            }
+            _controladorCuenta
+                .RecuperarContrasena(model.Email, HttpServerUtility.UrlTokenDecode(model.Token));
 
             return RedirectToHome();
         }
+
+        //[HttpGet]
+        //public ActionResult RecuperoConfirmar()
+        //{
+        //    return View();
+        //}
+
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult RecuperoConfirmar(RecuperoConfirmarModel model)
+        //{
+        //    if (!ModelState.IsValid)
+        //        return View(model);
+
+        //    var esValido = _controladorCuenta.RecuperarContrasena(
+        //        model.Email, model.Contrasena, HttpServerUtility.UrlTokenDecode(model.Token));
+
+        //    if (!esValido)
+        //    {
+        //        ModelState.AddModelError("", "El usuario no existe o el token ingresado es inválido");
+        //        return View(model);
+        //    }
+
+        //    return RedirectToHome();
+        //}
 
         private void Authenticate(UsuarioView usuario)
         {
@@ -133,6 +143,13 @@ namespace SIPI.Presentation.Website.Controllers
             HttpContext.User = principal;
             Thread.CurrentPrincipal = principal;
             FormsAuthentication.SetAuthCookie(usuario.Email, createPersistentCookie: true);
+        }
+
+        public string RecuperoMailBody(UsuarioView usuario, byte[] hash)
+        {
+            return RenderViewToString(
+                "RecuperoMail",
+                new RecuperoMailModel(usuario.Email, HttpServerUtility.UrlTokenEncode(hash), usuario.Nombre, usuario.Apellido));
         }
     }
 }

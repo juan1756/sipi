@@ -4,9 +4,8 @@ namespace SIPI.Core.Data.Mappers
 {
     public interface IUsuarioMapper
     {
-        //TODO: Devolver usuario
-
         Usuario BuscarUsuario(string email, string contrasena);
+
         Usuario BuscarUsuario(string email);
     }
 }

@@ -1,12 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
 namespace SIPI.Presentation.Website.Models.Cuenta
 {
-    public class RecuperoModel
+    public class RecuperoModel : LoginModel
     {
-        public string Email { get; set; }
+        [Required]
+        [MaxLength(150)]
+        [Compare(nameof(Contrasena))]
+        public string ConfirmarContrasena { get; set; }
     }
 }

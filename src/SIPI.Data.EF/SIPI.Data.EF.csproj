@@ -56,17 +56,9 @@
     <Compile Include="Mapping\LocalidadMapping.cs" />
     <Compile Include="Mapping\ProvinciaMapping.cs" />
     <Compile Include="Mapping\UsuarioMapping.cs" />
-    <Compile Include="Migrations\201707030003564_Initial.cs" />
-    <Compile Include="Migrations\201707030003564_Initial.Designer.cs">
-      <DependentUpon>201707030003564_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707040338171_Usuario_RecuperoContrasena.cs" />
-    <Compile Include="Migrations\201707040338171_Usuario_RecuperoContrasena.Designer.cs">
-      <DependentUpon>201707040338171_Usuario_RecuperoContrasena.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707040413432_Usuario_RecuperoContrasena2.cs" />
-    <Compile Include="Migrations\201707040413432_Usuario_RecuperoContrasena2.Designer.cs">
-      <DependentUpon>201707040413432_Usuario_RecuperoContrasena2.cs</DependentUpon>
+    <Compile Include="Migrations\201707041515452_Initial.cs" />
+    <Compile Include="Migrations\201707041515452_Initial.Designer.cs">
+      <DependentUpon>201707041515452_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -81,14 +73,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201707030003564_Initial.resx">
-      <DependentUpon>201707030003564_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707040338171_Usuario_RecuperoContrasena.resx">
-      <DependentUpon>201707040338171_Usuario_RecuperoContrasena.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707040413432_Usuario_RecuperoContrasena2.resx">
-      <DependentUpon>201707040413432_Usuario_RecuperoContrasena2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201707041515452_Initial.resx">
+      <DependentUpon>201707041515452_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

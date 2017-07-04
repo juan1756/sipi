@@ -3,9 +3,9 @@
     ViewBag.Title = "Home Page";
 }
 
-<form action='@Url.Action("Login","Cuenta", new { returnUrl = Request.QueryString["returnUrl"] })' method="post">
+<form action='@Url.Action("login","cuenta", new { returnUrl = Request.QueryString["returnUrl"], area = "" })' method="post">
     @Html.AntiForgeryToken()
-    @Html.TextBoxFor(m => m.User)
-    @Html.PasswordFor(m => m.Password)
+    @Html.TextBoxFor(m => m.Email)
+    @Html.PasswordFor(m => m.Contrasena)
     <input type="submit" value="Login" />
 </form>

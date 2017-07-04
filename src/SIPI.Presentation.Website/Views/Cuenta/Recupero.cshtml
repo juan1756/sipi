@@ -1,0 +1,10 @@
+﻿@model SIPI.Presentation.Website.Models.Cuenta.RecuperoModel
+@{
+    ViewBag.Title = "Recupero Contraseña";
+}
+
+<form action='@Url.Action("recupero","cuenta", new { area = "" })' method="post">
+    @Html.AntiForgeryToken()
+    @Html.TextBoxFor(m => m.Email)
+    <input type="submit" value="Recupero" />
+</form>

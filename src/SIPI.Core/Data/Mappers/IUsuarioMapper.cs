@@ -7,5 +7,6 @@ namespace SIPI.Core.Data.Mappers
         //TODO: Devolver usuario
 
         Usuario BuscarUsuario(string email, string contrasena);
+        Usuario BuscarUsuario(string email);
     }
 }

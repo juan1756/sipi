@@ -1,0 +1,7 @@
+﻿@model SIPI.Presentation.Website.Models.Cuenta.RecuperoMailModel
+@{
+    ViewBag.Title = "Recupero Contraseña";
+}
+
+Seguir el siguiente link para iniciar el recupero de contraseña:
+@Url.Action("recuperoconfirmar", "cuenta", new { token = Model.Token, area = "" }, Request.Url.Scheme)

@@ -2,14 +2,17 @@
 using SIPI.Core.Vistas;
 using SIPI.Presentation.Website.Models.Cuenta;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Security.Principal;
 using System.Threading;
+using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 
 namespace SIPI.Presentation.Website.Controllers
 {
-    public class CuentaController : Controller
+    public class CuentaController : BaseController
     {
         private readonly CuentaControlador _controladorCuenta;
 
@@ -29,15 +32,13 @@ namespace SIPI.Presentation.Website.Controllers
         public ActionResult Login(LoginModel model, string returnUrl)
         {
             if (!ModelState.IsValid)
-            {
                 return View(model);
-            }
 
-            var usuario = _controladorCuenta.IniciarSesion(model.User, model.Password);
+            var usuario = _controladorCuenta.IniciarSesion(model.Email, model.Contrasena);
 
             if (usuario == null)
             {
-                // Mostrar error de auth generico
+                ModelState.AddModelError("", "El usuario o contraseña ingresados son inválidos");
                 return View(model);
             }
 
@@ -66,9 +67,53 @@ namespace SIPI.Presentation.Website.Controllers
             return RedirectToHome();
         }
 
-        private ActionResult RedirectToHome()
+        [HttpGet]
+        public ActionResult Recupero()
         {
-            return RedirectToAction("index", "home", new { area = "" });
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Recupero(RecuperoModel model)
+        {
+            if (!ModelState.IsValid)
+                return View(model);
+
+            _controladorCuenta.RecuperarContrasena(
+                model.Email, 
+                hash => RenderViewToString(
+                    "RecuperoMail", 
+                    new RecuperoMailModel(HttpServerUtility.UrlTokenEncode(hash))));
+
+            // TODO: Show on layout
+            TempData.Add("Notification", "Se envió un mail de recupero de contraseña al mail ingresado");
+
+            return RedirectToHome();
+        }
+
+        [HttpGet]
+        public ActionResult RecuperoConfirmar()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult RecuperoConfirmar(RecuperoConfirmarModel model)
+        {
+            if (!ModelState.IsValid)
+                return View(model);
+
+            var esValido = _controladorCuenta.RecuperarContrasena(
+                model.Email, model.Contrasena, HttpServerUtility.UrlTokenDecode(model.Token));
+
+            if (!esValido)
+            {
+                ModelState.AddModelError("", "El usuario no existe o el token ingresado es inválido");
+                return View(model);
+            }
+
+            return RedirectToHome();
         }
 
         private void Authenticate(UsuarioView usuario)

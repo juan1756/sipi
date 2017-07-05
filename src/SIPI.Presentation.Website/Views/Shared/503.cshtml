@@ -1,16 +1,4 @@
-﻿@*<!doctype html>
-    <html class="no-js" lang="en">
-
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Iglesia Calle Brasil</title>
-        @Styles.Render("~/Content/styles")
-    </head>
-
-    <body>*@
-<div class="app blank sidebar-opened">
+﻿<div class="app blank sidebar-opened">
     <article class="content">
         <div class="error-card global">
             <div class="error-title-block">
@@ -26,6 +14,7 @@
         </div>
     </article>
 </div>
+
 @section scripts{
     <script>
         $(function () {
@@ -47,28 +36,3 @@
         });
     </script>
 }
-
-@*@Scripts.Render("~/bundles/scripts/thirdparty")
-        @Scripts.Render("~/bundles/scripts/plugins")
-        <script>
-            $(function () {
-                animate({
-                    name: 'flipInY',
-                    selector: '.error-card > .error-title-block'
-                });
-
-                setTimeout(function () {
-                    var $el = $('.error-card > .error-container');
-
-                    animate({
-                        name: 'fadeInUp',
-                        selector: $el
-                    });
-
-                    $el.addClass('visible');
-                }, 1000);
-            });
-        </script>
-    </body>
-
-    </html>*@

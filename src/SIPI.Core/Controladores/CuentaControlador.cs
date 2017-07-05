@@ -41,9 +41,9 @@ namespace SIPI.Core.Controladores
 
             var hash = usuario.ActualizarContrasena(contrasena);
 
-            EnviarMailRecupero(usuario, mail.RecuperoMailBody(usuario.GetView(), hash));
-
             _dataCtx.Save();
+
+            EnviarMailRecupero(usuario, mail.RecuperoMailBody(usuario.GetView(), hash));
         }
 
         // TODO: Actualizar DS

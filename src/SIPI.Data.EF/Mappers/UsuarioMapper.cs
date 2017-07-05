@@ -24,7 +24,9 @@ namespace SIPI.Data.EF.Mappers
 
         public Usuario BuscarUsuario(string email)
         {
-            return _dbContext.Usuarios.Find(email);
+            return _dbContext.Usuarios
+                .Where(x => x.Email == email)
+                .SingleOrDefault();
         }
     }
 }

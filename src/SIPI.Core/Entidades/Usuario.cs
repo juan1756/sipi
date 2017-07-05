@@ -37,11 +37,6 @@ namespace SIPI.Core.Entidades
 
         public abstract UsuarioView GetView();
 
-        public bool ContrasenaValida(string contrasena)
-        {
-            return Contrasena == contrasena;
-        }
-
         // TODO: Actualizar DS
         public byte[] ActualizarContrasena(string contrasena)
         {

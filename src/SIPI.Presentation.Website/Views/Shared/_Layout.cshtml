@@ -3,38 +3,28 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title</title>
+    <title>
+        @(ViewBag.Title != null
+                ? ViewBag.Title
+                : "Iglesia Calle Brasil")
+    </title>
     @Styles.Render("~/Content/css")
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a href="@Url.Action("index", "home", new { area = "" })" class="navbar-brand">Application name</a>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a href="@Url.Action("index", "home", new { area = "" })">Home</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="container body-content">
-        @if (TempData.ContainsKey("Notification"))
-        {
-            <p>@TempData["Notification"]</p>
-        }
+    @if (TempData.ContainsKey("Notification"))
+    {
+        <p>@TempData["Notification"]</p>
+    }
 
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year</p>
-        </footer>
+    @RenderBody()
+
+    @*Reference block for JS*@
+    <div class="ref" id="ref">
+        <div class="color-primary"></div>
+        <div class="chart">
+            <div class="color-primary"></div>
+            <div class="color-secondary"></div>
+        </div>
     </div>
 
     @Scripts.Render("~/bundles/scripts/thirdparty")

@@ -8,7 +8,8 @@ namespace SIPI.Presentation.Website
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                "~/Content/bootstrap.css",
+                "~/Content/vendor.css",
+                "~/Content/app.css",
                 "~/Content/site.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/scripts/thirdparty").Include(

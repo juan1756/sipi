@@ -99,31 +99,6 @@ namespace SIPI.Presentation.Website.Controllers
             return RedirectToHome();
         }
 
-        //[HttpGet]
-        //public ActionResult RecuperoConfirmar()
-        //{
-        //    return View();
-        //}
-
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult RecuperoConfirmar(RecuperoConfirmarModel model)
-        //{
-        //    if (!ModelState.IsValid)
-        //        return View(model);
-
-        //    var esValido = _controladorCuenta.RecuperarContrasena(
-        //        model.Email, model.Contrasena, HttpServerUtility.UrlTokenDecode(model.Token));
-
-        //    if (!esValido)
-        //    {
-        //        ModelState.AddModelError("", "El usuario no existe o el token ingresado es inválido");
-        //        return View(model);
-        //    }
-
-        //    return RedirectToHome();
-        //}
-
         private void Authenticate(UsuarioView usuario)
         {
             var identity = new GenericIdentity($"{usuario.Nombre} {usuario.Apellido}");

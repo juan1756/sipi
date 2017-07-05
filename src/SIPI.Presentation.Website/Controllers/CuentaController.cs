@@ -37,7 +37,6 @@ namespace SIPI.Presentation.Website.Controllers
 
             if (usuario == null)
             {
-                //ModelState.AddModelError("", "El usuario o contraseña ingresados son inválidos");
                 TempData.Add("Error-Notifications-Login", "El usuario o contraseña ingresados son inválidos");
                 return View(model);
             }

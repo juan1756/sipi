@@ -9,9 +9,9 @@ namespace SIPI.Presentation.Website.Models.Cuenta
     public class RecuperoModel : LoginModel
     {
         [Display(Name = "Confirmación de contraseña")]
-        [Required(ErrorMessage = "El campo confirmación de contraseña es requerido")]
-        [MaxLength(150, ErrorMessage = "El campo confirmación de contraseña puede contener como máximo 150 caracteres" )]
-        [Compare(nameof(Contrasena), ErrorMessage = "El campo confirmación de contraseña debe coincidir con el campo contraseña")]
+        [Required(ErrorMessage = "El campo Confirmar contraseña es requerido")]
+        [MaxLength(150, ErrorMessage = "El campo Confirmar contraseña puede contener como máximo 150 caracteres" )]
+        [Compare(nameof(Contrasena), ErrorMessage = "El campo Confirmar contraseña debe coincidir con el campo Contraseña")]
         public string ConfirmarContrasena { get; set; }
     }
 }

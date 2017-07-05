@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SIPI.Presentation.Website.Filters.Mvc;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -7,6 +8,7 @@ using System.Web.Mvc;
 
 namespace SIPI.Presentation.Website.Controllers
 {
+    [ExceptionHandling]
     public class BaseController : Controller
     {
         protected ActionResult RedirectToHome()

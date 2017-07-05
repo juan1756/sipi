@@ -147,6 +147,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CuentaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Filters\Mvc\ExceptionHandlingAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -157,16 +158,34 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\app.css" />
-    <Content Include="Content\vendor.css" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\css\app.css" />
+    <Content Include="Content\assets\demo.png" />
+    <Content Include="Content\assets\faces\3.jpg" />
+    <Content Include="Content\assets\faces\4.jpg" />
+    <Content Include="Content\assets\faces\5.jpg" />
+    <Content Include="Content\assets\faces\7.jpg" />
+    <Content Include="Content\assets\faces\8.jpg" />
+    <Content Include="Content\assets\favicon.ico" />
+    <Content Include="Content\assets\features.png" />
+    <Content Include="Content\assets\fontawesome-webfont.svg" />
+    <Content Include="Content\assets\logo.png" />
+    <Content Include="Content\assets\page-bg-1.png" />
+    <Content Include="Content\assets\page-bg-1.svg" />
+    <Content Include="Content\assets\page-bg-2.svg" />
+    <Content Include="Content\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\css\vendor.css" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
+    <Content Include="Content\css\site.css" />
     <Content Include="Scripts\plugins\jquery.validate.bootstrap.js" />
+    <Content Include="Scripts\thirdparty\animations.js" />
     <Content Include="Scripts\thirdparty\bootstrap.js" />
-    <None Include="Scripts\thirdparty\jquery-1.10.2.intellisense.js" />
-    <Content Include="Scripts\thirdparty\jquery-1.10.2.js" />
+    <Content Include="Content\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\fonts\FontAwesome.otf" />
     <None Include="Scripts\thirdparty\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\thirdparty\jquery-3.2.1.js" />
     <Content Include="Scripts\thirdparty\jquery.validate.js" />
     <Content Include="Scripts\thirdparty\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\thirdparty\modernizr-2.6.2.js" />
@@ -181,21 +200,22 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Cuenta\Login.cshtml" />
-    <Content Include="Web.ConnectionStrings.config" />
+    <Content Include="Web.ConnectionStrings.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Views\Cuenta\RecuperoMail.cshtml" />
     <Content Include="Views\Cuenta\Recupero.cshtml" />
+    <Content Include="Views\Shared\500.cshtml" />
+    <Content Include="Views\Shared\404.cshtml" />
+    <Content Include="Views\Shared\503.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

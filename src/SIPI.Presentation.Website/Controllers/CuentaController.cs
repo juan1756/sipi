@@ -37,7 +37,8 @@ namespace SIPI.Presentation.Website.Controllers
 
             if (usuario == null)
             {
-                ModelState.AddModelError("", "El usuario o contraseña ingresados son inválidos");
+                //ModelState.AddModelError("", "El usuario o contraseña ingresados son inválidos");
+                TempData.Add("Error-Notifications-Login", "El usuario o contraseña ingresados son inválidos");
                 return View(model);
             }
 
@@ -97,6 +98,12 @@ namespace SIPI.Presentation.Website.Controllers
                 .RecuperarContrasena(model.Email, HttpServerUtility.UrlTokenDecode(model.Token));
 
             return RedirectToHome();
+        }
+
+        [HttpGet]
+        public ActionResult Registro()
+        {
+            throw new NotImplementedException();
         }
 
         private void Authenticate(UsuarioView usuario)

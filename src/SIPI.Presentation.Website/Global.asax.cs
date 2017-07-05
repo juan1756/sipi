@@ -1,4 +1,6 @@
-﻿using System.Net;
+﻿using System;
+using System.Net;
+using System.Threading;
 using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
@@ -10,6 +12,8 @@ namespace SIPI.Presentation.Website
 {
     public class MvcApplication : System.Web.HttpApplication
     {
+        public static readonly string Culture = "es-ar";
+
         protected void Application_Start()
         {
             DependenciesConfig.RegisterDependencies();
@@ -18,6 +22,16 @@ namespace SIPI.Presentation.Website
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+        }
+
+        protected void Application_AcquireRequestState(object sender, EventArgs e)
+        {
+            var culture = System.Globalization.CultureInfo.CreateSpecificCulture(Culture);
+
+            culture.DateTimeFormat.ShortDatePattern = "dd/MM/yyyy";
+
+            Thread.CurrentThread.CurrentCulture = culture;
+            Thread.CurrentThread.CurrentUICulture = culture;
         }
 
         protected virtual void Application_EndRequest()

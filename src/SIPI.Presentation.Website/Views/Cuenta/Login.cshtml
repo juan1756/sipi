@@ -1,7 +1,6 @@
 ﻿@model SIPI.Presentation.Website.Models.Cuenta.LoginModel
 @{
     ViewBag.Title = "Home Page";
-    Html.SetValidationSummaryMessageElement("span");
 }
 
 <div class="auth">
@@ -9,12 +8,13 @@
         <div class="card">
             <header class="auth-header">
                 <h1 class="auth-title">
-                    <div><img class="logo" src="assets/logo.png" alt="logo" /></div>Iglesia Calle Brasil
+                    <div><img class="logo" src="@Url.Content("~/content/assets/logo.png")" alt="logo" /></div>
+                    Iglesia Calle Brasil
                 </h1>
             </header>
             <div class="auth-content">
                 <p class="text-xs-center">BIENVENIDO</p>
-                <form action='@Url.Action("login","cuenta", new { returnUrl = Request.QueryString["returnUrl"], area = "" })'
+                <form action='@Url.Action("login", "cuenta", new { returnUrl = Request.QueryString["returnUrl"], area = "" })'
                       method="post">
                     @Html.AntiForgeryToken()
                     <div class="form-group">
@@ -28,12 +28,19 @@
                     <div class="form-group">
                         <button type="submit" class="btn btn-block btn-primary">Ingresar</button>
                     </div>
-                    <div class="form-group has-error">
-                        @Html.ValidationSummary(excludePropertyErrors: true)
-                    </div>
+                    @if (TempData.ContainsKey("Error-Notifications-Login"))
+                    {
+                        <div class="form-group has-error">
+                            <span class="has-error">@TempData["Error-Notifications-Login"]</span>
+                        </div>
+                    }
                     <div class="form-group">
-                        <p class="text-muted text-xs-center"><a href="registrarse.html">Registrarse</a></p>
-                        <p class="text-muted text-xs-center"><a href="recordarContrasenia.html">Recuperar contraseña</a></p>
+                        <p class="text-muted text-xs-center">
+                            <a href="@Url.Action("registro", "cuenta", new { area = "" })">Registrarse</a>
+                        </p>
+                        <p class="text-muted text-xs-center">
+                            <a href="@Url.Action("recupero", "cuenta", new { area = ""})">Recuperar contraseña</a>
+                        </p>
                     </div>
                 </form>
             </div>

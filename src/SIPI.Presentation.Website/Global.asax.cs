@@ -37,10 +37,11 @@ namespace SIPI.Presentation.Website
         protected virtual void Application_EndRequest()
         {
             if (FormsAuthentication.IsEnabled
-                && HttpContext.Current.Response.StatusCode == (int)HttpStatusCode.Found
-                && HttpContext.Current.Request.RequestContext.HttpContext.Request.IsAjaxRequest())
+                && HttpContext.Current.Response.StatusCode == (int)HttpStatusCode.Found)
             {
-                HttpContext.Current.Response.Clear();
+                if (HttpContext.Current.Request.RequestContext.HttpContext.Request.IsAjaxRequest())
+                    HttpContext.Current.Response.Clear();
+
                 HttpContext.Current.Response.StatusCode = (int)HttpStatusCode.Unauthorized;
             }
         }

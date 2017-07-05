@@ -137,6 +137,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActionResults\JsonNetResult.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\DependenciesConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -148,6 +149,7 @@
     <Compile Include="Controllers\CuentaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Filters\Mvc\ExceptionHandlingAttribute.cs" />
+    <Compile Include="Filters\Mvc\ReplaceJsonToJsonNetAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -155,6 +157,7 @@
     <Compile Include="Models\Cuenta\RecuperoConfirmarModel.cs" />
     <Compile Include="Models\Cuenta\RecuperoModel.cs" />
     <Compile Include="Models\Cuenta\RecuperoMailModel.cs" />
+    <Compile Include="Models\Shared\OffsetParams.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -178,6 +181,8 @@
     <Content Include="Content\css\site.css" />
     <Content Include="Scripts\plugins\jquery.validate.bootstrap.js" />
     <Content Include="Scripts\thirdparty\animations.js" />
+    <Content Include="Scripts\thirdparty\bootstrap-table-1.11.1.js" />
+    <Content Include="Scripts\thirdparty\bootstrap-table-es-AR.js" />
     <Content Include="Scripts\thirdparty\bootstrap.js" />
     <Content Include="Content\fonts\fontawesome-webfont.eot" />
     <Content Include="Content\fonts\fontawesome-webfont.ttf" />
@@ -211,6 +216,7 @@
     <Content Include="Views\Shared\500.cshtml" />
     <Content Include="Views\Shared\404.cshtml" />
     <Content Include="Views\Shared\503.cshtml" />
+    <Content Include="Views\Cuenta\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

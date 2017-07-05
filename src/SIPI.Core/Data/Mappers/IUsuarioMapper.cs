@@ -1,4 +1,5 @@
-﻿using SIPI.Core.Entidades;
+﻿using SIPI.Core.Data.DTO;
+using SIPI.Core.Entidades;
 
 namespace SIPI.Core.Data.Mappers
 {
@@ -7,5 +8,7 @@ namespace SIPI.Core.Data.Mappers
         Usuario BuscarUsuario(string email, string contrasena);
 
         Usuario BuscarUsuario(string email);
+
+        IPagedCollection<Usuario> BuscarUsuarios(IOffsetParams offsetParams);
     }
 }

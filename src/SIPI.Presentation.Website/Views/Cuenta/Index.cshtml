@@ -1,0 +1,21 @@
+﻿@model SIPI.Core.Vistas.UsuarioView
+@{
+    ViewBag.Title = "Login";
+}
+
+<table class="table table-hover"
+       data-toggle="table"
+       data-url="@Url.Action("_table","cuenta", new { area = "" })" 
+       data-search="false" 
+       data-pagination="true" 
+       data-page-list="[10, 25, 50, 100, ALL]"
+       data-side-pagination="server">
+    <thead>
+        <tr>
+            <th data-field="nombre">Nombre</th>
+            <th data-field="apellido">Apellido</th>
+            <th data-field="email">Email</th>
+            <th data-formatter="<button type='button'>Lero</button>">Acciones</th>
+        </tr>
+    </thead>
+</table>

@@ -8,6 +8,8 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 using System;
+using SIPI.Core.Data.DTO;
+using SIPI.Presentation.Website.Models.Shared;
 
 namespace SIPI.Presentation.Website.Controllers
 {
@@ -105,6 +107,22 @@ namespace SIPI.Presentation.Website.Controllers
             throw new NotImplementedException();
         }
 
+        [HttpGet]
+        public ActionResult Index()
+        {
+            return View();
+        }
+
+
+        // TODO: PRUEBA DE CONCEPTO - BORRAME!!
+        [HttpGet]
+        public ActionResult _Table(OffsetParams offsetParams)
+        {
+            return Json(
+                _controladorCuenta.BuscarUsuarios(offsetParams), 
+                JsonRequestBehavior.AllowGet);
+        }
+
         private void Authenticate(UsuarioView usuario)
         {
             var identity = new GenericIdentity($"{usuario.Nombre} {usuario.Apellido}");
@@ -132,5 +150,25 @@ namespace SIPI.Presentation.Website.Controllers
                 "RecuperoMail",
                 new RecuperoMailModel(usuario.Email, HttpServerUtility.UrlTokenEncode(hash), usuario.Nombre, usuario.Apellido));
         }
+
+
+        //public class PageParams
+        //{
+        //    public enum SortOrder
+        //    {
+        //        asc,
+        //        desc
+        //    }
+
+        //    public SortOrder Order { get; set; }
+
+        //    public string Sort { get; set; }
+
+        //    public string Search { get; set; }
+
+        //    public int Offset { get; set; }
+
+        //    public int Limit { get; set; }
+        //}
     }
 }

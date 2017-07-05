@@ -9,6 +9,7 @@ using System.Web.Mvc;
 namespace SIPI.Presentation.Website.Controllers
 {
     [ExceptionHandling]
+    [ReplaceJsonToJsonNet]
     public class BaseController : Controller
     {
         protected ActionResult RedirectToHome()

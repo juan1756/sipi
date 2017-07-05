@@ -1,6 +1,8 @@
 ﻿using SIPI.Core.Data;
+using SIPI.Core.Data.DTO;
 using SIPI.Core.Data.Mappers;
 using SIPI.Core.Entidades;
+using SIPI.Core.Extensions.Data.DTO;
 using SIPI.Core.Vistas;
 using System;
 using System.Net;
@@ -75,6 +77,13 @@ namespace SIPI.Core.Controladores
             {
                 smtp.Send(message);
             }
+        }
+
+        public IPagedCollection<UsuarioView> BuscarUsuarios(IOffsetParams offsetParams)
+        {
+            return _mapper
+                .BuscarUsuarios(offsetParams)
+                .Convert(x => x.GetView());
         }
     }
 

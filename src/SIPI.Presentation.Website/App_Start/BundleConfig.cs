@@ -10,6 +10,7 @@ namespace SIPI.Presentation.Website
             bundles.Add(new StyleBundle("~/Content/styles").Include(
                 "~/Content/css/vendor.css",
                 "~/Content/css/app.css",
+                "~/Content/css/bootstrap-table-1.11.1.css",
                 "~/Content/css/site.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/scripts/thirdparty").Include(
@@ -18,7 +19,9 @@ namespace SIPI.Presentation.Website
                 "~/Scripts/thirdparty/modernizr-*",
                 "~/Scripts/thirdparty/bootstrap.js",
                 "~/Scripts/thirdparty/respond.js",
-                "~/Scripts/thirdparty/animations.js"
+                "~/Scripts/thirdparty/animations.js",
+                "~/Scripts/thirdparty/bootstrap-table-1.11.1.js",
+                "~/Scripts/thirdparty/bootstrap-table-es-AR.js"
             ));
 
             bundles.Add(new ScriptBundle("~/bundles/scripts/plugins").Include(

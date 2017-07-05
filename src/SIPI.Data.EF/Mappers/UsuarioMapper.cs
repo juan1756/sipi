@@ -2,6 +2,9 @@
 using SIPI.Core.Entidades;
 using System.Linq;
 using System;
+using SIPI.Core.Data.DTO;
+using SIPI.Data.EF.DTO;
+using SIPI.Data.EF.Extensions;
 
 namespace SIPI.Data.EF.Mappers
 {
@@ -27,6 +30,13 @@ namespace SIPI.Data.EF.Mappers
             return _dbContext.Usuarios
                 .Where(x => x.Email == email)
                 .SingleOrDefault();
+        }
+
+        public IPagedCollection<Usuario> BuscarUsuarios(IOffsetParams offsetParams)
+        {
+            return _dbContext.Usuarios
+                .OrderBy(x => x.Nombre)
+                .ToPagedCollection(offsetParams);
         }
     }
 }

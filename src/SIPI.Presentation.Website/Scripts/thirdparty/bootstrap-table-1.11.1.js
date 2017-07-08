@@ -142,6 +142,17 @@
         if (typeof func === 'function') {
             return func.apply(self, args);
         }
+        if (!func && typeof name === 'string' && name.indexOf('{{') > -1 && name.indexOf('}}') > -1) {
+            for (var i in args) {
+                if (typeof args[i] === 'object') {
+                    for (var k in args[i]) {
+                        while (name.indexOf('{{' + k + '}}') > -1) {
+                            name = name.replace('{{' + k + '}}', args[i][k]);
+                        }
+                    }
+                }
+            }
+        }
         if (!func && typeof name === 'string' && sprintf.apply(this, [name].concat(args))) {
             return sprintf.apply(this, [name].concat(args));
         }

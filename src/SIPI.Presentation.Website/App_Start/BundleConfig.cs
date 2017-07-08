@@ -7,12 +7,15 @@ namespace SIPI.Presentation.Website
         // For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
+            // Main 
+
             bundles.Add(new StyleBundle("~/Content/styles").Include(
                 "~/Content/css/vendor.css",
                 "~/Content/css/app.css",
                 "~/Content/css/bootstrap-table-1.11.1.css",
                 "~/Content/css/bootstrap-datepicker.css",
-                "~/Content/css/site.css"));
+                "~/Content/css/site.css"
+            ));
 
             bundles.Add(new ScriptBundle("~/bundles/scripts/thirdparty").Include(
                 "~/Scripts/thirdparty/jquery-3.2.1.js",
@@ -29,6 +32,24 @@ namespace SIPI.Presentation.Website
 
             bundles.Add(new ScriptBundle("~/bundles/scripts/plugins").Include(
                 "~/Scripts/plugins/jquery.validate.bootstrap.js"
+            ));
+
+            // Landing
+
+            bundles.Add(new StyleBundle("~/Content/landing/styles").Include(
+                "~/Content/landing/css/bootstrap.css",
+                "~/Content/landing/css/font-awesome.css",
+                "~/Content/landing/css/magnific-popup.css",
+                "~/Content/landing/css/creative.css"
+            ));
+
+            bundles.Add(new ScriptBundle("~/bundles/landing/scripts/thirdparty").Include(
+                "~/Scripts/landing/thirdparty/jquery.js",
+                "~/Scripts/landing/thirdparty/bootstrap.js",
+                "~/Scripts/landing/thirdparty/jquery.easing.js",
+                "~/Scripts/landing/thirdparty/scrollreveal.js",
+                "~/Scripts/landing/thirdparty/jquery.magnific-popup.js",
+                "~/Scripts/landing/thirdparty/creative.js"
             ));
         }
     }

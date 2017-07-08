@@ -7,6 +7,7 @@
 <form action="@Url.Action("index", "cuenta", new { area = "" })" method="get">
     @HtmlFilters.TextBoxFor(m => m.Nombre)
     @HtmlFilters.TextBoxFor(m => m.Apellido)
+    <input type="text" name="cal" />
     <button type="submit">Search</button>
 </form>
 
@@ -30,3 +31,11 @@
         </table>
     </div>
 </section>
+
+@section scripts {
+<script>
+    $('input[name=cal]').datepicker({
+        language: "es"
+    });
+</script>
+}

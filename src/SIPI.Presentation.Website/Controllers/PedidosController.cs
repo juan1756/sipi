@@ -20,13 +20,13 @@ namespace SIPI.Presentation.Website.Controllers
 
         // TODO: Revisar roles
         [Authorize]
-        public ActionResult MisPedidos()
+        public ActionResult Index()
         {
             return View();
         }
 
         [Authorize]
-        public ActionResult MisPedidosTable(OffsetParams offset)
+        public ActionResult IndexTable(OffsetParams offset)
         {
             return Json(
                 _controladorPedidos

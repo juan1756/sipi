@@ -1,37 +1,51 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>
-        @(ViewBag.Title != null
-                ? ViewBag.Title
-                : "Iglesia Calle Brasil")
-    </title>
-    @Styles.Render("~/Content/styles")
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/bootstrap-table.min.css">
-</head>
-<body>
-    @if (TempData.ContainsKey("Notification"))
-    {
-        <p>@TempData["Notification"]</p>
-    }
+﻿@{
+    Layout = "~/Views/Shared/_BaseLayout.cshtml";
+}
 
-    @RenderBody()
+<div class="main-wrapper">
+    <div class="app no-sidebar" id="app">
+        <header class="header no-sidebar">
+            <div class="sidebar-header">
+                <div class="brand brand-header">
+                    <div class="logo"><img class="logo-header" src="@Url.Content("~/content/assets/logo.png")" alt="logo" /></div> <div class="pull-right">Iglesia Calle Brasil</div>
+                </div>
+            </div>
+            <div class="header-block header-block-nav">
+                <ul class="nav-profile">
+                    <li class="profile dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)" role="button" aria-haspopup="true" aria-expanded="false">
+                            <div class="img" style="background-image: url('https://avatars3.githubusercontent.com/u/3959008?v=3&s=40')"> </div> <span class="name">
+                                Bienvenido, Rubén Gomez
+                            </span>
+                        </a>
+                        <div class="dropdown-menu profile-dropdown-menu" aria-labelledby="dropdownMenu1">
+                            </a> <a class="dropdown-item" href="@Url.Action("index", "pedidos", new { area = "" })">
+                                <i class="fa fa-shopping-cart icon"></i>
+                                Mis pedidos
+                            </a>
+                            <a class="dropdown-item" href="@Url.Action("logout", "cuenta", new { area = "" })">
+                                <i class="fa fa-power-off icon"></i>
+                                Cerrar sesión
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </header>
 
-    @*Reference block for JS*@
-    @*<div class="ref" id="ref">
-        <div class="color-primary"></div>
-        <div class="chart">
-            <div class="color-primary"></div>
-            <div class="color-secondary"></div>
-        </div>
-    </div>*@
+        @RenderBody()
 
-    @Scripts.Render("~/bundles/scripts/thirdparty")
-    @Scripts.Render("~/bundles/scripts/plugins")
+        <footer class="footer no-sidebar">
+            <div class="footer-block author">
+                <ul>
+                    <li> Iglesia Calle Brasil </li>
+                    <li> 2017 </li>
+                </ul>
+            </div>
+        </footer>
+    </div>
+</div>
+
+@section scripts{
     @RenderSection("scripts", required: false)
-</body>
-</html>
+}

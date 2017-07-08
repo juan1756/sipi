@@ -49,7 +49,7 @@ namespace SIPI.Presentation.Website.Controllers
 
             if (usuario.SoyOperador())
             {
-                return RedirectToAction("index", "home", new { area = "admin" });
+                return RedirectToAction("index", "pedidos", new { area = "admin" });
             }
             else if (!string.IsNullOrWhiteSpace(returnUrl) && Url.IsLocalUrl(returnUrl))
             {

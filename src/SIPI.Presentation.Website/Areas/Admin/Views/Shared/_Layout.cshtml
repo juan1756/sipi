@@ -1,0 +1,59 @@
+﻿@{
+    Layout = "~/Views/Shared/_BaseLayout.cshtml";
+}
+
+<div class="main-wrapper">
+    <div class="app" id="app">
+        <header class="header">
+            <div class="header-block header-block-collapse hidden-lg-up">
+                <button class="collapse-btn" id="sidebar-collapse-btn">
+                    <i class="fa fa-bars"></i>
+                </button>
+            </div>
+            <div class="sidebar-header">
+                <div class="brand brand-header">
+                    <div class="logo"><img class="logo-header" src="@Url.Content("~/content/assets/logo.png")" alt="logo" /></div> <div class="pull-right">Iglesia Calle Brasil</div>
+                </div>
+            </div>
+        </header>
+        <aside class="sidebar">
+            <div class="sidebar-container">
+                <div class="sidebar-header">
+                    <div class="avatar">
+                        <img class="" src="@Url.Content("~/content/assets/faces/3.jpg")" alt="avatar" />
+                        <div class="avatar brand">
+                            <div>Juan Pérez</div>
+                            <div><a href="@Url.Action("logout", "cuenta", new { area = "" })" class="">Cerrar Sesión</a></div>
+                        </div>
+                    </div>
+                </div>
+                <nav class="menu">
+                    <ul class="nav metismenu" id="sidebar-menu">
+                        <li> <a href="#">Catálogo</a> </li>
+                        <li> <a href="#">Categorías</a></li>
+                        <li> <a href="#">Oradores</a></li>
+                        <li> <a href="@Url.Action("index", "pedidos", new { area = "Admin" })">Pedidos</a></li>
+                        <li class="active"> <a href="@Url.Action("index", "ventas", new { area = "Admin" })">Ventas<i class="fa arrow"></i></a></li>
+                        <li> <a href="#">Usuarios</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+        <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+        @RenderBody()
+
+        <footer class="footer">
+            <div class="footer-block author">
+                <ul>
+                    <li> Iglesia Calle Brasil </li>
+                    <li> 2017 </li>
+                </ul>
+            </div>
+        </footer>
+    </div>
+</div>
+
+@section scripts{
+    @RenderSection("scripts", required: false)
+}

@@ -145,6 +145,11 @@
     <Compile Include="App_Start\Modules\DataModule.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\BaseAdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\CatalogoController.cs" />
+    <Compile Include="Areas\Admin\Controllers\PedidosController.cs" />
+    <Compile Include="Areas\Admin\Controllers\VentasController.cs" />
     <Compile Include="Authentication\UsuarioPrincipal.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CuentaController.cs" />
@@ -208,6 +213,10 @@
     <Content Include="Content\fonts\fontawesome-webfont.woff" />
     <Content Include="Content\fonts\fontawesome-webfont.woff2" />
     <Content Include="Content\fonts\FontAwesome.otf" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Admin\Views\Pedidos\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <None Include="Scripts\thirdparty\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\thirdparty\jquery-3.2.1.js" />
     <Content Include="Scripts\thirdparty\jquery.validate.js" />
@@ -238,9 +247,11 @@
     <Content Include="Views\Cuenta\Index.cshtml" />
     <Content Include="Views\Pedidos\Index.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Admin\Views\Ventas\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

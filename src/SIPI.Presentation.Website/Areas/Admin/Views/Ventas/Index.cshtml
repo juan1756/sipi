@@ -1,0 +1,58 @@
+﻿@{
+    ViewBag.Title = "Reporte de Ventas";
+}
+
+<article class="content items-list-page">
+    <div class="title-search-block">
+        <div class="title-block">
+            <div class="row">
+                <div class="col-md-6">
+                    <h3 class="title">Pedidos entregados</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="section">
+        <form>
+            <div class="form-group row">
+                <div class="col-md-8">
+                    <div class="row">
+                        <label class="col-md-2 form-control-label">CATEGORÍA</label>
+                        <div class="col-md-6">
+                            <select class="c-select form-control boxed">
+                                <option selected="">Seleccione</option>
+                                <option value="1">Categoría 1</option>
+                                <option value="2">Categoría 2</option>
+                                <option value="3">Categoría 3</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label class="col-md-1 form-control-label">FECHA</label>
+                        <div class="col-md-3">
+                            <input type="text" class="form-control boxed">
+                        </div>
+                        <label class="col-md-1 form-control-label">A</label>
+                        <div class="col-md-3">
+                            <input type="text" class="form-control boxed">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </section>
+    <table class="table fixed-table-pagination table-striped table-bordered table-hover"
+               data-toggle="table"
+               data-url='@Url.Table("ventas","ventas", new { area = "Admin" })'
+               data-search="false"
+               data-pagination="true"
+               data-page-list="[10, 25, 50, 100]"
+               data-side-pagination="server">
+        <thead>
+            <tr>
+                <th>Categoría</th>
+                <th>Cantidad</th>
+            </tr>            
+        </thead>
+    </table>
+</article>

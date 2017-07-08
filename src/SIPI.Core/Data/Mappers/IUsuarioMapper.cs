@@ -9,6 +9,6 @@ namespace SIPI.Core.Data.Mappers
 
         Usuario BuscarUsuario(string email);
 
-        IPagedCollection<Usuario> BuscarUsuarios(IOffsetParams offsetParams);
+        IPagedCollection<Usuario> BuscarUsuarios(string nombre, string apellido, int desde, int cantidad);
     }
 }

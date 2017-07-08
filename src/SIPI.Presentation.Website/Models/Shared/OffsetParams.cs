@@ -1,8 +1,6 @@
-﻿using SIPI.Core.Data.DTO;
-
-namespace SIPI.Presentation.Website.Models.Shared
+﻿namespace SIPI.Presentation.Website.Models.Shared
 {
-    public class OffsetParams : IOffsetParams
+    public class OffsetParams
     {
         public int Limit { get; set; }
 

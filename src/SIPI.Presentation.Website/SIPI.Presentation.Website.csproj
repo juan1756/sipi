@@ -148,11 +148,15 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CuentaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Extensions\HtmlHelperModelExtensions.cs" />
+    <Compile Include="Extensions\IEnumerableExtensions.cs" />
+    <Compile Include="Extensions\UrlHelperTableExtensions.cs" />
     <Compile Include="Filters\Mvc\ExceptionHandlingAttribute.cs" />
     <Compile Include="Filters\Mvc\ReplaceJsonToJsonNetAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Cuenta\IndexModel.cs" />
     <Compile Include="Models\Cuenta\LoginModel.cs" />
     <Compile Include="Models\Cuenta\RecuperoConfirmarModel.cs" />
     <Compile Include="Models\Cuenta\RecuperoModel.cs" />

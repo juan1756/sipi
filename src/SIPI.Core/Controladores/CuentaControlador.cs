@@ -79,10 +79,10 @@ namespace SIPI.Core.Controladores
             }
         }
 
-        public IPagedCollection<UsuarioView> BuscarUsuarios(IOffsetParams offsetParams)
+        public IPagedCollection<UsuarioView> BuscarUsuarios(string nombre, string apellido, int desde, int cantidad)
         {
             return _mapper
-                .BuscarUsuarios(offsetParams)
+                .BuscarUsuarios(nombre, apellido, desde, cantidad)
                 .Convert(x => x.GetView());
         }
     }

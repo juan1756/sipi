@@ -10,6 +10,7 @@ using System.Web.Security;
 using System;
 using SIPI.Core.Data.DTO;
 using SIPI.Presentation.Website.Models.Shared;
+using System.Collections.Generic;
 
 namespace SIPI.Presentation.Website.Controllers
 {
@@ -108,18 +109,18 @@ namespace SIPI.Presentation.Website.Controllers
         }
 
         [HttpGet]
-        public ActionResult Index()
+        public ActionResult Index(IndexFiltersModel filters)
         {
-            return View();
+            return View(new IndexModel { Filters = filters });
         }
 
-
         // TODO: PRUEBA DE CONCEPTO - BORRAME!!
+        // POR CONVENCION LAS TABLAS VAN A SER: <Action_Original>Table, por eso este es IndexTable
         [HttpGet]
-        public ActionResult _Table(OffsetParams offsetParams)
+        public ActionResult IndexTable(IndexFiltersModel filters, OffsetParams offsetParams)
         {
             return Json(
-                _controladorCuenta.BuscarUsuarios(offsetParams), 
+                _controladorCuenta.BuscarUsuarios(filters.Nombre, filters.Apellido, offsetParams.Offset, offsetParams.Limit), 
                 JsonRequestBehavior.AllowGet);
         }
 
@@ -150,25 +151,5 @@ namespace SIPI.Presentation.Website.Controllers
                 "RecuperoMail",
                 new RecuperoMailModel(usuario.Email, HttpServerUtility.UrlTokenEncode(hash), usuario.Nombre, usuario.Apellido));
         }
-
-
-        //public class PageParams
-        //{
-        //    public enum SortOrder
-        //    {
-        //        asc,
-        //        desc
-        //    }
-
-        //    public SortOrder Order { get; set; }
-
-        //    public string Sort { get; set; }
-
-        //    public string Search { get; set; }
-
-        //    public int Offset { get; set; }
-
-        //    public int Limit { get; set; }
-        //}
     }
 }

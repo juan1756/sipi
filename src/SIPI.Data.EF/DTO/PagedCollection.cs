@@ -13,12 +13,12 @@ namespace SIPI.Data.EF.DTO
 
         public int Total { get; private set; }
 
-        public PagedCollection(IOrderedQueryable<T> query, IOffsetParams offsetParams)
+        public PagedCollection(IOrderedQueryable<T> query, int offset, int limit)
         {
             Total = query.Count();
             Rows = query
-                .Skip(offsetParams.Offset)
-                .Take(offsetParams.Limit)
+                .Skip(offset)
+                .Take(limit)
                 .ToList();
         }
     }

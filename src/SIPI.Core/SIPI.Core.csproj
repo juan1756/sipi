@@ -41,7 +41,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controladores\CuentaControlador.cs" />
-    <Compile Include="Data\DTO\IOffsetParams.cs" />
     <Compile Include="Data\DTO\IPagedCollection.cs" />
     <Compile Include="Data\IDataContext.cs" />
     <Compile Include="Data\Mappers\ITipoMapper.cs" />

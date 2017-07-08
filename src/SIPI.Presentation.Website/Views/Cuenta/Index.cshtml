@@ -1,10 +1,12 @@
-﻿@model SIPI.Core.Vistas.UsuarioView
+﻿@model SIPI.Presentation.Website.Models.Cuenta.IndexModel
 @{
     ViewBag.Title = "Login";
+    var HtmlFilters = Html.ToInnerModel(x => x.Filters);
 }
 
 <form action="@Url.Action("index", "cuenta", new { area = "" })" method="get">
-    <input type="text" name="yamila" />
+    @HtmlFilters.TextBoxFor(m => m.Nombre)
+    @HtmlFilters.TextBoxFor(m => m.Apellido)
     <button type="submit">Search</button>
 </form>
 
@@ -12,7 +14,7 @@
     <div class="bootstrap-table table-responsive">
         <table class="table fixed-table-pagination table-striped table-bordered table-hover"
                data-toggle="table"
-               data-url='@Url.Action("_table","cuenta", new { area = "" })?@Request.QueryString.ToString()'
+               data-url='@Url.Table("index","cuenta", new { area = "" })'
                data-search="false"
                data-pagination="true"
                data-page-list="[1, 2, 3, 100, ALL]"

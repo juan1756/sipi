@@ -32,11 +32,13 @@ namespace SIPI.Data.EF.Mappers
                 .SingleOrDefault();
         }
 
-        public IPagedCollection<Usuario> BuscarUsuarios(IOffsetParams offsetParams)
+        public IPagedCollection<Usuario> BuscarUsuarios(string nombre, string apellido, int desde, int cantidad)
         {
             return _dbContext.Usuarios
+                .Where(!string.IsNullOrWhiteSpace(nombre), x => x.Nombre.Contains(nombre))
+                .Where(!string.IsNullOrWhiteSpace(apellido), x => x.Apellido.Contains(apellido))
                 .OrderBy(x => x.Nombre)
-                .ToPagedCollection(offsetParams);
+                .ToPagedCollection(desde, cantidad);
         }
     }
 }

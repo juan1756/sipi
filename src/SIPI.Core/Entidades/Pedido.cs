@@ -2,16 +2,15 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace SIPI.Core.Entidades
 {
     public class Pedido
     {
-        // TODO: Completar con los estados del pedido
         public enum Estados
         {
-            // TODO: Cambiar al que corresponda
-            Inicial,
+            Nuevo,
             Listo,
             Entregado
         }
@@ -24,7 +23,7 @@ namespace SIPI.Core.Entidades
         public Pedido(int cantidadPedido, Miembro miembro)
         {
             CantidadPedido = cantidadPedido;
-            Estado = (int)Estados.Inicial;
+            Estado = (int)Estados.Nuevo;
             Fecha = DateTime.Now;
             Miembro = miembro;
             Insumos = new Collection<Insumo>();
@@ -56,7 +55,7 @@ namespace SIPI.Core.Entidades
                 CantidadPedido, 
                 Fecha, 
                 (Estados)Estado, 
-                ((Estados)Estado) == Estados.Inicial 
+                ((Estados)Estado) == Estados.Nuevo 
                     ? Estados.Listo 
                     : Estados.Entregado);
         }
@@ -65,7 +64,7 @@ namespace SIPI.Core.Entidades
         {
             // TODO: El Tema esta perdido, revisar docs
             return new PedidoMiembroView(
-                null, 
+                Insumos.SelectMany(x => x.Medios.Select(y => y.Tema)).Distinct().ToList(), 
                 CantidadPedido, 
                 Fecha, 
                 (Estados)Estado, 

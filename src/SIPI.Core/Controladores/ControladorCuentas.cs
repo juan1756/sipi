@@ -2,7 +2,6 @@
 using SIPI.Core.Data.DTO;
 using SIPI.Core.Data.Mappers;
 using SIPI.Core.Entidades;
-using SIPI.Core.Extensions.Data.DTO;
 using SIPI.Core.Vistas;
 using System;
 using System.Net;
@@ -10,12 +9,12 @@ using System.Net.Mail;
 
 namespace SIPI.Core.Controladores
 {
-    public class CuentaControlador
+    public class ControladorCuentas
     {
         private readonly IDataContext _dataCtx;
         private readonly IUsuarioMapper _mapper;
 
-        public CuentaControlador(
+        public ControladorCuentas(
             IUsuarioMapper mapper,
             IDataContext dataCtx)
         {

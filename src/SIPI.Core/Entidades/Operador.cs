@@ -24,6 +24,7 @@ namespace SIPI.Core.Entidades
         public override UsuarioView GetView()
         {
             return new OperadorView(
+                Id,
                 Nombre,
                 Apellido,
                 Email,

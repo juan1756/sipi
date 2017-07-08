@@ -11,14 +11,15 @@ using System;
 using SIPI.Core.Data.DTO;
 using SIPI.Presentation.Website.Models.Shared;
 using System.Collections.Generic;
+using SIPI.Presentation.Website.Authentication;
 
 namespace SIPI.Presentation.Website.Controllers
 {
     public class CuentaController : BaseController, IRecuperoMailBuilder
     {
-        private readonly CuentaControlador _controladorCuenta;
+        private readonly ControladorCuentas _controladorCuenta;
 
-        public CuentaController(CuentaControlador controladorCuenta)
+        public CuentaController(ControladorCuentas controladorCuenta)
         {
             _controladorCuenta = controladorCuenta;
         }
@@ -139,8 +140,9 @@ namespace SIPI.Presentation.Website.Controllers
                 roles = new[] { "Miembro" };
             }
 
-            var principal = new GenericPrincipal(identity, roles);
+            var principal = new UsuarioPrincipal(identity, roles, usuario);
             HttpContext.User = principal;
+            System.Web.HttpContext.Current.User = principal;
             Thread.CurrentPrincipal = principal;
             FormsAuthentication.SetAuthCookie(usuario.Email, createPersistentCookie: true);
         }

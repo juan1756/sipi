@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace SIPI.Core.Extensions.Data.DTO
+namespace SIPI.Core.Data.DTO
 {
     public static class IPagedCollectionExtensions
     {

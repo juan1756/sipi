@@ -1,12 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
 using static SIPI.Core.Entidades.Pedido;
 
 namespace SIPI.Core.Vistas
 {
     public class PedidoOperadorView : PedidoSeguimientoView
     {
-        public PedidoOperadorView(int numero, string tema, string miembro, int cantidadPedido, DateTime fechaPedido, Estados estado, Estados estadoSiguiente)
-            : base(tema, cantidadPedido, fechaPedido, estado)
+        public PedidoOperadorView(int numero, IList<string> temas, string miembro, int cantidadPedido, DateTime fechaPedido, Estados estado, Estados estadoSiguiente)
+            : base(temas, cantidadPedido, fechaPedido, estado)
         {
             Numero = numero;
             Miembro = miembro;

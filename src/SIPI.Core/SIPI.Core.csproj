@@ -40,9 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controladores\CuentaControlador.cs" />
+    <Compile Include="Controladores\ControladorPedidos.cs" />
+    <Compile Include="Controladores\ControladorCuentas.cs" />
     <Compile Include="Data\DTO\IPagedCollection.cs" />
     <Compile Include="Data\IDataContext.cs" />
+    <Compile Include="Data\Mappers\IPedidosMapper.cs" />
     <Compile Include="Data\Mappers\ITipoMapper.cs" />
     <Compile Include="Data\Mappers\ICategoriaMapper.cs" />
     <Compile Include="Data\Mappers\IProvinciaMapper.cs" />

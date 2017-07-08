@@ -4,7 +4,6 @@ using System.Linq;
 using System;
 using SIPI.Core.Data.DTO;
 using SIPI.Data.EF.DTO;
-using SIPI.Data.EF.Extensions;
 
 namespace SIPI.Data.EF.Mappers
 {

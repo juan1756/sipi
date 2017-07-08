@@ -14,7 +14,7 @@ namespace SIPI.Presentation.Website.App_Start.Modules
 
             builder
                 .RegisterTypes(assembly.GetTypes()
-                    .Where(x => x.Name.EndsWith("Controlador"))
+                    .Where(x => x.Name.StartsWith("Controlador"))
                     .ToArray())
                 .AsSelf()
                 .InstancePerLifetimeScope();

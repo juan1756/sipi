@@ -7,7 +7,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SIPI.Data.EF.Extensions
+namespace System.Linq
 {
     public static class IQueryableExtensions
     {

@@ -2,8 +2,8 @@
 {
     public class MiembroView : UsuarioView
     {
-        public MiembroView(string nombre, string apellido, string email)
-            : base(nombre, apellido, email)
+        public MiembroView(int id, string nombre, string apellido, string email)
+            : base(id, nombre, apellido, email)
         {
         }
 

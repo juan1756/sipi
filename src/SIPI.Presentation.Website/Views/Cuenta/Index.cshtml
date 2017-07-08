@@ -5,6 +5,7 @@
 
 <form action="@Url.Action("index", "cuenta", new { area = "" })" method="get">
     <input type="text" name="yamila" />
+    <input type="text" name="cal" />
     <button type="submit">Search</button>
 </form>
 
@@ -28,3 +29,11 @@
         </table>
     </div>
 </section>
+
+@section scripts {
+<script>
+    $('input[name=cal]').datepicker({
+        language: "es"
+    });
+</script>
+}

@@ -175,12 +175,15 @@
     <Content Include="Content\assets\page-bg-1.png" />
     <Content Include="Content\assets\page-bg-1.svg" />
     <Content Include="Content\assets\page-bg-2.svg" />
+    <Content Include="Content\css\bootstrap-datepicker.css" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\css\vendor.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\css\site.css" />
     <Content Include="Scripts\plugins\jquery.validate.bootstrap.js" />
     <Content Include="Scripts\thirdparty\animations.js" />
+    <Content Include="Scripts\thirdparty\bootstrap-datepicker.es.min.js" />
+    <Content Include="Scripts\thirdparty\bootstrap-datepicker.js" />
     <Content Include="Scripts\thirdparty\bootstrap-table-1.11.1.js" />
     <Content Include="Scripts\thirdparty\bootstrap-table-es-AR.js" />
     <Content Include="Scripts\thirdparty\bootstrap.js" />

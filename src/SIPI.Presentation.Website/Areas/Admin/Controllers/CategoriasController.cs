@@ -3,7 +3,7 @@ using System.Web.Mvc;
 
 namespace SIPI.Presentation.Website.Areas.Admin.Controllers
 {
-    public class VentasController : BaseAdminController
+    public class CategoriasController : BaseAdminController
     {
         public ActionResult Index()
         {

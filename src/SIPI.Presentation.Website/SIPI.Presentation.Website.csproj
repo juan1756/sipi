@@ -148,7 +148,10 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\BaseAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\CatalogoController.cs" />
+    <Compile Include="Areas\Admin\Controllers\CategoriasController.cs" />
+    <Compile Include="Areas\Admin\Controllers\OradoresController.cs" />
     <Compile Include="Areas\Admin\Controllers\PedidosController.cs" />
+    <Compile Include="Areas\Admin\Controllers\UsuariosController.cs" />
     <Compile Include="Areas\Admin\Controllers\VentasController.cs" />
     <Compile Include="Authentication\UsuarioPrincipal.cs" />
     <Compile Include="Controllers\BaseController.cs" />
@@ -217,6 +220,10 @@
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Admin\Views\Pedidos\Index.cshtml" />
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\Catalogo\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Categorias\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Oradores\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Usuarios\Index.cshtml" />
     <None Include="Scripts\thirdparty\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\thirdparty\jquery-3.2.1.js" />
     <Content Include="Scripts\thirdparty\jquery.validate.js" />

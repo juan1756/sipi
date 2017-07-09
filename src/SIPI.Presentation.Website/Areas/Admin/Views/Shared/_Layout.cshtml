@@ -29,12 +29,12 @@
                 </div>
                 <nav class="menu">
                     <ul class="nav metismenu" id="sidebar-menu">
-                        <li> <a href="#">Catálogo</a> </li>
-                        <li> <a href="#">Categorías</a></li>
-                        <li> <a href="#">Oradores</a></li>
-                        <li> <a href="@Url.Action("index", "pedidos", new { area = "Admin" })">Pedidos</a></li>
-                        <li class="active"> <a href="@Url.Action("index", "ventas", new { area = "Admin" })">Ventas<i class="fa arrow"></i></a></li>
-                        <li> <a href="#">Usuarios</a></li>
+                        <li> <a href="@Url.Action("index", "catalogo", new { area = "admin" })">Catálogo</a> </li>
+                        <li> <a href="@Url.Action("index", "categorias", new { area = "admin" })">Categorías</a></li>
+                        <li> <a href="@Url.Action("index", "oradores", new { area = "admin" })">Oradores</a></li>
+                        <li> <a href="@Url.Action("index", "pedidos", new { area = "admin" })">Pedidos</a></li>
+                        <li class="active"> <a href="@Url.Action("index", "ventas", new { area = "admin" })">Ventas<i class="fa arrow"></i></a></li>
+                        <li> <a href="@Url.Action("index", "usuarios", new { area = "admin" })">Usuarios</a></li>
                     </ul>
                 </nav>
             </div>

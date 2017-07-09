@@ -17,7 +17,8 @@ namespace SIPI.Presentation.Website.Areas.Admin
             context.MapRoute(
                 "Admin_default",
                 "admin/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional }
+                new { action = "Index", id = UrlParameter.Optional },
+                new[] { "SIPI.Presentation.Website.Areas.Admin.Controllers" }
             );
         }
     }

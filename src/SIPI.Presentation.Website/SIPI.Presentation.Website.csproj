@@ -190,12 +190,15 @@
     <Content Include="Content\assets\page-bg-1.svg" />
     <Content Include="Content\assets\page-bg-2.svg" />
     <Content Include="Content\css\bootstrap-datepicker.css" />
+    <Content Include="Content\css\bootstrap-table-1.11.1.css" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\css\vendor.css" />
+    <Content Include="Content\landing\assets\header.jpg" />
     <Content Include="Content\landing\css\bootstrap.css" />
     <Content Include="Content\landing\css\creative.css" />
     <Content Include="Content\landing\css\font-awesome.css" />
     <Content Include="Content\landing\css\magnific-popup.css" />
+    <Content Include="Content\landing\fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\css\site.css" />
     <Content Include="Scripts\landing\thirdparty\bootstrap.js" />
@@ -224,6 +227,11 @@
     <Content Include="Areas\Admin\Views\Categorias\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Oradores\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Usuarios\Index.cshtml" />
+    <Content Include="Content\landing\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\landing\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\landing\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\landing\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\landing\fonts\FontAwesome.otf" />
     <None Include="Scripts\thirdparty\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\thirdparty\jquery-3.2.1.js" />
     <Content Include="Scripts\thirdparty\jquery.validate.js" />

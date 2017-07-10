@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace SIPI.Presentation.Website.Controllers
 {
+    [Authorize(Roles = "Miembro")]
     public class PedidosController : BaseController
     {
         private readonly ControladorPedidos _controladorPedidos;
@@ -18,19 +19,16 @@ namespace SIPI.Presentation.Website.Controllers
             _controladorPedidos = controladorPedidos;
         }
 
-        // TODO: Revisar roles
-        [Authorize]
         public ActionResult Index()
         {
             return View();
         }
 
-        [Authorize]
-        public ActionResult IndexTable(OffsetParams offset)
+        public ActionResult IndexTable(OffsetParams offsetParams)
         {
             return Json(
                 _controladorPedidos
-                    .SeguirPedidosMiembro(UsuarioPrincipal.Actual.Usuario.Id, offset.Offset, offset.Limit), 
+                    .SeguirPedidosMiembro(Usuario.Id, offsetParams.Offset, offsetParams.Limit),
                 JsonRequestBehavior.AllowGet);
         }
     }

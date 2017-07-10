@@ -1,4 +1,5 @@
-﻿using SIPI.Presentation.Website.Filters.Mvc;
+﻿using SIPI.Presentation.Website.Authentication;
+using SIPI.Presentation.Website.Filters.Mvc;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -27,6 +28,14 @@ namespace SIPI.Presentation.Website.Controllers
                 viewResult.View.Render(viewContext, sw);
                 viewResult.ViewEngine.ReleaseView(ControllerContext, viewResult.View);
                 return sw.GetStringBuilder().ToString();
+            }
+        }
+
+        protected CustomPrincipal Usuario
+        {
+            get
+            {
+                return HttpContext.User as CustomPrincipal;
             }
         }
     }

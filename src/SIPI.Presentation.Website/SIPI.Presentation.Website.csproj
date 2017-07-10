@@ -161,6 +161,7 @@
     <Compile Include="Extensions\HtmlHelperModelExtensions.cs" />
     <Compile Include="Extensions\IEnumerableExtensions.cs" />
     <Compile Include="Extensions\UrlHelperTableExtensions.cs" />
+    <Compile Include="Extensions\WebViewPageExtensions.cs" />
     <Compile Include="Filters\Mvc\ExceptionHandlingAttribute.cs" />
     <Compile Include="Filters\Mvc\ReplaceJsonToJsonNetAttribute.cs" />
     <Compile Include="Global.asax.cs">

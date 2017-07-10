@@ -12,6 +12,7 @@ using SIPI.Core.Data.DTO;
 using SIPI.Presentation.Website.Models.Shared;
 using System.Collections.Generic;
 using SIPI.Presentation.Website.Authentication;
+using System.Web.Script.Serialization;
 
 namespace SIPI.Presentation.Website.Controllers
 {
@@ -140,11 +141,18 @@ namespace SIPI.Presentation.Website.Controllers
                 roles = new[] { "Miembro" };
             }
 
-            var principal = new UsuarioPrincipal(identity, roles, usuario);
-            HttpContext.User = principal;
-            System.Web.HttpContext.Current.User = principal;
-            Thread.CurrentPrincipal = principal;
-            FormsAuthentication.SetAuthCookie(usuario.Email, createPersistentCookie: true);
+            var data = new CustomPrincipalData()
+            {
+                Id = usuario.Id,
+                Nombre = usuario.Nombre,
+                Apellido = usuario.Apellido,
+                Roles = roles
+            };
+
+            var userData = new JavaScriptSerializer().Serialize(data);
+            var ticket = new FormsAuthenticationTicket(1, usuario.Email, DateTime.Now, DateTime.Now.AddDays(7), false, userData);
+            var encryptedTicket = FormsAuthentication.Encrypt(ticket);
+            Response.Cookies.Add(new HttpCookie(FormsAuthentication.FormsCookieName, encryptedTicket));
         }
 
         public string RecuperoMailBody(UsuarioView usuario, byte[] hash)

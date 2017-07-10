@@ -20,21 +20,23 @@
             <div class="sidebar-container">
                 <div class="sidebar-header">
                     <div class="avatar">
-                        <img class="" src="@Url.Content("~/content/assets/faces/3.jpg")" alt="avatar" />
+                        <img src="@Url.Content("~/content/assets/faces/3.jpg")" alt="avatar" />
                         <div class="avatar brand">
-                            <div>Juan Pérez</div>
-                            <div><a href="@Url.Action("logout", "cuenta", new { area = "" })" class="">Cerrar Sesión</a></div>
+                            <div>@this.Usuario().Nombre @this.Usuario().Apellido</div>
+                            <div>
+                                <a href="@Url.Action("logout", "cuenta", new { area = "" })" class="">Cerrar Sesión</a>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <nav class="menu">
                     <ul class="nav metismenu" id="sidebar-menu">
-                        <li> <a href="@Url.Action("index", "catalogo", new { area = "admin" })">Catálogo</a> </li>
-                        <li> <a href="@Url.Action("index", "categorias", new { area = "admin" })">Categorías</a></li>
-                        <li> <a href="@Url.Action("index", "oradores", new { area = "admin" })">Oradores</a></li>
-                        <li> <a href="@Url.Action("index", "pedidos", new { area = "admin" })">Pedidos</a></li>
-                        <li class="active"> <a href="@Url.Action("index", "ventas", new { area = "admin" })">Ventas<i class="fa arrow"></i></a></li>
-                        <li> <a href="@Url.Action("index", "usuarios", new { area = "admin" })">Usuarios</a></li>
+                        @MenuItem("catalogo", "Catálogo")
+                        @MenuItem("categorias", "Categorías")
+                        @MenuItem("oradores", "Oradores")
+                        @MenuItem("pedidos", "Pedidos")
+                        @MenuItem("ventas", "Ventas")
+                        @MenuItem("usuarios", "Usuarios")
                     </ul>
                 </nav>
             </div>
@@ -53,6 +55,19 @@
         </footer>
     </div>
 </div>
+
+@helper MenuItem(string controller, string text)
+{
+    <li class="@(this.IsController(controller) ? "active" : "")">
+        <a href="@Url.Action("index", controller, new { area = "admin" })">
+            @text
+            @if (this.IsController(controller))
+            {
+                <i class="fa arrow"></i>
+            }
+        </a>
+    </li>
+}
 
 @section scripts{
     @RenderSection("scripts", required: false)

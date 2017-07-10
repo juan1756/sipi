@@ -34,6 +34,7 @@ namespace SIPI.Core.Controladores
                 .Convert(x => x.GetOperadorView(roles));
         }
 
+        // TODO: Cambiar DS
         public void CambiarEstadoPedido(int numero, string[] roles)
         {
             var pedido = _pedidos.ObtenerPedido(numero);

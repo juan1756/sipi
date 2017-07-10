@@ -84,12 +84,6 @@
                 return "<div class='btn btn-" + (value == "Listo" ? "info" : "success") + "-outline btn-static'>" + value + "</div>";
             }
 
-            (function constructor() {
-                $(document).ready(function () {
-
-                });
-            })();
-
             return {
                 estadoFormatter: estadoFormatter,
                 estadoSiguienteFormatter: estadoSiguienteFormatter

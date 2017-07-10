@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Serialization;
 using System;
 using System.Collections.Generic;
@@ -17,8 +18,11 @@ namespace SIPI.Presentation.Website.ActionResults
             Settings = new JsonSerializerSettings
             {
                 ContractResolver = new CamelCasePropertyNamesContractResolver(),
-                ReferenceLoopHandling = ReferenceLoopHandling.Error
+                ReferenceLoopHandling = ReferenceLoopHandling.Error,
+                Formatting = Formatting.Indented
             };
+
+            Settings.Converters.Add(new StringEnumConverter());
         }
 
         public JsonSerializerSettings Settings { get; private set; }

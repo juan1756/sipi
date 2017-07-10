@@ -38,6 +38,7 @@ namespace SIPI.Presentation.Website
 
         protected void Application_PostAuthenticateRequest(object sender, EventArgs e)
         {
+            // https://stackoverflow.com/questions/1064271/asp-net-mvc-set-custom-iidentity-or-iprincipal
             var authCookie = Request.Cookies[FormsAuthentication.FormsCookieName];
 
             if (authCookie != null)

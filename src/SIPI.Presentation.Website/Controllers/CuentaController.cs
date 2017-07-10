@@ -149,6 +149,7 @@ namespace SIPI.Presentation.Website.Controllers
                 Roles = roles
             };
 
+            // https://stackoverflow.com/questions/1064271/asp-net-mvc-set-custom-iidentity-or-iprincipal
             var userData = new JavaScriptSerializer().Serialize(data);
             var ticket = new FormsAuthenticationTicket(1, usuario.Email, DateTime.Now, DateTime.Now.AddDays(7), false, userData);
             var encryptedTicket = FormsAuthentication.Encrypt(ticket);

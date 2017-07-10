@@ -4,7 +4,7 @@ namespace SIPI.Core.Entidades
 {
     public class Tipo
     {
-        private Tipo()
+        protected Tipo()
         {
         }
 

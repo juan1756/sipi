@@ -15,7 +15,7 @@ namespace SIPI.Core.Entidades
             Entregado
         }
 
-        private Pedido()
+        protected Pedido()
         {
             Insumos = new Collection<Insumo>();
         }

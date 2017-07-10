@@ -1,14 +1,17 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace SIPI.Core.Entidades
 {
     public class Insumo
     {
-        private Insumo()
+        protected Insumo()
         {
+            Medios = new Collection<MedioAudiovisual>();
         }
 
         public Insumo(Pedido pedido, int numero, decimal precio, int tamano)
+            :this()
         {
             Pedido = pedido;
             Numero = numero;

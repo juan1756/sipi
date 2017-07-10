@@ -4,7 +4,7 @@ namespace SIPI.Core.Entidades
 {
     public class Miembro : Usuario
     {
-        private Miembro() : base()
+        protected Miembro() : base()
         {
         }
 

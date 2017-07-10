@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SIPI.Core.Vistas;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -7,6 +8,8 @@ namespace SIPI.Presentation.Website.Models.Cuenta
 {
     public class IndexModel
     {
+        public ICollection<CategoriaView> Categorias { get; set; }
+
         public IndexFiltersModel Filters { get; set; }
     }
 

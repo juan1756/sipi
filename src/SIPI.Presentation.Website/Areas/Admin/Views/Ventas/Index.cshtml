@@ -1,5 +1,7 @@
-﻿@{
+﻿@model SIPI.Presentation.Website.Areas.Admin.Models.Ventas.IndexModel
+@{
     ViewBag.Title = "Reporte de Ventas";
+    var HtmlFilters = Html.ToInnerModel(x => x.Filters);
 }
 
 <article class="content items-list-page">
@@ -43,7 +45,7 @@
     </section>
     <table class="table fixed-table-pagination table-striped table-bordered table-hover"
                data-toggle="table"
-               data-url='@Url.Table("ventas","ventas", new { area = "admin" })'
+               data-url='@Url.Table("index","ventas", new { area = "admin" })'
                data-search="false"
                data-pagination="true"
                data-page-list="[10, 25, 50, 100]"

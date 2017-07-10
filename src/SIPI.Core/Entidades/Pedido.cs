@@ -45,18 +45,25 @@ namespace SIPI.Core.Entidades
 
         public DateTime? FechaEntregado { get; private set; }
 
-        public PedidoOperadorView GetOperadorView()
+        public PedidoOperadorView GetOperadorView(string[] roles)
         {
             return new PedidoOperadorView(
                 Numero,
                 Insumos.SelectMany(x => x.Medios.Select(y => y.Tema)).Distinct().ToList(), 
                 $"{Miembro.Nombre} {Miembro.Apellido}", 
                 CantidadPedido, 
-                Fecha, 
-                (Estados)Estado, 
-                ((Estados)Estado) == Estados.Nuevo 
-                    ? Estados.Listo 
-                    : Estados.Entregado);
+                Fecha,
+                (Estados)Estado,
+                ObtenerEstadoSiguiente(),
+                PuedeCambiarEstado(roles));
+        }
+
+        public void CambiarEstado(string[] roles)
+        {
+            if (!PuedeCambiarEstado(roles))
+                throw new Exception("El usuario no tiene permisos para cambiar el estado");
+
+            Estado = (int)ObtenerEstadoSiguiente();
         }
 
         public PedidoMiembroView GetMiembroView()
@@ -67,6 +74,32 @@ namespace SIPI.Core.Entidades
                 Fecha, 
                 (Estados)Estado, 
                 FechaEntregado);
+        }
+
+        private Estados? ObtenerEstadoSiguiente()
+        {
+            var estado = (Estados)Estado;
+            Estados? estadoSiguiente = null;
+
+            if (estado == Estados.Nuevo)
+                estadoSiguiente = Estados.Listo;
+
+            if (estado == Estados.Listo)
+                estadoSiguiente = Estados.Entregado;
+
+            return estadoSiguiente;
+        }
+
+        private bool PuedeCambiarEstado(string[] roles)
+        {
+            var estado = (Estados)Estado;
+            if (estado == Estados.Nuevo && roles.Contains("Packaging"))
+                return true;
+
+            if (estado == Estados.Listo && roles.Contains("Vendedor"))
+                return true;
+
+            return false;
         }
     }
 }

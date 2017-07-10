@@ -2,16 +2,21 @@
 using SIPI.Core.Data.DTO;
 using SIPI.Core.Data.Mappers;
 using SIPI.Core.Vistas;
+using SIPI.Core.Data;
 
 namespace SIPI.Core.Controladores
 {
     public class ControladorPedidos
     {
         private readonly IPedidosMapper _pedidos;
+        private readonly IDataContext _dataCtx;
 
-        public ControladorPedidos(IPedidosMapper pedidos)
+        public ControladorPedidos(
+            IPedidosMapper pedidos,
+            IDataContext dataCtx)
         {
             _pedidos = pedidos;
+            _dataCtx = dataCtx;
         }
 
         // TODO: Corregir DS
@@ -22,11 +27,20 @@ namespace SIPI.Core.Controladores
                 .Convert(x => x.GetMiembroView());
         }
 
-        public IPagedCollection<PedidoOperadorView> SeguirPedidosOperador(string nombreApellidoMiembro, DateTime? fechaDesde, DateTime? fechaHasta, int desde, int cantidad)
+        public IPagedCollection<PedidoOperadorView> SeguirPedidosOperador(string[] roles, string nombreApellidoMiembro, DateTime? fechaDesde, DateTime? fechaHasta, int desde, int cantidad)
         {
             return _pedidos
                 .ObtenerPedidos(nombreApellidoMiembro, fechaDesde, fechaHasta, desde, cantidad)
-                .Convert(x => x.GetOperadorView());
+                .Convert(x => x.GetOperadorView(roles));
+        }
+
+        public void CambiarEstadoPedido(int numero, string[] roles)
+        {
+            var pedido = _pedidos.ObtenerPedido(numero);
+
+            pedido.CambiarEstado(roles);
+
+            _dataCtx.Save();
         }
     }
 }

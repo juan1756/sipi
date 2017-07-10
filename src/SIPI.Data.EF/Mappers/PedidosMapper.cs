@@ -18,6 +18,11 @@ namespace SIPI.Data.EF.Mappers
             _dbCtx = dbCtx;
         }
 
+        public Pedido ObtenerPedido(int numero)
+        {
+            return _dbCtx.Pedidos.Find(numero);
+        }
+
         public IPagedCollection<Pedido> ObtenerPedidos(int id, int desde, int cantidad)
         {
             return _dbCtx.Pedidos

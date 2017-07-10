@@ -23,5 +23,14 @@ namespace System.Web.Mvc
                     ? "?" + request.QueryString.ToString()
                     : string.Empty);
         }
+
+        public static string PostTable(this UrlHelper url, string action, string controller, object routeData = null)
+        {
+            var request = url.RequestContext.HttpContext.Request;
+            return url.Action(action, controller, routeData)
+                + (request.QueryString.HasKeys()
+                    ? "?" + request.QueryString.ToString()
+                    : string.Empty);
+        }
     }
 }

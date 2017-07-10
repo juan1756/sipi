@@ -2,7 +2,7 @@
 {
     public class Localidad
     {
-        private Localidad()
+        protected Localidad()
         {
         }
 

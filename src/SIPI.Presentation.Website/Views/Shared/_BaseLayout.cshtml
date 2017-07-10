@@ -19,8 +19,11 @@
 
     @RenderBody()
 
+    @RenderSection("templates", required: false)
+
     @Scripts.Render("~/bundles/scripts/thirdparty")
     @Scripts.Render("~/bundles/scripts/plugins")
+    @Scripts.Render("~/bundles/scripts/app")
     @RenderSection("scripts", required: false)
 </body>
 </html>

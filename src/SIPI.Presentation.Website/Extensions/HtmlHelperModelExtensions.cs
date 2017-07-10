@@ -1,17 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web.Mvc;
-
-namespace System.Web.Mvc
+﻿namespace System.Web.Mvc
 {
     public static class HtmlHelperModelExtensions
     {
-        private static HtmlHelper<TModel> ToModel<TModel>(this HtmlHelper htmlHelper, TModel model = default(TModel), bool defaultModel = false)
-        {
-            return new HtmlHelper<TModel>(htmlHelper.ViewContext, new CustomViewDataContainer<TModel>(htmlHelper.ViewData, model, defaultModel));
-        }
-
         public static HtmlHelper<TInnerModel> ToInnerModel<TModel, TInnerModel>(this HtmlHelper<TModel> htmlHelper, Func<TModel, TInnerModel> modelExpression)
         {
             var model = htmlHelper.ViewDataContainer.ViewData.Model;
@@ -20,7 +10,12 @@ namespace System.Web.Mvc
                 model = Activator.CreateInstance<TModel>();
             }
             var innerModel = modelExpression.Invoke((TModel)model);
-            return htmlHelper.ToModel<TInnerModel>(innerModel);
+            return htmlHelper.ToModel(innerModel);
+        }
+
+        private static HtmlHelper<TModel> ToModel<TModel>(this HtmlHelper htmlHelper, TModel model = default(TModel), bool defaultModel = false)
+        {
+            return new HtmlHelper<TModel>(htmlHelper.ViewContext, new CustomViewDataContainer<TModel>(htmlHelper.ViewData, model, defaultModel));
         }
 
         private class CustomViewDataContainer<TModel> : IViewDataContainer

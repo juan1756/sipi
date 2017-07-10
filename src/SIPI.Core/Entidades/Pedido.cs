@@ -15,7 +15,7 @@ namespace SIPI.Core.Entidades
             Entregado
         }
 
-        private Pedido()
+        protected Pedido()
         {
             Insumos = new Collection<Insumo>();
         }
@@ -45,30 +45,68 @@ namespace SIPI.Core.Entidades
 
         public DateTime? FechaEntregado { get; private set; }
 
-        public PedidoOperadorView GetOperadorView()
+        // TODO: Cambiar DS
+        public PedidoOperadorView GetOperadorView(string[] roles)
         {
-            // TODO: El Tema esta perdido, revisar docs
             return new PedidoOperadorView(
-                Numero, 
-                null, 
+                Numero,
+                Insumos.SelectMany(x => x.Medios.Select(y => y.Tema)).Distinct().ToList(), 
                 $"{Miembro.Nombre} {Miembro.Apellido}", 
                 CantidadPedido, 
-                Fecha, 
-                (Estados)Estado, 
-                ((Estados)Estado) == Estados.Nuevo 
-                    ? Estados.Listo 
-                    : Estados.Entregado);
+                Fecha,
+                (Estados)Estado,
+                ObtenerEstadoSiguiente(),
+                PuedeCambiarEstado(roles));
+        }
+
+        // TODO: Cambiar DC
+        // TODO: Cambiar DS
+        public void CambiarEstado(string[] roles)
+        {
+            if (!PuedeCambiarEstado(roles))
+                throw new Exception("El usuario no tiene permisos para cambiar el estado");
+
+            Estado = (int)ObtenerEstadoSiguiente();
         }
 
         public PedidoMiembroView GetMiembroView()
         {
-            // TODO: El Tema esta perdido, revisar docs
             return new PedidoMiembroView(
                 Insumos.SelectMany(x => x.Medios.Select(y => y.Tema)).Distinct().ToList(), 
                 CantidadPedido, 
                 Fecha, 
                 (Estados)Estado, 
                 FechaEntregado);
+        }
+
+        //TODO: Cambiar DS
+        //TODO: Cambiar DC
+        private Estados? ObtenerEstadoSiguiente()
+        {
+            var estado = (Estados)Estado;
+            Estados? estadoSiguiente = null;
+
+            if (estado == Estados.Nuevo)
+                estadoSiguiente = Estados.Listo;
+
+            if (estado == Estados.Listo)
+                estadoSiguiente = Estados.Entregado;
+
+            return estadoSiguiente;
+        }
+
+        //TODO: Cambiar DS
+        //TODO: Cambiar DC
+        private bool PuedeCambiarEstado(string[] roles)
+        {
+            var estado = (Estados)Estado;
+            if (estado == Estados.Nuevo && roles.Contains("Packaging"))
+                return true;
+
+            if (estado == Estados.Listo && roles.Contains("Vendedor"))
+                return true;
+
+            return false;
         }
     }
 }

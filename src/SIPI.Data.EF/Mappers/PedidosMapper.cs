@@ -18,10 +18,25 @@ namespace SIPI.Data.EF.Mappers
             _dbCtx = dbCtx;
         }
 
+        public Pedido ObtenerPedido(int numero)
+        {
+            return _dbCtx.Pedidos.Find(numero);
+        }
+
         public IPagedCollection<Pedido> ObtenerPedidos(int id, int desde, int cantidad)
         {
             return _dbCtx.Pedidos
                 .Where(x => x.Miembro.Id == id)
+                .OrderByDescending(x => x.Fecha)
+                .ToPagedCollection(desde, cantidad);
+        }
+
+        public IPagedCollection<Pedido> ObtenerPedidos(string nombreApellidoMiembro, DateTime? fechaDesde, DateTime? fechaHasta, int desde, int cantidad)
+        {
+            return _dbCtx.Pedidos
+                .Where(!string.IsNullOrEmpty(nombreApellidoMiembro), x => (x.Miembro.Nombre + " " + x.Miembro.Apellido).Contains(nombreApellidoMiembro))
+                .Where(fechaDesde.HasValue, x => fechaDesde <= x.Fecha)
+                .Where(fechaHasta.HasValue, x => x.Fecha <= fechaHasta)
                 .OrderByDescending(x => x.Fecha)
                 .ToPagedCollection(desde, cantidad);
         }

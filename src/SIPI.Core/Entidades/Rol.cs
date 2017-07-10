@@ -4,7 +4,7 @@ namespace SIPI.Core.Entidades
 {
     public class Rol
     {
-        private Rol()
+        protected Rol()
         {
         }
 

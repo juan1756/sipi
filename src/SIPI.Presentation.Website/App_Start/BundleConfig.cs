@@ -27,11 +27,16 @@ namespace SIPI.Presentation.Website
                 "~/Scripts/thirdparty/bootstrap-table-1.11.1.js",
                 "~/Scripts/thirdparty/bootstrap-table-es-AR.js",
                 "~/Scripts/thirdparty/bootstrap-datepicker.js",
-                "~/Scripts/thirdparty/bootstrap-datepicker.es.min.js"
+                "~/Scripts/thirdparty/bootstrap-datepicker.es.min.js",
+                "~/Scripts/thirdparty/moment-2.18.1.js"
             ));
 
             bundles.Add(new ScriptBundle("~/bundles/scripts/plugins").Include(
                 "~/Scripts/plugins/jquery.validate.bootstrap.js"
+            ));
+
+            bundles.Add(new ScriptBundle("~/bundles/scripts/app").Include(
+                "~/Scripts/app.js"
             ));
 
             // Landing

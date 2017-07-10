@@ -5,7 +5,7 @@ namespace SIPI.Core.Entidades
 {
     public class Provincia
     {
-        private Provincia()
+        protected Provincia()
         {
             Localidades = new Collection<Localidad>();
         }

@@ -140,6 +140,7 @@
     <Compile Include="ActionResults\JsonNetResult.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\DependenciesConfig.cs" />
+    <Compile Include="App_Start\ModelBindersConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\Modules\CoreModule.cs" />
     <Compile Include="App_Start\Modules\DataModule.cs" />
@@ -154,6 +155,7 @@
     <Compile Include="Areas\Admin\Controllers\UsuariosController.cs" />
     <Compile Include="Areas\Admin\Controllers\VentasController.cs" />
     <Compile Include="Areas\Admin\Models\Ventas\IndexModel.cs" />
+    <Compile Include="Areas\Admin\Models\Pedidos\IndexFiltros.cs" />
     <Compile Include="Authentication\UsuarioPrincipal.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CuentaController.cs" />
@@ -162,11 +164,13 @@
     <Compile Include="Extensions\HtmlHelperModelExtensions.cs" />
     <Compile Include="Extensions\IEnumerableExtensions.cs" />
     <Compile Include="Extensions\UrlHelperTableExtensions.cs" />
+    <Compile Include="Extensions\WebViewPageExtensions.cs" />
     <Compile Include="Filters\Mvc\ExceptionHandlingAttribute.cs" />
     <Compile Include="Filters\Mvc\ReplaceJsonToJsonNetAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="ModelBinders\DateModelBinder.cs" />
     <Compile Include="Models\Cuenta\IndexModel.cs" />
     <Compile Include="Models\Cuenta\LoginModel.cs" />
     <Compile Include="Models\Cuenta\RecuperoConfirmarModel.cs" />
@@ -202,6 +206,7 @@
     <Content Include="Content\landing\fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\css\site.css" />
+    <Content Include="Scripts\app.js" />
     <Content Include="Scripts\landing\thirdparty\bootstrap.js" />
     <Content Include="Scripts\landing\thirdparty\creative.js" />
     <Content Include="Scripts\landing\thirdparty\jquery.easing.js" />
@@ -227,7 +232,6 @@
     <Content Include="Areas\Admin\Views\Catalogo\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Categorias\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Oradores\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Usuarios\Index.cshtml" />
     <Content Include="Content\landing\fonts\fontawesome-webfont.eot" />
     <Content Include="Content\landing\fonts\fontawesome-webfont.ttf" />
     <Content Include="Content\landing\fonts\fontawesome-webfont.woff" />
@@ -238,6 +242,7 @@
     <Content Include="Scripts\thirdparty\jquery.validate.js" />
     <Content Include="Scripts\thirdparty\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\thirdparty\modernizr-2.6.2.js" />
+    <Content Include="Scripts\thirdparty\moment-2.18.1.js" />
     <Content Include="Scripts\thirdparty\respond.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />

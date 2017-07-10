@@ -5,7 +5,7 @@ PRINT 'BORRANDO CONTENIDO DE LAS TABLAS'
 PRINT ''
 PRINT 'Tabla: Orador'
 DELETE FROM Orador
-DBCC CHECKIDENT ('[Orador]', RESEED, 0);
+DBCC CHECKIDENT ('[Orador]', RESEED, 1);
 GO
 
 PRINT ''
@@ -16,7 +16,7 @@ DELETE FROM InsumoMedioAudiovisual
 PRINT ''
 PRINT 'Tabla: MedioAudiovisual'
 DELETE FROM MedioAudiovisual
-DBCC CHECKIDENT ('[MedioAudiovisual]', RESEED, 0);
+DBCC CHECKIDENT ('[MedioAudiovisual]', RESEED, 1);
 GO
 
 PRINT ''
@@ -27,7 +27,7 @@ DELETE FROM Categoria
 PRINT ''
 PRINT 'Tabla: Tipo'
 DELETE FROM Tipo
-DBCC CHECKIDENT ('[Tipo]', RESEED, 0);
+DBCC CHECKIDENT ('[Tipo]', RESEED, 1);
 GO
 
 PRINT ''
@@ -38,7 +38,7 @@ DELETE FROM Insumo
 PRINT ''
 PRINT 'Tabla: Pedido'
 DELETE FROM Pedido
-DBCC CHECKIDENT ('[Pedido]', RESEED, 0);
+DBCC CHECKIDENT ('[Pedido]', RESEED, 1);
 GO
 
 PRINT ''
@@ -54,7 +54,7 @@ DELETE FROM Rol
 PRINT ''
 PRINT 'Tabla: Usuario'
 DELETE FROM Usuario
-DBCC CHECKIDENT ('[Usuario]', RESEED, 0);
+DBCC CHECKIDENT ('[Usuario]', RESEED, 1);
 GO
 
 PRINT ''
@@ -150,10 +150,12 @@ GO
 
 PRINT ''
 PRINT 'Tabla: Tipo'
-INSERT INTO Tipo (Nombre) VALUES ('Audio')
+SET IDENTITY_INSERT Tipo ON 
+INSERT INTO Tipo (Id, Nombre) VALUES (1,'Audio')
 GO
-INSERT INTO Tipo (Nombre) VALUES ('Video')
+INSERT INTO Tipo (Id, Nombre) VALUES (2,'Video')
 GO
+SET IDENTITY_INSERT Tipo OFF 
 
 PRINT ''
 PRINT 'Tabla: Categoria'
@@ -166,16 +168,18 @@ GO
 
 PRINT ''
 PRINT 'Tabla: MedioAudiovisual'
-INSERT INTO MedioAudiovisual (FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES ('20160506', 'Consejos de familia', 'https://www.youtube.com/watch?v=ar17oemc-kI', 100, 1, 2)
+SET IDENTITY_INSERT MedioAudiovisual ON 
+INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (1, '20160506', 'Consejos de familia', 'https://www.youtube.com/watch?v=ar17oemc-kI', 100, 1, 2)
 GO
-INSERT INTO MedioAudiovisual (FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES ('20150119', 'Adolescencia', 'https://www.youtube.com/watch?v=0f2XXh8XiTk', 70, 2, 2)
+INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (2, '20150119', 'Adolescencia', 'https://www.youtube.com/watch?v=0f2XXh8XiTk', 70, 2, 2)
 GO
-INSERT INTO MedioAudiovisual (FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES ('20140722', 'Caminos inciertos', 'https://www.youtube.com/watch?v=2GBpF9R79H4', 80, 3, 2)
+INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (3, '20140722', 'Caminos inciertos', 'https://www.youtube.com/watch?v=2GBpF9R79H4', 80, 3, 2)
 GO
-INSERT INTO MedioAudiovisual (FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES ('20170322', 'Dinero y felicidad', 'https://www.youtube.com/watch?v=SOo7pBkWFEw', 800, 3, 2)
+INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (4, '20170322', 'Dinero y felicidad', 'https://www.youtube.com/watch?v=SOo7pBkWFEw', 800, 3, 2)
 GO
-INSERT INTO MedioAudiovisual (FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES ('20140722', 'Fidelidad', 'https://www.youtube.com/watch?v=WrKsS4KbGRE', 20, 1, 2)
+INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (5, '20140722', 'Fidelidad', 'https://www.youtube.com/watch?v=WrKsS4KbGRE', 20, 1, 2)
 GO
+SET IDENTITY_INSERT MedioAudiovisual OFF
 
 PRINT ''
 PRINT 'Tabla: InsumoMedioAudiovisual'

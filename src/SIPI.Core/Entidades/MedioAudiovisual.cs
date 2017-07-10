@@ -1,15 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace SIPI.Core.Entidades
 {
     public class MedioAudiovisual
     {
-        private MedioAudiovisual()
+        protected MedioAudiovisual()
         {
+            Oradores = new Collection<Orador>();
         }
 
         public MedioAudiovisual(Categoria categoria, string tema, Tipo tipo, string url, int tamano)
+            :this()
         {
             Categoria = categoria;
             Tema = tema;

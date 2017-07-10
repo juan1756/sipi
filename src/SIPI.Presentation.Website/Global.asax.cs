@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SIPI.Presentation.Website.Authentication;
+using System;
 using System.Net;
 using System.Threading;
 using System.Web;
@@ -6,6 +7,7 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using System.Web.Script.Serialization;
 using System.Web.Security;
 
 namespace SIPI.Presentation.Website
@@ -22,6 +24,7 @@ namespace SIPI.Presentation.Website
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            ModelBindersConfig.RegisterModelBinders();
         }
 
         protected void Application_AcquireRequestState(object sender, EventArgs e)
@@ -32,6 +35,21 @@ namespace SIPI.Presentation.Website
 
             Thread.CurrentThread.CurrentCulture = culture;
             Thread.CurrentThread.CurrentUICulture = culture;
+        }
+
+        protected void Application_PostAuthenticateRequest(object sender, EventArgs e)
+        {
+            // https://stackoverflow.com/questions/1064271/asp-net-mvc-set-custom-iidentity-or-iprincipal
+            var authCookie = Request.Cookies[FormsAuthentication.FormsCookieName];
+
+            if (authCookie != null)
+            {
+                var authTicket = FormsAuthentication.Decrypt(authCookie.Value);
+                var customData = new JavaScriptSerializer().Deserialize<CustomPrincipalData>(authTicket.UserData);
+                var principal = new CustomPrincipal(authTicket.Name, customData);
+                HttpContext.Current.User = principal;
+                Thread.CurrentPrincipal = principal;
+            }
         }
 
         protected virtual void Application_EndRequest()

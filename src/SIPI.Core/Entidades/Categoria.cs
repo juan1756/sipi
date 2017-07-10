@@ -5,7 +5,7 @@ namespace SIPI.Core.Entidades
 {
     public class Categoria
     {
-        private Categoria()
+        protected Categoria()
         {
         }
 

@@ -4,7 +4,7 @@ namespace SIPI.Core.Entidades
 {
     public class Orador
     {
-        private Orador()
+        protected Orador()
         {
         }
 

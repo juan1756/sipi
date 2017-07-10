@@ -11,5 +11,7 @@ namespace SIPI.Core.Data.Mappers
     public interface IPedidosMapper
     {
         IPagedCollection<Pedido> ObtenerPedidos(int id, int desde, int cantidad);
+
+        IPagedCollection<Pedido> ObtenerPedidos(string nombreApellidoMiembro, DateTime? fechaDesde, DateTime? fechaHasta, int desde, int cantidad);
     }
 }

@@ -24,6 +24,7 @@ namespace SIPI.Presentation.Website
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            ModelBindersConfig.RegisterModelBinders();
         }
 
         protected void Application_AcquireRequestState(object sender, EventArgs e)

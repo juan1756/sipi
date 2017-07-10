@@ -47,10 +47,9 @@ namespace SIPI.Core.Entidades
 
         public PedidoOperadorView GetOperadorView()
         {
-            // TODO: El Tema esta perdido, revisar docs
             return new PedidoOperadorView(
-                Numero, 
-                null, 
+                Numero,
+                Insumos.SelectMany(x => x.Medios.Select(y => y.Tema)).Distinct().ToList(), 
                 $"{Miembro.Nombre} {Miembro.Apellido}", 
                 CantidadPedido, 
                 Fecha, 
@@ -62,7 +61,6 @@ namespace SIPI.Core.Entidades
 
         public PedidoMiembroView GetMiembroView()
         {
-            // TODO: El Tema esta perdido, revisar docs
             return new PedidoMiembroView(
                 Insumos.SelectMany(x => x.Medios.Select(y => y.Tema)).Distinct().ToList(), 
                 CantidadPedido, 

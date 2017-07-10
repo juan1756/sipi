@@ -140,6 +140,7 @@
     <Compile Include="ActionResults\JsonNetResult.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\DependenciesConfig.cs" />
+    <Compile Include="App_Start\ModelBindersConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\Modules\CoreModule.cs" />
     <Compile Include="App_Start\Modules\DataModule.cs" />
@@ -153,6 +154,7 @@
     <Compile Include="Areas\Admin\Controllers\PedidosController.cs" />
     <Compile Include="Areas\Admin\Controllers\UsuariosController.cs" />
     <Compile Include="Areas\Admin\Controllers\VentasController.cs" />
+    <Compile Include="Areas\Admin\Models\Pedidos\IndexFiltros.cs" />
     <Compile Include="Authentication\UsuarioPrincipal.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CuentaController.cs" />
@@ -167,6 +169,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="ModelBinders\DateModelBinder.cs" />
     <Compile Include="Models\Cuenta\IndexModel.cs" />
     <Compile Include="Models\Cuenta\LoginModel.cs" />
     <Compile Include="Models\Cuenta\RecuperoConfirmarModel.cs" />
@@ -228,7 +231,6 @@
     <Content Include="Areas\Admin\Views\Catalogo\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Categorias\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Oradores\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Usuarios\Index.cshtml" />
     <Content Include="Content\landing\fonts\fontawesome-webfont.eot" />
     <Content Include="Content\landing\fonts\fontawesome-webfont.ttf" />
     <Content Include="Content\landing\fonts\fontawesome-webfont.woff" />
@@ -269,7 +271,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

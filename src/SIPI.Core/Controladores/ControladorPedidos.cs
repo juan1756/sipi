@@ -1,11 +1,7 @@
-﻿using SIPI.Core.Data.DTO;
+﻿using System;
+using SIPI.Core.Data.DTO;
 using SIPI.Core.Data.Mappers;
 using SIPI.Core.Vistas;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SIPI.Core.Controladores
 {
@@ -24,6 +20,13 @@ namespace SIPI.Core.Controladores
             return _pedidos
                 .ObtenerPedidos(id, desde, cantidad)
                 .Convert(x => x.GetMiembroView());
+        }
+
+        public IPagedCollection<PedidoOperadorView> SeguirPedidosOperador(string nombreApellidoMiembro, DateTime? fechaDesde, DateTime? fechaHasta, int desde, int cantidad)
+        {
+            return _pedidos
+                .ObtenerPedidos(nombreApellidoMiembro, fechaDesde, fechaHasta, desde, cantidad)
+                .Convert(x => x.GetOperadorView());
         }
     }
 }

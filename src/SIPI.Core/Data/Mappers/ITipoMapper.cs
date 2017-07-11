@@ -5,6 +5,6 @@ namespace SIPI.Core.Data.Mappers
 {
     public interface ITipoMapper
     {
-        IList<Tipo> GetTipos();
+        IList<Tipo> ObtenerTipos();
     }
 }

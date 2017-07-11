@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SIPI.Core.Vistas;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
@@ -36,5 +37,10 @@ namespace SIPI.Core.Entidades
         public string Url { get; private set; }
 
         public int Tamano { get; private set; }
+
+        public MedioAudiovisualView GetView()
+        {
+            return new MedioAudiovisualView(Id, FechaGrabacion, Categoria.Nombre, Tema, Tipo.Nombre, Url);
+        }
     }
 }

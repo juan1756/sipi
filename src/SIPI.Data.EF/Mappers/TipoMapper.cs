@@ -14,7 +14,7 @@ namespace SIPI.Data.EF.Mappers
             _dbContext = dbContext;
         }
 
-        public IList<Tipo> GetTipos()
+        public IList<Tipo> ObtenerTipos()
         {
             return _dbContext.Tipos.ToList();
         }

@@ -28,7 +28,8 @@ namespace SIPI.Presentation.Website
                 "~/Scripts/thirdparty/bootstrap-table-es-AR.js",
                 "~/Scripts/thirdparty/bootstrap-datepicker.js",
                 "~/Scripts/thirdparty/bootstrap-datepicker.es.min.js",
-                "~/Scripts/thirdparty/moment-2.18.1.js"
+                "~/Scripts/thirdparty/moment-2.18.1.js",
+                "~/Scripts/thirdparty/infinite-scroll.pkgd.js"
             ));
 
             bundles.Add(new ScriptBundle("~/bundles/scripts/plugins").Include(

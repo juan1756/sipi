@@ -5,6 +5,6 @@ namespace SIPI.Core.Data.Mappers
 {
     public interface ICategoriaMapper
     {
-        IList<Categoria> GetCategorias();
+        IList<Categoria> ObtenerCategorias();
     }
 }

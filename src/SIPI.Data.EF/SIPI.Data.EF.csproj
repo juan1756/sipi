@@ -55,6 +55,7 @@
     <Compile Include="Mappers\CategoriaMapper.cs" />
     <Compile Include="Mappers\MedioAudiovisualMapper.cs" />
     <Compile Include="Mappers\PedidosMapper.cs" />
+    <Compile Include="Mappers\ReportesMapper.cs" />
     <Compile Include="Mappers\TipoMapper.cs" />
     <Compile Include="Mappers\ProvinciaMapper.cs" />
     <Compile Include="Mappers\UsuarioMapper.cs" />

@@ -16,8 +16,9 @@
         });
     }
 
+    // TODO: ver si queda Mustache o se va.s
     function initMustache() {
-        $.Mustache.addFromDom();
+        //$.Mustache.addFromDom();
     }
 
     (function constructor() {

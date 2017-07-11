@@ -44,11 +44,13 @@
     <Compile Include="Controladores\ControladorMediosAudiovisuales.cs" />
     <Compile Include="Controladores\ControladorPedidos.cs" />
     <Compile Include="Controladores\ControladorCuentas.cs" />
+    <Compile Include="Controladores\ControladorReportes.cs" />
     <Compile Include="Controladores\ControladorTipos.cs" />
     <Compile Include="Data\DTO\IPagedCollection.cs" />
     <Compile Include="Data\IDataContext.cs" />
     <Compile Include="Data\Mappers\IMedioAudiovisualMapper.cs" />
     <Compile Include="Data\Mappers\IPedidosMapper.cs" />
+    <Compile Include="Data\Mappers\IReportesMapper.cs" />
     <Compile Include="Data\Mappers\ITipoMapper.cs" />
     <Compile Include="Data\Mappers\ICategoriaMapper.cs" />
     <Compile Include="Data\Mappers\IProvinciaMapper.cs" />
@@ -74,6 +76,7 @@
     <Compile Include="Vistas\PedidoMiembroView.cs" />
     <Compile Include="Vistas\PedidoOperadorView.cs" />
     <Compile Include="Vistas\PedidoSeguimientoView.cs" />
+    <Compile Include="Vistas\ReporteVentasPorCategoriaView.cs" />
     <Compile Include="Vistas\RolView.cs" />
     <Compile Include="Vistas\CategoriaView.cs" />
     <Compile Include="Vistas\TipoView.cs" />

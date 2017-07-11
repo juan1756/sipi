@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace SIPI.Presentation.Website.Areas.Admin.Models.Pedidos
 {
-    public class IndexFiltros
+    public class IndexFiltrosModel
     {
         public string Miembro { get; set; }
 

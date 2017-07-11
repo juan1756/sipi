@@ -14,7 +14,7 @@ namespace SIPI.Data.EF.Mappers
             _dbContext = dbContext;
         }
 
-        public IList<Categoria> GetCategorias()
+        public IList<Categoria> ObtenerCategorias()
         {
             return _dbContext.Categorias.ToList();
         }

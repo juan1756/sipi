@@ -40,11 +40,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controladores\ControladorCategorias.cs" />
+    <Compile Include="Controladores\ControladorMediosAudiovisuales.cs" />
     <Compile Include="Controladores\ControladorPedidos.cs" />
     <Compile Include="Controladores\ControladorCuentas.cs" />
     <Compile Include="Controladores\ControladorReportes.cs" />
+    <Compile Include="Controladores\ControladorTipos.cs" />
     <Compile Include="Data\DTO\IPagedCollection.cs" />
     <Compile Include="Data\IDataContext.cs" />
+    <Compile Include="Data\Mappers\IMedioAudiovisualMapper.cs" />
     <Compile Include="Data\Mappers\IPedidosMapper.cs" />
     <Compile Include="Data\Mappers\IReportesMapper.cs" />
     <Compile Include="Data\Mappers\ITipoMapper.cs" />
@@ -66,6 +70,7 @@
     <Compile Include="Extensions\Data\DTO\IPagedCollectionExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Servicios\Hashing.cs" />
+    <Compile Include="Vistas\MedioAudiovisualView.cs" />
     <Compile Include="Vistas\MiembroView.cs" />
     <Compile Include="Vistas\OperadorView.cs" />
     <Compile Include="Vistas\PedidoMiembroView.cs" />

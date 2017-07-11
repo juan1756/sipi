@@ -155,11 +155,12 @@
     <Compile Include="Areas\Admin\Controllers\UsuariosController.cs" />
     <Compile Include="Areas\Admin\Controllers\VentasController.cs" />
     <Compile Include="Areas\Admin\Models\Ventas\IndexFiltros.cs" />
-    <Compile Include="Areas\Admin\Models\Pedidos\IndexFiltros.cs" />
+    <Compile Include="Areas\Admin\Models\Pedidos\IndexFiltrosModel.cs" />
     <Compile Include="Authentication\UsuarioPrincipal.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CuentaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\CatalogoController.cs" />
     <Compile Include="Controllers\PedidosController.cs" />
     <Compile Include="Extensions\HtmlHelperModelExtensions.cs" />
     <Compile Include="Extensions\IEnumerableExtensions.cs" />
@@ -171,6 +172,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="ModelBinders\DateModelBinder.cs" />
+    <Compile Include="Models\Catalogo\IndexModel.cs" />
+    <Compile Include="Models\Catalogo\IndexFiltrosModel.cs" />
     <Compile Include="Models\Cuenta\IndexModel.cs" />
     <Compile Include="Models\Cuenta\LoginModel.cs" />
     <Compile Include="Models\Cuenta\RecuperoConfirmarModel.cs" />
@@ -229,20 +232,20 @@
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Admin\Views\Pedidos\Index.cshtml" />
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
-    <Content Include="Areas\Admin\Views\Catalogo\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Categorias\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Oradores\Index.cshtml" />
     <Content Include="Content\landing\fonts\fontawesome-webfont.eot" />
     <Content Include="Content\landing\fonts\fontawesome-webfont.ttf" />
     <Content Include="Content\landing\fonts\fontawesome-webfont.woff" />
     <Content Include="Content\landing\fonts\fontawesome-webfont.woff2" />
     <Content Include="Content\landing\fonts\FontAwesome.otf" />
     <None Include="Scripts\thirdparty\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\thirdparty\infinite-scroll.pkgd.js" />
     <Content Include="Scripts\thirdparty\jquery-3.2.1.js" />
+    <Content Include="Scripts\thirdparty\jquery.mustache.js" />
     <Content Include="Scripts\thirdparty\jquery.validate.js" />
     <Content Include="Scripts\thirdparty\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\thirdparty\modernizr-2.6.2.js" />
     <Content Include="Scripts\thirdparty\moment-2.18.1.js" />
+    <Content Include="Scripts\thirdparty\mustache.js" />
     <Content Include="Scripts\thirdparty\respond.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
@@ -269,6 +272,7 @@
     <Content Include="Views\Pedidos\Index.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Admin\Views\Ventas\Index.cshtml" />
+    <Content Include="Views\Catalogo\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

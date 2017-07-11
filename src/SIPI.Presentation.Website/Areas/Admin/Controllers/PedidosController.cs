@@ -15,12 +15,12 @@ namespace SIPI.Presentation.Website.Areas.Admin.Controllers
             _controladorPedidos = controladorPedidos;
         }
 
-        public ActionResult Index(IndexFiltros filtros)
+        public ActionResult Index(IndexFiltrosModel filtros)
         {
             return View(filtros);
         }
 
-        public ActionResult IndexTable(IndexFiltros filtros, OffsetParams offsetParams)
+        public ActionResult IndexTable(IndexFiltrosModel filtros, OffsetParams offsetParams)
         {
             return Json(
                 _controladorPedidos.SeguirPedidosOperador(Usuario.Roles, filtros.Miembro, filtros.Desde, filtros.Hasta, offsetParams.Offset, offsetParams.Limit),
@@ -28,7 +28,7 @@ namespace SIPI.Presentation.Website.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public ActionResult Index(IndexFiltros filtros, int numero)
+        public ActionResult Index(IndexFiltrosModel filtros, int numero)
         {
             try
             {

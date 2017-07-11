@@ -1,0 +1,95 @@
+﻿@model SIPI.Presentation.Website.Models.Catalogo.IndexModel
+@{
+    ViewBag.Title = "Catálogo";
+    var HtmlFiltros = Html.ToInnerModel(x => x.Filtros);
+}
+
+<article class="content cards-page">
+    <div class="title-block">
+        <h3 class="title">Contenido Multimedial</h3>
+    </div>
+    <section class="section">
+        <form action="" method="post">
+            <div class="form-group row">
+                <div class="col-md-12">
+                    <div class="col-md-8">
+                        <div class="row">
+                            <label class="col-md-2 form-control-label">CATEGORÍA</label>
+                            <div class="col-md-4">
+                                @HtmlFiltros.DropDownListFor(x => x.CategoriaId, Model.Categorias, new { @class= "c-select form-control boxed" })
+                            </div>
+                            <label class="col-md-2 form-control-label">TEMA</label>
+                            <div class="col-md-4">
+                                @HtmlFiltros.TextBoxFor(x => x.Tema, new { @class = "form-control boxed" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label class="col-md-1 form-control-label">FECHA</label>
+                            <div class="col-md-3">
+                                @HtmlFiltros.TextBoxFor(x => x.FechaDesde, "{0:dd/MM/yyyy}", new { @class = "form-control boxed", data_apply = "datepicker" })
+                            </div>
+                            <label class="col-md-1 form-control-label">A</label>
+                            <div class="col-md-3">
+                                @HtmlFiltros.TextBoxFor(x => x.FechaHasta, "{0:dd/MM/yyyy}", new { @class = "form-control boxed", data_apply = "datepicker" })
+                            </div>
+                            <label class="col-md-1 form-control-label">TIPO</label>
+                            <div class="col-md-3">
+                                @HtmlFiltros.DropDownListFor(x => x.TipoId, Model.Tipos, new { @class= "c-select form-control boxed" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <button type="submit" class="btn btn-block btn-primary">Crear pedido</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </section>
+    <section class="section">
+        <div class="row">
+            <div class="col-xl-3" data-medio="">
+                <div class="card card-default">
+                    <div class="card-header">
+                        <div class="header-block">
+                            <p class="title"> Semana Santa - Predicación </p>
+                        </div>
+                    </div>
+                    <div class="card-block">
+                        <iframe id="ytplayer1" type="text/html" width="100%" height="100%"
+                                src="http://www.youtube.com/embed/Vj_emVFPgJ8?controls=1&showinfo=0"
+                                frameborder="0" />
+                        </iframe>
+                    </div>
+                    <div class="card-footer">14/04/2017</div>
+                </div>
+            </div>
+        </div>
+    </section>
+</article>
+
+<div class="scroller-status">
+    <div class="infinite-scroll-request loader-ellips">...</div>
+    <p class="infinite-scroll-last">Final del contenido</p>
+    <p class="infinite-scroll-error">No hay más medios para cargar</p>
+</div>
+
+<p class="pagination">
+    <a class="pagination__next" href="page2.html">Página siguiente</a>
+</p>
+
+@section scripts{
+    <script>
+        var view = (function () {
+            (function constructor() {
+                $(document).ready(function () {
+                    $('.section > div.row').infiniteScroll({
+                        path: '.pagination__next',
+                        append: '[data-medio]',
+                        status: '.scroller-status',
+                        hideNav: '.pagination',
+                    });
+                });
+            })();
+        })();
+    </script>
+}

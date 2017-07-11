@@ -1,7 +1,6 @@
-﻿@model SIPI.Presentation.Website.Areas.Admin.Models.Ventas.IndexModel
+﻿@model SIPI.Presentation.Website.Areas.Admin.Models.Ventas.IndexFiltros
 @{
     ViewBag.Title = "Reporte de Ventas";
-    var HtmlFilters = Html.ToInnerModel(x => x.Filters);
 }
 
 <article class="content items-list-page">
@@ -15,32 +14,34 @@
         </div>
     </div>
     <section class="section">
-        <form>
+        <form action="@Url.Action("index", "ventas", new { area = "admin" })">
             <div class="form-group row">
                 <div class="col-md-8">
                     <div class="row">
                         <label class="col-md-2 form-control-label">CATEGORÍA</label>
                         <div class="col-md-6">
-                            <select class="c-select form-control boxed">
+                            @*<select class="c-select form-control boxed">
                                 <option selected="">Seleccione</option>
                                 <option value="1">Categoría 1</option>
                                 <option value="2">Categoría 2</option>
                                 <option value="3">Categoría 3</option>
-                            </select>
+                            </select>*@
+                            @Html.TextBoxFor(x => x.IdCategoria, new { @class = "form-control boxed" })
                         </div>
                     </div>
                     <div class="row">
                         <label class="col-md-1 form-control-label">FECHA</label>
                         <div class="col-md-3">
-                            <input type="text" class="form-control boxed">
+                            @Html.TextBoxFor(x => x.Desde, "{0:dd/MM/yyyy}", new { @class = "form-control boxed", data_apply = "datepicker" })
                         </div>
                         <label class="col-md-1 form-control-label">A</label>
                         <div class="col-md-3">
-                            <input type="text" class="form-control boxed">
+                            @Html.TextBoxFor(x => x.Hasta, "{0:dd/MM/yyyy}", new { @class = "form-control boxed", data_apply = "datepicker" })
                         </div>
                     </div>
                 </div>
             </div>
+            <button type="submit" class="btn btn-primary">Buscar</button>
         </form>
     </section>
     <table class="table fixed-table-pagination table-striped table-bordered table-hover"
@@ -52,8 +53,8 @@
                data-side-pagination="server">
         <thead>
             <tr>
-                <th>Categoría</th>
-                <th>Cantidad</th>
+                <th data-field="nombreCategoria">CATEGORÍA</th>
+                <th data-field="cantidad">CANTIDAD</th>
             </tr>            
         </thead>
     </table>

@@ -19,7 +19,7 @@ namespace SIPI.Core.Controladores
         }
 
         public IPagedCollection<ReporteVentasPorCategoriaView> ReporteVentasPorCategoria
-            (int idCategoria, DateTime? fechaDesde, DateTime? fechaHasta, int desde, int cantidad)
+            (int? idCategoria, DateTime? fechaDesde, DateTime? fechaHasta, int desde, int cantidad)
         {
             return _reportes
                 .VentasPorCategoria(idCategoria, fechaDesde, fechaHasta, desde, cantidad);

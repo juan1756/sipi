@@ -16,17 +16,17 @@ namespace SIPI.Presentation.Website.Areas.Admin.Controllers
         }
 
         [HttpGet]
-        public ActionResult Index(IndexFiltersModel filters)
+        public ActionResult Index(IndexFiltros filtros)
         {
-            return View(new IndexModel { Filters = filters });
+            return View(filtros);
         }
 
         [HttpGet]
-        public ActionResult IndexTable(IndexFiltersModel filters, OffsetParams offset)
+        public ActionResult IndexTable(IndexFiltros filtros, OffsetParams offsetParams)
         {
             return Json(
                 _controladorReportes
-                    .ReporteVentasPorCategoria(filters.IdCategoria, filters.FechaDesde, filters.FechaHasta, offset.Offset, offset.Limit),
+                    .ReporteVentasPorCategoria(filtros.IdCategoria, filtros.Desde, filtros.Hasta, offsetParams.Offset, offsetParams.Limit),
                 JsonRequestBehavior.AllowGet);
         }
     }

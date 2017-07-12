@@ -6,27 +6,35 @@ using System.Web.Mvc;
 
 namespace SIPI.Presentation.Website.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Vendedor")]
     public class VentasController : BaseAdminController
     {
         private readonly ControladorReportes _controladorReportes;
+        private readonly ControladorCategorias _controladorCategorias;
 
-        public VentasController(ControladorReportes controladorReportes)
+        public VentasController(
+            ControladorReportes controladorReportes,
+            ControladorCategorias controladorCategorias)
         {
             _controladorReportes = controladorReportes;
+            _controladorCategorias = controladorCategorias;
         }
 
         [HttpGet]
-        public ActionResult Index(IndexFiltros filtros)
+        public ActionResult Index(IndexFiltrosModel filtros)
         {
-            return View(filtros);
+            return View(
+                new IndexModel(
+                    _controladorCategorias.ObtenerCategorias(), 
+                    filtros));
         }
 
         [HttpGet]
-        public ActionResult IndexTable(IndexFiltros filtros, OffsetParams offsetParams)
+        public ActionResult IndexTable(IndexFiltrosModel filtros, OffsetParams offsetParams)
         {
             return Json(
                 _controladorReportes
-                    .ReporteVentasPorCategoria(filtros.IdCategoria, filtros.Desde, filtros.Hasta, offsetParams.Offset, offsetParams.Limit),
+                    .ReporteVentasPorCategoria(filtros.IdCategoria, filtros.FechaDesde, filtros.FechaHasta, offsetParams.Offset, offsetParams.Limit),
                 JsonRequestBehavior.AllowGet);
         }
     }

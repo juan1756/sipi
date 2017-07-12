@@ -1,6 +1,7 @@
-﻿@model SIPI.Presentation.Website.Areas.Admin.Models.Ventas.IndexFiltros
+﻿@model SIPI.Presentation.Website.Areas.Admin.Models.Ventas.IndexModel
 @{
     ViewBag.Title = "Reporte de Ventas";
+    var HtmlFiltros = Html.ToInnerModel(x => x.Filtros);
 }
 
 <article class="content items-list-page">
@@ -20,23 +21,17 @@
                     <div class="row">
                         <label class="col-md-2 form-control-label">CATEGORÍA</label>
                         <div class="col-md-6">
-                            @*<select class="c-select form-control boxed">
-                                <option selected="">Seleccione</option>
-                                <option value="1">Categoría 1</option>
-                                <option value="2">Categoría 2</option>
-                                <option value="3">Categoría 3</option>
-                            </select>*@
-                            @Html.TextBoxFor(x => x.IdCategoria, new { @class = "form-control boxed" })
+                            @HtmlFiltros.DropDownListFor(x => x.IdCategoria, Model.Categorias, "", new { @class = "form-control boxed" })
                         </div>
                     </div>
                     <div class="row">
                         <label class="col-md-1 form-control-label">FECHA</label>
                         <div class="col-md-3">
-                            @Html.TextBoxFor(x => x.Desde, "{0:dd/MM/yyyy}", new { @class = "form-control boxed", data_apply = "datepicker" })
+                            @HtmlFiltros.TextBoxFor(x => x.FechaDesde, "{0:dd/MM/yyyy}", new { @class = "form-control boxed", data_apply = "datepicker" })
                         </div>
                         <label class="col-md-1 form-control-label">A</label>
                         <div class="col-md-3">
-                            @Html.TextBoxFor(x => x.Hasta, "{0:dd/MM/yyyy}", new { @class = "form-control boxed", data_apply = "datepicker" })
+                            @HtmlFiltros.TextBoxFor(x => x.FechaHasta, "{0:dd/MM/yyyy}", new { @class = "form-control boxed", data_apply = "datepicker" })
                         </div>
                     </div>
                 </div>

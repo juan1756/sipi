@@ -154,8 +154,9 @@
     <Compile Include="Areas\Admin\Controllers\PedidosController.cs" />
     <Compile Include="Areas\Admin\Controllers\UsuariosController.cs" />
     <Compile Include="Areas\Admin\Controllers\VentasController.cs" />
-    <Compile Include="Areas\Admin\Models\Ventas\IndexFiltros.cs" />
+    <Compile Include="Areas\Admin\Models\Ventas\IndexFiltrosModel.cs" />
     <Compile Include="Areas\Admin\Models\Pedidos\IndexFiltrosModel.cs" />
+    <Compile Include="Areas\Admin\Models\Ventas\IndexModel.cs" />
     <Compile Include="Authentication\UsuarioPrincipal.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CuentaController.cs" />

@@ -23,8 +23,6 @@ namespace SIPI.Data.EF
 
         public DbSet<Pedido> Pedidos { get; set; }
 
-        //public DbSet<Insumo> Insumos { get; set; }
-
         public DbSet<Provincia> Provincias { get; set; }
 
         public DbSet<Rol> Roles { get; set; }

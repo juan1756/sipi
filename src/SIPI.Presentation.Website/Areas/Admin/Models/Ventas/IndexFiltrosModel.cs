@@ -5,12 +5,12 @@ using System.Web;
 
 namespace SIPI.Presentation.Website.Areas.Admin.Models.Ventas
 {
-    public class IndexFiltros
+    public class IndexFiltrosModel
     {
         public int? IdCategoria { get; set; }
 
-        public DateTime? Desde { get; set; }
+        public DateTime? FechaDesde { get; set; }
 
-        public DateTime? Hasta { get; set; }
+        public DateTime? FechaHasta { get; set; }
     }
 }

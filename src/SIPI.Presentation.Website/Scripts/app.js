@@ -12,7 +12,10 @@
 
     function initDatepickers() {
         $('input[data-apply=datepicker]').datepicker({
-            language: "es"
+            language: "es",
+            endDate: new Date(),
+            todayHighlight: true,
+            weekStart: 0
         });
     }
 

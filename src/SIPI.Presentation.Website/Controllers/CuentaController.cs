@@ -50,26 +50,22 @@ namespace SIPI.Presentation.Website.Controllers
 
             if (usuario.SoyOperador())
             {
-                // TODO: chequear por qué Usuario == null.
                 // Verificar el rol del operador para redirigir donde corresponde:
                 // Vendedor / Packaging -> /admin/pedidos
                 // Contenido -> /admin/catalogo
                 // SuperAdmin -> /admin/usuarios
 
-                //if (this.Usuario.IsInRole("Vendedor") || this.Usuario.IsInRole("Packaging"))
-                //{
-                //    return RedirectToAction("index", "pedidos", new { area = "admin" });
-                //}
+                if (this.Usuario.IsInRole("Vendedor") || this.Usuario.IsInRole("Packaging"))
+                {
+                    return RedirectToAction("index", "pedidos", new { area = "admin" });
+                }
 
-                //if (this.Usuario.IsInRole("Contenido"))
-                //{
-                //    return RedirectToAction("index", "catalogo", new { area = "admin" });
-                //}
+                if (this.Usuario.IsInRole("Contenido"))
+                {
+                    return RedirectToAction("index", "catalogo", new { area = "admin" });
+                }
 
-                //return RedirectToAction("index", "usuarios", new { area = "admin" });
-
-                return RedirectToAction("index", "pedidos", new { area = "admin" });
-
+                return RedirectToAction("index", "usuarios", new { area = "admin" });
             }
             else if (!string.IsNullOrWhiteSpace(returnUrl) && Url.IsLocalUrl(returnUrl))
             {
@@ -174,6 +170,9 @@ namespace SIPI.Presentation.Website.Controllers
             var ticket = new FormsAuthenticationTicket(1, usuario.Email, DateTime.Now, DateTime.Now.AddDays(7), false, userData);
             var encryptedTicket = FormsAuthentication.Encrypt(ticket);
             Response.Cookies.Add(new HttpCookie(FormsAuthentication.FormsCookieName, encryptedTicket));
+
+            var principal = new CustomPrincipal(usuario.Email, data);
+            HttpContext.User = principal;
         }
 
         public string RecuperoMailBody(UsuarioView usuario, byte[] hash)

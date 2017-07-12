@@ -82,3 +82,7 @@
    background-image: none;
    background-color: #fe821d !important;
 }
+
+.fixed-table-loading {
+    background-color: transparent !important;
+}

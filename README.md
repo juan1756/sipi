@@ -85,5 +85,11 @@ En **SIPI.Core** las clases controlador, tienen la responsabilidad de orquestar 
 - https://github.com/wenzhixin/bootstrap-table-examples/blob/master/welcome.html
 - http://issues.wenzhixin.net.cn/bootstrap-table/index.html
 - http://issues.wenzhixin.net.cn/bootstrap-table/welcome.html
+- https://infinite-scroll.com/
+- https://infinite-scroll.com/demo/full-page/page4.html
+- https://developers.google.com/youtube/v3/docs/videos
+- https://developers.google.com/youtube/v3/docs/videos/list#try-it
+- http://www.genyoutube.net/
+- http://video.genyoutube.net/sHMszd8Pct0
 
 

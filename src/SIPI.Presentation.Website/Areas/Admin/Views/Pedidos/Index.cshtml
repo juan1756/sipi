@@ -16,21 +16,25 @@
     <section class="section">
         <form action="@Url.Action("index", "pedidos", new { area = "admin" })">
             <div class="form-group row">
-                <div class="col-md-8">
+                <div class="col-md-9">
                     <div class="row">
-                        <label class="col-md-3 form-control-label">MIEMBRO</label>
-                        <div class="col-md-5">
+                        <label class="col-md-2 form-control-label">MIEMBRO</label>
+                        <div class="col-md-7">
                             @Html.TextBoxFor(x => x.Miembro, new { @class = "form-control boxed" })
                         </div>
                     </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-9">
                     <div class="row">
-                        <label class="col-md-1 form-control-label">FECHA</label>
+                        <label class="col-md-2 form-control-label">FECHA</label>
                         <div class="col-md-3">
-                            @Html.TextBoxFor(x => x.Desde, "{0:dd/MM/yyyy}", new { @class = "form-control boxed", data_apply = "datepicker" })
+                            @Html.TextBoxFor(x => x.Desde, "{0:dd/MM/yyyy}", new { @class = "form-control boxed", data_apply = "datepicker", placeholder = "dd/mm/aaaa" })
                         </div>
                         <label class="col-md-1 form-control-label">A</label>
                         <div class="col-md-3">
-                            @Html.TextBoxFor(x => x.Hasta, "{0:dd/MM/yyyy}", new { @class = "form-control boxed", data_apply = "datepicker" })
+                            @Html.TextBoxFor(x => x.Hasta, "{0:dd/MM/yyyy}", new { @class = "form-control boxed", data_apply = "datepicker", placeholder = "dd/mm/aaaa" })
                         </div>
                     </div>
                 </div>

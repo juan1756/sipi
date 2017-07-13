@@ -1,6 +1,6 @@
 ﻿@model SIPI.Presentation.Website.Areas.Admin.Models.Ventas.IndexModel
 @{
-    ViewBag.Title = "Reporte de Ventas";
+    ViewBag.Title = "Reporte de ventas";
     var HtmlFiltros = Html.ToInnerModel(x => x.Filtros);
 }
 
@@ -17,15 +17,19 @@
     <section class="section">
         <form action="@Url.Action("index", "ventas", new { area = "admin" })">
             <div class="form-group row">
-                <div class="col-md-8">
+                <div class="col-md-9">
                     <div class="row">
                         <label class="col-md-2 form-control-label">CATEGORÍA</label>
-                        <div class="col-md-6">
+                        <div class="col-md-7">
                             @HtmlFiltros.DropDownListFor(x => x.IdCategoria, Model.Categorias, "", new { @class = "form-control boxed" })
                         </div>
                     </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-9">
                     <div class="row">
-                        <label class="col-md-1 form-control-label">FECHA</label>
+                        <label class="col-md-2 form-control-label">FECHA</label>
                         <div class="col-md-3">
                             @HtmlFiltros.TextBoxFor(x => x.FechaDesde, "{0:dd/MM/yyyy}", new { @class = "form-control boxed", data_apply = "datepicker", placeholder = "dd/mm/aaaa" })
                         </div>
@@ -36,21 +40,25 @@
                     </div>
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary">Buscar</button>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Buscar</button>
+            </div>
         </form>
     </section>
-    <table class="table fixed-table-pagination table-striped table-bordered table-hover"
+    <section class="section">
+        <table class="table fixed-table-pagination table-striped table-bordered table-hover"
                data-toggle="table"
                data-url='@Url.Table("index","ventas", new { area = "admin" })'
                data-search="false"
                data-pagination="true"
                data-page-list="[10, 25, 50, 100]"
                data-side-pagination="server">
-        <thead>
-            <tr>
-                <th data-field="nombreCategoria">CATEGORÍA</th>
-                <th data-field="cantidad">CANTIDAD</th>
-            </tr>            
-        </thead>
-    </table>
+            <thead>
+                <tr>
+                    <th data-field="nombreCategoria">CATEGORÍA</th>
+                    <th data-field="cantidad">CANTIDAD</th>
+                </tr>
+            </thead>
+        </table>
+    </section>
 </article>

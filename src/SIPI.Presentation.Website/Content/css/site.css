@@ -93,3 +93,8 @@ label {
     margin-bottom: .5rem;
     margin-top: .5rem;
 }
+
+.avatar .roles {
+    font-size: .75em;
+    color: #B4B7B9;
+}

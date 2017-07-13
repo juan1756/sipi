@@ -20,9 +20,12 @@
             <div class="sidebar-container">
                 <div class="sidebar-header">
                     <div class="avatar">
-                        <img src="@Url.Content("~/content/assets/faces/3.jpg")" alt="avatar" />
+                        <img src="@Url.Content("~/content/assets/faces/" + this.Usuario().NombreArchivoAvatar)" alt="avatar" />
                         <div class="avatar brand">
                             <div>@this.Usuario().Nombre @this.Usuario().Apellido</div>
+                            <div class="roles">
+                                @string.Join(", ", this.Usuario().Roles)
+                            </div>
                             <div>
                                 <a href="@Url.Action("logout", "cuenta", new { area = "" })" class="">Cerrar Sesión</a>
                             </div>

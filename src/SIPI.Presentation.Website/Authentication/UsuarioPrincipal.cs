@@ -42,6 +42,11 @@ namespace SIPI.Presentation.Website.Authentication
         {
             return Roles.Any(x => x.Equals(role, StringComparison.OrdinalIgnoreCase));
         }
+
+        public string NombreArchivoAvatar
+        {
+            get { return $"{Identity.Name.Substring(0, Identity.Name.IndexOf("@"))}.jpg"; }
+        }
     }
 
     public class CustomPrincipalData : ICustomPrincipalData

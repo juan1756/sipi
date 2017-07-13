@@ -1,5 +1,7 @@
 # Seminario de Integracion I
 
+[TOC]
+
 ## Requisitos
 
 Para poder desarrollar en este proyecto se requiere lo siguiente:
@@ -74,4 +76,14 @@ En **SIPI.Core** las clases controlador, tienen la responsabilidad de orquestar 
 #### SIPI.Data.EF
 
 - Todas las clases Mapper deben finalizar con la palabra `Mapper`, de otra manera el sistema no las detectará y dará errores en ejecución.
+
+## Links
+
+- http://bootstrap-table.wenzhixin.net.cn/getting-started/#download
+- http://bootstrap-table.wenzhixin.net.cn/documentation/
+- https://github.com/wenzhixin/bootstrap-table-examples
+- https://github.com/wenzhixin/bootstrap-table-examples/blob/master/welcome.html
+- http://issues.wenzhixin.net.cn/bootstrap-table/index.html
+- http://issues.wenzhixin.net.cn/bootstrap-table/welcome.html
+
 

@@ -55,17 +55,23 @@ namespace SIPI.Presentation.Website.Controllers
                 // Contenido -> /admin/catalogo
                 // SuperAdmin -> /admin/usuarios
 
-                if (this.Usuario.IsInRole("Vendedor") || this.Usuario.IsInRole("Packaging"))
+                if (Usuario.IsInRole("Vendedor") && Usuario.IsInRole("Packaging")
+                    && Usuario.IsInRole("Contenido"))
+                {
+                    return RedirectToAction("index", "usuarios", new { area = "admin" });
+                }
+
+                if (Usuario.IsInRole("Vendedor") || Usuario.IsInRole("Packaging"))
                 {
                     return RedirectToAction("index", "pedidos", new { area = "admin" });
                 }
 
-                if (this.Usuario.IsInRole("Contenido"))
+                if (Usuario.IsInRole("Contenido"))
                 {
                     return RedirectToAction("index", "catalogo", new { area = "admin" });
                 }
 
-                return RedirectToAction("index", "usuarios", new { area = "admin" });
+                return RedirectToHome();
             }
             else if (!string.IsNullOrWhiteSpace(returnUrl) && Url.IsLocalUrl(returnUrl))
             {
@@ -171,8 +177,7 @@ namespace SIPI.Presentation.Website.Controllers
             var encryptedTicket = FormsAuthentication.Encrypt(ticket);
             Response.Cookies.Add(new HttpCookie(FormsAuthentication.FormsCookieName, encryptedTicket));
 
-            var principal = new CustomPrincipal(usuario.Email, data);
-            HttpContext.User = principal;
+            HttpContext.User = new CustomPrincipal(usuario.Email, data);
         }
 
         public string RecuperoMailBody(UsuarioView usuario, byte[] hash)

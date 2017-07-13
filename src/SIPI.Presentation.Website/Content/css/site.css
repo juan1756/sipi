@@ -84,5 +84,12 @@
 }
 
 .fixed-table-loading {
-    background-color: transparent !important;
+    background-color: #E4E7E9 !important;
+    vertical-align: middle;
+}
+
+label {
+    display: inline-block;
+    margin-bottom: .5rem;
+    margin-top: .5rem;
 }

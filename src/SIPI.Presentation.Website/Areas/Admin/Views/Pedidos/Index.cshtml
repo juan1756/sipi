@@ -53,7 +53,7 @@
                    data-side-pagination="server">
                 <thead>
                     <tr>
-                        <th data-field="temas">TEMAS</th>
+                        <th data-field="temas" data-formatter="view.temasFormatter">TEMAS</th>
                         <th data-field="miembro">MIEMBRO</th>
                         <th data-field="cantidadPedido" data-align="center">CANTIDAD</th>
                         <th data-field="fechaPedido" data-formatter="app.tables.dateFormat" data-align="center">FECHA</th>
@@ -88,9 +88,14 @@
                 return "<div class='btn btn-" + (value == "Listo" ? "info" : "success") + "-outline btn-static'>" + value + "</div>";
             }
 
+            function temasFormatter(value, row, index) {
+                return value.join(" / ");
+            }
+
             return {
                 estadoFormatter: estadoFormatter,
-                estadoSiguienteFormatter: estadoSiguienteFormatter
+                estadoSiguienteFormatter: estadoSiguienteFormatter,
+                temasFormatter: temasFormatter
             };
         })();
     </script>

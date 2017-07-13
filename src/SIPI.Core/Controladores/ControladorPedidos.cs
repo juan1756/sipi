@@ -30,7 +30,7 @@ namespace SIPI.Core.Controladores
         public IPagedCollection<PedidoOperadorView> SeguirPedidosOperador(string[] roles, string nombreApellidoMiembro, DateTime? fechaDesde, DateTime? fechaHasta, int desde, int cantidad)
         {
             return _pedidos
-                .ObtenerPedidos(nombreApellidoMiembro, fechaDesde, fechaHasta, desde, cantidad)
+                .ObtenerPedidos(roles, nombreApellidoMiembro, fechaDesde, fechaHasta, desde, cantidad)
                 .Convert(x => x.GetOperadorView(roles));
         }
 

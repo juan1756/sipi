@@ -12,7 +12,7 @@ namespace SIPI.Core.Data.Mappers
     {
         IPagedCollection<Pedido> ObtenerPedidos(int id, int desde, int cantidad);
 
-        IPagedCollection<Pedido> ObtenerPedidos(string nombreApellidoMiembro, DateTime? fechaDesde, DateTime? fechaHasta, int desde, int cantidad);
+        IPagedCollection<Pedido> ObtenerPedidos(string[] roles, string nombreApellidoMiembro, DateTime? fechaDesde, DateTime? fechaHasta, int desde, int cantidad);
 
         Pedido ObtenerPedido(int numero);
     }

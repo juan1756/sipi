@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using SIPI.Core.Data.DTO;
 using SIPI.Core.Entidades;
+using static SIPI.Core.Entidades.Pedido;
 
 namespace SIPI.Data.EF.Mappers
 {
@@ -31,12 +32,23 @@ namespace SIPI.Data.EF.Mappers
                 .ToPagedCollection(desde, cantidad);
         }
 
-        public IPagedCollection<Pedido> ObtenerPedidos(string nombreApellidoMiembro, DateTime? fechaDesde, DateTime? fechaHasta, int desde, int cantidad)
+        public IPagedCollection<Pedido> ObtenerPedidos(string[] roles, string nombreApellidoMiembro, DateTime? fechaDesde, DateTime? fechaHasta, int desde, int cantidad)
         {
+            List<int> estados = new List<int>();
+            if (roles.Contains("Packaging"))
+            {
+                estados.Add((int)Estados.Nuevo);
+            }
+            if (roles.Contains("Vendedor"))
+            {
+                estados.Add((int)Estados.Listo);
+            }
+
             return _dbCtx.Pedidos
                 .Where(!string.IsNullOrEmpty(nombreApellidoMiembro), x => (x.Miembro.Nombre + " " + x.Miembro.Apellido).Contains(nombreApellidoMiembro))
                 .Where(fechaDesde.HasValue, x => fechaDesde <= x.Fecha)
                 .Where(fechaHasta.HasValue, x => x.Fecha <= fechaHasta)
+                .Where(x => estados.Contains(x.Estado))
                 .OrderByDescending(x => x.Fecha)
                 .ToPagedCollection(desde, cantidad);
         }

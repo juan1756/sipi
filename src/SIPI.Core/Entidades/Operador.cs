@@ -7,7 +7,7 @@ namespace SIPI.Core.Entidades
 {
     public class Operador : Usuario
     {
-        protected Operador() 
+        protected Operador()
             : base()
         {
             Roles = new Collection<Rol>();

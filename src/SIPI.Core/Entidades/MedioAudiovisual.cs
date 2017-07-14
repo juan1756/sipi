@@ -13,7 +13,7 @@ namespace SIPI.Core.Entidades
         }
 
         public MedioAudiovisual(Categoria categoria, string tema, Tipo tipo, string url, int tamano)
-            :this()
+            : this()
         {
             Categoria = categoria;
             Tema = tema;

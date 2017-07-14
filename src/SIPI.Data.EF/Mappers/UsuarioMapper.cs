@@ -1,9 +1,7 @@
-﻿using SIPI.Core.Data.Mappers;
+﻿using SIPI.Core.Data.DTO;
+using SIPI.Core.Data.Mappers;
 using SIPI.Core.Entidades;
 using System.Linq;
-using System;
-using SIPI.Core.Data.DTO;
-using SIPI.Data.EF.DTO;
 
 namespace SIPI.Data.EF.Mappers
 {

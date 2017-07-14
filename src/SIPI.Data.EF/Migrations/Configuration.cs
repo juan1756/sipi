@@ -1,6 +1,5 @@
 namespace SIPI.Data.EF.Migrations
 {
-    using Core.Entidades;
     using System.Data.Entity.Migrations;
 
     internal sealed class Configuration : DbMigrationsConfiguration<DataContext>
@@ -47,9 +46,9 @@ namespace SIPI.Data.EF.Migrations
             //var operador_vendedor = new Operador(4, "operador_vendedor@mail.com", "Don", "Operador Vendedor", "1234", roles_operador_vendedor);
 
             //context.Usuarios.AddOrUpdate(x => x.Id,
-            //    miembro, 
-            //    operador_contenido, 
-            //    operador_packaging, 
+            //    miembro,
+            //    operador_contenido,
+            //    operador_packaging,
             //    operador_vendedor
             //);
 

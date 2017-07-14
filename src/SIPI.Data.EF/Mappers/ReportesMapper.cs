@@ -1,12 +1,8 @@
 ﻿using SIPI.Core.Data.DTO;
 using SIPI.Core.Data.Mappers;
-using SIPI.Core.Entidades;
 using SIPI.Core.Vistas;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SIPI.Data.EF.Mappers
 {
@@ -34,7 +30,7 @@ namespace SIPI.Data.EF.Mappers
                     Cantidad = x.Count()
                 })
                 .OrderByDescending(x => x.Cantidad)
-                .ToPagedCollection(desde,cantidad);
+                .ToPagedCollection(desde, cantidad);
         }
     }
 }

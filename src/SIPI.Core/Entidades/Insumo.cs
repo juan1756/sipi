@@ -11,7 +11,7 @@ namespace SIPI.Core.Entidades
         }
 
         public Insumo(Pedido pedido, int numero, decimal precio, int tamano)
-            :this()
+            : this()
         {
             Pedido = pedido;
             Numero = numero;

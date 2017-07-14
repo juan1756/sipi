@@ -1,11 +1,9 @@
-﻿using SIPI.Core.Data.Mappers;
+﻿using SIPI.Core.Data.DTO;
+using SIPI.Core.Data.Mappers;
+using SIPI.Core.Entidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using SIPI.Core.Data.DTO;
-using SIPI.Core.Entidades;
 using static SIPI.Core.Entidades.Pedido;
 
 namespace SIPI.Data.EF.Mappers

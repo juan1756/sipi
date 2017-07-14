@@ -1,5 +1,5 @@
-﻿using SIPI.Core.Data.DTO;
-using System;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -22,6 +22,16 @@ namespace SIPI.Core.Data.DTO
             {
                 Rows = page.Rows.Select(converter).ToList();
                 Total = page.Total;
+            }
+
+            public IEnumerator<T2> GetEnumerator()
+            {
+                return Rows.GetEnumerator();
+            }
+
+            IEnumerator IEnumerable.GetEnumerator()
+            {
+                return Rows.GetEnumerator();
             }
         }
     }

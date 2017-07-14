@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections;
 
 namespace SIPI.Data.EF.DTO
 {
@@ -20,6 +21,16 @@ namespace SIPI.Data.EF.DTO
                 .Skip(offset)
                 .Take(limit)
                 .ToList();
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            return Rows.GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return Rows.GetEnumerator();
         }
     }
 }

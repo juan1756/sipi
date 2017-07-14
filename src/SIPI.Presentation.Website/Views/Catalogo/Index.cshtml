@@ -9,14 +9,14 @@
         <h3 class="title">Contenido Multimedial</h3>
     </div>
     <section class="section">
-        <form action="" method="post">
+        <form method="get">
             <div class="form-group row">
                 <div class="col-md-12">
                     <div class="col-md-8">
                         <div class="row">
                             <label class="col-md-2 form-control-label">CATEGORÍA</label>
                             <div class="col-md-4">
-                                @HtmlFiltros.DropDownListFor(x => x.CategoriaId, Model.Categorias, new { @class= "c-select form-control boxed" })
+                                @HtmlFiltros.DropDownListFor(x => x.CategoriaId, Model.Categorias, "", new { @class = "c-select form-control boxed" })
                             </div>
                             <label class="col-md-2 form-control-label">TEMA</label>
                             <div class="col-md-4">
@@ -34,59 +34,62 @@
                             </div>
                             <label class="col-md-1 form-control-label">TIPO</label>
                             <div class="col-md-3">
-                                @HtmlFiltros.DropDownListFor(x => x.TipoId, Model.Tipos, new { @class= "c-select form-control boxed" })
+                                @HtmlFiltros.DropDownListFor(x => x.TipoId, Model.Tipos, "", new { @class = "c-select form-control boxed" })
                             </div>
                         </div>
                     </div>
                     <div class="col-md-4">
-                        <button type="submit" class="btn btn-block btn-primary">Crear pedido</button>
+                        <button type="submit" class="btn btn-block btn-primary">Buscar</button>
+                        <button type="button" class="btn btn-block btn-primary">Crear pedido</button>
                     </div>
                 </div>
             </div>
         </form>
     </section>
     <section class="section">
-        <div class="row">
-            <div class="col-xl-3" data-medio="">
-                <div class="card card-default">
-                    <div class="card-header">
-                        <div class="header-block">
-                            <p class="title"> Semana Santa - Predicación </p>
+        <div class="row infinite-container waypoint">
+            @foreach (var m in Model.Medios)
+            {
+                <div class="col-xl-3 infinite-item">
+                    <div class="card card-default">
+                        <div class="card-header">
+                            <div class="header-block">
+                                <p class="title">@m.Tema</p>
+                            </div>
                         </div>
+                        <div class="card-block">
+                            <iframe width="100%" height="100%" 
+                                    src="@(m.Url)?rel=0&amp;showinfo=0" 
+                                    frameborder="0" allowfullscreen></iframe>
+                        </div>
+                        <div class="card-footer">@m.FechaGrabacion.ToShortDateString()</div>
                     </div>
-                    <div class="card-block">
-                        <iframe id="ytplayer1" type="text/html" width="100%" height="100%"
-                                src="http://www.youtube.com/embed/Vj_emVFPgJ8?controls=1&showinfo=0"
-                                frameborder="0" />
-                        </iframe>
-                    </div>
-                    <div class="card-footer">14/04/2017</div>
                 </div>
-            </div>
+            }
         </div>
     </section>
+    
 </article>
-
-<div class="scroller-status">
-    <div class="infinite-scroll-request loader-ellips">...</div>
-    <p class="infinite-scroll-last">Final del contenido</p>
-    <p class="infinite-scroll-error">No hay más medios para cargar</p>
-</div>
-
-<p class="pagination">
-    <a class="pagination__next" href="page2.html">Página siguiente</a>
-</p>
+<a class="infinite-more-link" href="@Html.Raw(Url.Action("index", "catalogo", new
+    {
+        area = "",
+        Offset = Model.OffsetParams.Offset + Model.OffsetParams.Limit,
+        Limit = Model.OffsetParams.Limit,
+        CategoriaId = Model.Filtros.CategoriaId,
+        Tema = Model.Filtros.Tema,
+        FechaDesde = Model.Filtros.FechaDesde,
+        FechaHasta = Model.Filtros.FechaHasta,
+        TipoId = Model.Filtros.TipoId
+    }))">Página siguiente</a>
 
 @section scripts{
     <script>
         var view = (function () {
             (function constructor() {
                 $(document).ready(function () {
-                    $('.section > div.row').infiniteScroll({
-                        path: '.pagination__next',
-                        append: '[data-medio]',
-                        status: '.scroller-status',
-                        hideNav: '.pagination',
+                    var infinite = new Waypoint.Infinite({
+                        context: $('.main-wrapper')[0],
+                        element: $('.infinite-container')[0]
                     });
                 });
             })();

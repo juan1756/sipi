@@ -26,21 +26,18 @@ namespace SIPI.Presentation.Website.Controllers
             _controladorTipos = controladorTipos;
         }
 
-        public ActionResult Index(IndexFiltrosModel filtros)
+        public ActionResult Index(IndexFiltrosModel filtros, OffsetParams offsetParams)
         {
+            if (offsetParams.Limit == 0)
+                offsetParams.Limit = 8;
+
             return View(
                 new IndexModel(
-                    _controladorCategorias.ObtenerCategorias(),
-                    _controladorTipos.ObtenerTipos(),
-                    filtros));
-        }
-
-        public ActionResult IndexTable(IndexFiltrosModel filtros, OffsetParams offsetParams)
-        {
-            _controladorMedios.ObtenerCatalogo(filtros.CategoriaId, filtros.Tema, filtros.FechaDesde, 
-                filtros.FechaHasta, filtros.TipoId, offsetParams.Offset, offsetParams.Offset);
-
-            return null;
+                    categorias: _controladorCategorias.ObtenerCategorias(),
+                    tipos: _controladorTipos.ObtenerTipos(),
+                    filtros: filtros,
+                    medios: _controladorMedios.ObtenerCatalogo(filtros.CategoriaId, filtros.Tema, filtros.FechaDesde, filtros.FechaHasta, filtros.TipoId, offsetParams.Offset, offsetParams.Limit),
+                    offsetParams: offsetParams));
         }
     }
 }

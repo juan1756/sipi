@@ -237,11 +237,12 @@
     <Content Include="Content\landing\fonts\fontawesome-webfont.woff2" />
     <Content Include="Content\landing\fonts\FontAwesome.otf" />
     <None Include="Scripts\thirdparty\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\thirdparty\infinite-scroll.pkgd.js" />
     <Content Include="Scripts\thirdparty\jquery-3.2.1.js" />
     <Content Include="Scripts\thirdparty\jquery.mustache.js" />
     <Content Include="Scripts\thirdparty\jquery.validate.js" />
     <Content Include="Scripts\thirdparty\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\thirdparty\jquery.waypoints.infinite.js" />
+    <Content Include="Scripts\thirdparty\jquery.waypoints.js" />
     <Content Include="Scripts\thirdparty\modernizr-2.6.2.js" />
     <Content Include="Scripts\thirdparty\moment-2.18.1.js" />
     <Content Include="Scripts\thirdparty\mustache.js" />

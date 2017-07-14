@@ -1,18 +1,15 @@
 ﻿using SIPI.Core.Controladores;
 using SIPI.Core.Vistas;
+using SIPI.Presentation.Website.Authentication;
 using SIPI.Presentation.Website.Models.Cuenta;
+using SIPI.Presentation.Website.Models.Shared;
+using System;
 using System.Linq;
 using System.Security.Principal;
-using System.Threading;
 using System.Web;
 using System.Web.Mvc;
-using System.Web.Security;
-using System;
-using SIPI.Core.Data.DTO;
-using SIPI.Presentation.Website.Models.Shared;
-using System.Collections.Generic;
-using SIPI.Presentation.Website.Authentication;
 using System.Web.Script.Serialization;
+using System.Web.Security;
 
 namespace SIPI.Presentation.Website.Controllers
 {
@@ -144,7 +141,7 @@ namespace SIPI.Presentation.Website.Controllers
         public ActionResult IndexTable(IndexFiltersModel filters, OffsetParams offsetParams)
         {
             return Json(
-                _controladorCuenta.BuscarUsuarios(filters.Nombre, filters.Apellido, offsetParams.Offset, offsetParams.Limit), 
+                _controladorCuenta.BuscarUsuarios(filters.Nombre, filters.Apellido, offsetParams.Offset, offsetParams.Limit),
                 JsonRequestBehavior.AllowGet);
         }
 

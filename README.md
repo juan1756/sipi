@@ -91,5 +91,6 @@ En **SIPI.Core** las clases controlador, tienen la responsabilidad de orquestar 
 - https://developers.google.com/youtube/v3/docs/videos/list#try-it
 - http://www.genyoutube.net/
 - http://video.genyoutube.net/sHMszd8Pct0
+- http://imakewebthings.com/waypoints/shortcuts/infinite-scroll/
 
 

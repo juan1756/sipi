@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 
 namespace SIPI.Core.Vistas
 {
@@ -23,7 +24,13 @@ namespace SIPI.Core.Vistas
             Categoria = categoria;
             Tema = tema;
             Tipo = tipo;
-            Url = url;
+            Url = GenerateEmbedUrl(url);
+        }
+
+        private string GenerateEmbedUrl(string url)
+        {
+            var rgx = new Regex(@"(?:https?:\/\/)?(?:www\.)?(?:(?:(?:youtube.com\/watch\?[^?]*v=|youtu.be\/)([\w\-]+))(?:[^\s?]+)?)");
+            return rgx.Replace(url, "http://www.youtube.com/embed/$1");
         }
     }
 }

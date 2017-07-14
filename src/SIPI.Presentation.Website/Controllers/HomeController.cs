@@ -1,6 +1,4 @@
-﻿using SIPI.Core.Data.DTO;
-using System.Collections.Generic;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 
 namespace SIPI.Presentation.Website.Controllers
 {

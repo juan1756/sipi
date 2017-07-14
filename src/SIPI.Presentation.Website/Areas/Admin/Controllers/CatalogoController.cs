@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace SIPI.Presentation.Website.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Contenido")]
     public class CatalogoController : BaseAdminController
     {
         public ActionResult Index()

@@ -145,6 +145,15 @@ namespace SIPI.Presentation.Website.Controllers
                 JsonRequestBehavior.AllowGet);
         }
 
+        // TODO: prueba para el styling del body del mail.
+        [HttpGet]
+        public ActionResult RecuperoMail()
+        {
+            RecuperoMailModel model = new RecuperoMailModel("tipitotipin@mail.com", "acaVaElToken", "Tipito", "Tipín");
+
+            return View(model);
+        }
+
         private void Authenticate(UsuarioView usuario)
         {
             var identity = new GenericIdentity($"{usuario.Nombre} {usuario.Apellido}");

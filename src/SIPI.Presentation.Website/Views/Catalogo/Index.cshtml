@@ -10,9 +10,9 @@
     </div>
     <section class="section">
         <form method="get">
-            <div class="form-group row">
-                <div class="col-md-12">
-                    <div class="col-md-8">
+            <div class="col-md-12">
+                <div class="col-md-8">
+                    <div class="form-group row">
                         <div class="row">
                             <label class="col-md-2 form-control-label">CATEGORÍA</label>
                             <div class="col-md-4">
@@ -23,6 +23,8 @@
                                 @HtmlFiltros.TextBoxFor(x => x.Tema, new { @class = "form-control boxed" })
                             </div>
                         </div>
+                    </div>
+                    <div class="form-group row">
                         <div class="row">
                             <label class="col-md-1 form-control-label">FECHA</label>
                             <div class="col-md-3">
@@ -38,7 +40,12 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                </div>
+                <div class="col-md-1">
+                    &nbsp;
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group row">
                         <button type="submit" class="btn btn-block btn-primary">Buscar</button>
                         <button type="button" class="btn btn-block btn-primary">Crear pedido</button>
                     </div>

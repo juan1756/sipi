@@ -1,50 +1,68 @@
-var App = (function () {
-    function App(dateFormat) {
+﻿declare var moment: any;
+
+class App {
+
+    private _dateFormat: string;
+
+    constructor(dateFormat: string) {
         this._dateFormat = dateFormat;
         this.tables = new Tables(dateFormat);
         this.initDatePickers();
     }
-    App.prototype.initDatePickers = function () {
-        $('input[data-apply=datepicker]').datepicker({
+
+    public tables: Tables;
+
+    private initDatePickers() {
+        (<any>$('input[data-apply=datepicker]')).datepicker({
             language: "es",
             endDate: new Date(),
             todayHighlight: true,
             weekStart: 0
         });
-        $.validator.methods.date = function (value, element) {
+
+        (<any>$).validator.methods.date = function (value, element) {
             return this.optional(element) || moment(value, "DD/MM/YYYY") !== null;
         };
-    };
-    App.prototype.go = function (url) {
+    }
+
+    public go(url: string) {
         window.location.href = url;
-    };
-    return App;
-}());
-var Tables = (function () {
-    function Tables(dateFormat) {
+    }
+}
+
+class Tables {
+
+    private _dateFormat: string;
+    constructor(dateFormat: string) {
         this._dateFormat = dateFormat;
     }
-    Tables.prototype.dateFormat = function (value, row, index) {
+
+    public dateFormat(value, row, index) {
         return moment(value).format('DD/MM/YYYY');
-    };
-    Tables.prototype.estadoFormatter = function (value, row, index) {
+    }
+
+    public estadoFormatter(value, row, index) {
         return "<div class='btn btn-" +
             (value == "Nuevo"
                 ? "danger"
                 : value == "Listo"
                     ? "info"
                     : "success") + "-outline btn-static'>" + value + "</div>";
-    };
-    Tables.prototype.estadoSiguienteFormatter = function (value, row, index) {
+    }
+
+    public estadoSiguienteFormatter(value, row, index) {
         if (!value)
             return;
+
         if (row.puedeCambiarEstado)
             return "<button type='submit' name='numero' value='" + row.numero + "' class='btn btn-" + (value == "Listo" ? "info" : "success") + "'>" + value + "</button>";
+
         return "<div class='btn btn-" + (value == "Listo" ? "info" : "success") + "-outline btn-static'>" + value + "</div>";
-    };
-    Tables.prototype.temasFormatter = function (value, row, index) {
+    }
+
+    public temasFormatter(value, row, index) {
         return value.join(" / ");
-    };
-    return Tables;
-}());
-//# sourceMappingURL=app.js.map
+    }
+}
+
+declare var app: App;

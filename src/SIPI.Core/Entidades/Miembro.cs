@@ -37,7 +37,7 @@ namespace SIPI.Core.Entidades
 
         public override UsuarioView GetView()
         {
-            return new MiembroView(Id, Nombre, Apellido, Email);
+            return new MiembroView(Id, Nombre, Apellido, Email, Altura, Calle, Direccion, Localidad.GetView(), Telefono, Piso, Provincia.GetView());
         }
     }
 }

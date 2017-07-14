@@ -1,6 +1,7 @@
 ﻿using SIPI.Core.Data.DTO;
 using SIPI.Core.Entidades;
 using System;
+using System.Collections.Generic;
 
 namespace SIPI.Core.Data.Mappers
 {

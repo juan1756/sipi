@@ -32,7 +32,7 @@ namespace SIPI.Core.Entidades
 
         public string Tema { get; private set; }
 
-        public Tipo Tipo { get; private set; }
+        public virtual Tipo Tipo { get; private set; }
 
         public string Url { get; private set; }
 

@@ -26,6 +26,12 @@
     @Scripts.Render("~/bundles/scripts/thirdparty")
     @Scripts.Render("~/bundles/scripts/plugins")
     @Scripts.Render("~/bundles/scripts/app")
+    <script>
+        var app;
+        $(document).ready(function () {
+            app = new App('@System.Threading.Thread.CurrentThread.CurrentCulture.DateTimeFormat.ShortDatePattern.ToUpper()');
+        })
+    </script>
     @RenderSection("scripts", required: false)
 </body>
 </html>

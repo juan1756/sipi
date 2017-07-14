@@ -38,7 +38,8 @@ namespace SIPI.Presentation.Website
             ));
 
             bundles.Add(new ScriptBundle("~/bundles/scripts/app").Include(
-                "~/Scripts/app.js"
+                "~/Scripts/app.js",
+                "~/Scripts/views/pedidos/crear.js"
             ));
 
             // Landing

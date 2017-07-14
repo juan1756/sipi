@@ -146,16 +146,22 @@ aside {
     color: #F05F40;
   }
 }
-header {
-  position: relative;
-  width: 100%;
-  min-height: auto;
-  -webkit-background-size: cover;
+
+#page-top{
+	-webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
   -o-background-size: cover;
   background-position: center;
   background-image: url('../img/header.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+header {
+  position: relative;
+  width: 100%;
+  min-height: auto;
   text-align: center;
   color: white;
 }

@@ -2,6 +2,8 @@
 using SIPI.Core.Data.Mappers;
 using SIPI.Core.Vistas;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace SIPI.Core.Controladores
 {

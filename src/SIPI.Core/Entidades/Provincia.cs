@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using SIPI.Core.Vistas;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace SIPI.Core.Entidades
 {
@@ -22,5 +24,10 @@ namespace SIPI.Core.Entidades
         public string Nombre { get; private set; }
 
         public ICollection<Localidad> Localidades { get; private set; }
+
+        public ProvinciaView GetView()
+        {
+            return new ProvinciaView(Id, Nombre, Localidades.Select(x => x.Id).ToArray());
+        }
     }
 }

@@ -3,6 +3,7 @@ using SIPI.Core.Data.Mappers;
 using SIPI.Core.Entidades;
 using System;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace SIPI.Data.EF.Mappers
 {

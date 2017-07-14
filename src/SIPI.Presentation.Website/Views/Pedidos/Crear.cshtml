@@ -1,6 +1,6 @@
 ﻿@model SIPI.Presentation.Website.Models.Catalogo.IndexModel
 @{
-    ViewBag.Title = "Catálogo";
+    ViewBag.Title = "Crear Pedido";
     var HtmlFiltros = Html.ToInnerModel(x => x.Filtros);
 }
 
@@ -9,7 +9,7 @@
         <h3 class="title">Contenido Multimedial</h3>
     </div>
     <section class="section">
-        <form method="get">
+        <form id="frmFilters" method="get">
             <div class="col-md-12">
                 <div class="col-md-8">
                     <div class="form-group row">
@@ -40,6 +40,14 @@
                             </div>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label>
+                                <input id="SelectAll" class="checkbox" type="checkbox" checked>
+                                <span>Seleccionar todos</span>
+                            </label>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-md-1">
                     &nbsp;
@@ -47,37 +55,51 @@
                 <div class="col-md-3">
                     <div class="form-group row">
                         <button type="submit" class="btn btn-block btn-primary">Buscar</button>
-                        <button name="createOrder" type="submit" class="btn btn-block btn-primary" value="CrearPedido">Crear pedido</button>
+                        <button id="btnOrder" type="button" class="btn btn-block btn-primary" value="Confirmar">Pedir</button>
                     </div>
                 </div>
             </div>
         </form>
     </section>
     <section class="section">
-        <div class="row infinite-container waypoint">
-            @foreach (var m in Model.Medios)
-            {
-                <div class="col-xl-3 infinite-item">
-                    <div class="card card-default">
-                        <div class="card-header">
-                            <div class="header-block">
-                                <p class="title">@m.Tema</p>
+        <form id="frmMedios" method="post">
+            @HtmlFiltros.HiddenFor(x => x.CategoriaId)
+            @HtmlFiltros.HiddenFor(x => x.Tema)
+            @HtmlFiltros.HiddenFor(x => x.FechaDesde)
+            @HtmlFiltros.HiddenFor(x => x.FechaHasta)
+            @HtmlFiltros.HiddenFor(x => x.TipoId)
+            <input type="hidden" name="SelectAll" />
+            <input type="hidden" name="step" value="Confirm" />
+            <div class="row infinite-container waypoint">
+                @foreach (var m in Model.Medios)
+                {
+                    <div class="col-xl-3 infinite-item">
+                        <div class="card card-default">
+                            <div class="card-header">
+                                <div class="header-block">
+                                    <p class="title">@m.Tema</p>
+                                </div>
+                            </div>
+                            <div class="card-block">
+                                <iframe width="100%" height="100%"
+                                        src="@(m.Url)?rel=0&amp;showinfo=0"
+                                        frameborder="0" allowfullscreen></iframe>
+                            </div>
+                            <div class="card-footer">
+                                @m.FechaGrabacion.ToShortDateString()
+                                <label class="pull-right">
+                                    <input name="Medios" type="checkbox" class="checkbox" value="@m.Id" />
+                                    <span></span>
+                                </label>
                             </div>
                         </div>
-                        <div class="card-block">
-                            <iframe width="100%" height="100%" 
-                                    src="@(m.Url)?rel=0&amp;showinfo=0" 
-                                    frameborder="0" allowfullscreen></iframe>
-                        </div>
-                        <div class="card-footer">@m.FechaGrabacion.ToShortDateString()</div>
                     </div>
-                </div>
-            }
-        </div>
+                }
+            </div>
+        </form>
     </section>
-    
 </article>
-<a class="infinite-more-link" href="@Html.Raw(Url.Action("index", "catalogo", new
+<a class="infinite-more-link" href="@Html.Raw(Url.Action("crear", "pedidos", new
     {
         area = "",
         Offset = Model.OffsetParams.Offset + Model.OffsetParams.Limit,
@@ -91,13 +113,9 @@
 
 @section scripts{
     <script>
-        var view = (function () {
-            $(document).ready(function () {
-                var infinite = new Waypoint.Infinite({
-                    context: $('.main-wrapper')[0],
-                    element: $('.infinite-container')[0]
-                });
-            });
-        })();
+        var view;
+        $(document).ready(function () {
+            view = new views.pedidos.crear(10);
+        });
     </script>
 }

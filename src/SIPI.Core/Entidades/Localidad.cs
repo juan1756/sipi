@@ -1,4 +1,6 @@
-﻿namespace SIPI.Core.Entidades
+﻿using SIPI.Core.Vistas;
+
+namespace SIPI.Core.Entidades
 {
     public class Localidad
     {
@@ -18,5 +20,10 @@
         public string Nombre { get; private set; }
 
         public virtual Provincia Provincia { get; private set; }
+
+        public LocalidadView GetView()
+        {
+            return new LocalidadView(Id, Nombre, Provincia.Id);
+        }
     }
 }

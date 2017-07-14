@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace SIPI.Presentation.Website.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Vendedor, Packaging")]
     public class PedidosController : BaseAdminController
     {
         private readonly ControladorPedidos _controladorPedidos;

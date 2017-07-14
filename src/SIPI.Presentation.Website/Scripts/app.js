@@ -5,10 +5,38 @@
             return moment(value).format('DD/MM/YYYY');
         }
 
+        function estadoFormatter(value, row, index) {
+            return "<div class='btn btn-" +
+                (value == "Nuevo"
+                    ? "danger"
+                    : value == "Listo"
+                        ? "info"
+                        : "success") + "-outline btn-static'>" + value + "</div>";
+        }
+
+        function estadoSiguienteFormatter(value, row, index) {
+            if (!value)
+                return;
+
+            if (row.puedeCambiarEstado)
+                return "<button type='submit' name='numero' value='" + row.numero + "' class='btn btn-" + (value == "Listo" ? "info" : "success") + "'>" + value + "</button>";
+
+            return "<div class='btn btn-" + (value == "Listo" ? "info" : "success") + "-outline btn-static'>" + value + "</div>";
+        }
+
+        function temasFormatter(value, row, index) {
+            return value.join(" / ");
+        }
+
         return {
-            dateFormat: dateFormat
+            dateFormat: dateFormat,
+            estadoFormatter: estadoFormatter,
+            estadoSiguienteFormatter: estadoSiguienteFormatter,
+            temasFormatter: temasFormatter
         };
     })();
+
+
 
     function initDatepickers() {
         $('input[data-apply=datepicker]').datepicker({

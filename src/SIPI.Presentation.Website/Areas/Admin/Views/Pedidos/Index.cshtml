@@ -55,50 +55,15 @@
                    data-side-pagination="server">
                 <thead>
                     <tr>
-                        <th data-field="temas" data-formatter="view.temasFormatter">TEMAS</th>
+                        <th data-field="temas" data-formatter="app.tables.temasFormatter">TEMAS</th>
                         <th data-field="miembro">MIEMBRO</th>
                         <th data-field="cantidadPedido" data-align="center">CANTIDAD</th>
                         <th data-field="fechaPedido" data-formatter="app.tables.dateFormat" data-align="center">FECHA</th>
-                        <th data-field="estado" data-formatter="view.estadoFormatter" data-align="center">ESTADO</th>
-                        <th data-field="estadoSiguiente" data-formatter="view.estadoSiguienteFormatter" data-align="center">PASAR A</th>
+                        <th data-field="estado" data-formatter="app.tables.estadoFormatter" data-align="center">ESTADO</th>
+                        <th data-field="estadoSiguiente" data-formatter="app.tables.estadoSiguienteFormatter" data-align="center">PASAR A</th>
                     </tr>
                 </thead>
             </table>
         </form>
     </section>
 </article>
-
-@section scripts{
-    <script>
-        var view = (function() {
-            function estadoFormatter(value, row, index) {
-                return "<div class='btn btn-" +
-                    (value == "Nuevo"
-                        ? "danger"
-                        : value == "Listo"
-                            ? "info"
-                            : "success") + "-outline btn-static'>" + value + "</div>";
-            }
-
-            function estadoSiguienteFormatter(value, row, index) {
-                if (!value)
-                    return;
-
-                if (row.puedeCambiarEstado)
-                    return "<button type='submit' name='numero' value='"+ row.numero +"' class='btn btn-" + (value == "Listo" ? "info" : "success") + "'>" + value + "</button>";
-
-                return "<div class='btn btn-" + (value == "Listo" ? "info" : "success") + "-outline btn-static'>" + value + "</div>";
-            }
-
-            function temasFormatter(value, row, index) {
-                return value.join(" / ");
-            }
-
-            return {
-                estadoFormatter: estadoFormatter,
-                estadoSiguienteFormatter: estadoSiguienteFormatter,
-                temasFormatter: temasFormatter
-            };
-        })();
-    </script>
-}

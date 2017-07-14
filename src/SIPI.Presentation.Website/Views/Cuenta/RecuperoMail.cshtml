@@ -4,15 +4,58 @@
     ViewBag.Title = "Recupero Contraseña";
 }
 
-<p>Hola @Model.Nombre @Model.Apellido:</p>
+<table border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" id="bodyTable">
+    <tr>
+        <td align="left" valign="top">
+            <table style="font-family:'Open Sans', sans-serif;" border="0" cellpadding="10" cellspacing="0" width="600" id="emailContainer">
+                <tr>
+                    <td align="left" style="border-bottom: 1px solid #fe821d;" valign="top">
+                        <table border="0" cellpadding="10" cellspacing="0" width="100%" id="emailHeader">
+                            <tr>
+                                <td align="left" valign="middle" style="width: 70px;">
+                                    <img style="width: 60px;" src="data:image/png;base64,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" alt="logo" />
+                                </td>
+                                <td align="left" style="font-size: 30px; font-weight: bold;" valign="middle">
+                                    Iglesia Calle Brasil
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="left" valign="top">
+                        <table border="0" cellpadding="10" cellspacing="0" width="100%" id="emailBody">
+                            <tr>
+                                <td align="left" valign="top">
+                                    <p>Hola @Model.Nombre @Model.Apellido:</p>
 
-<p>Hemos recibido una solicitud de cambio de contraseña</p>
+                                    <p>Hemos recibido una solicitud de <strong>cambio de contraseña</strong>.</p>
 
-<p>Si no has sido tú quien ha enviado la solicitud, ignora este mensaje. <br />Si  has sido tú, puedes restablecer la contraseña a través de este enlace:</p>
+                                    <p>Si no has sido tú quien ha enviado la solicitud, ignora este mensaje. <br />Si  has sido tú, puedes restablecer la contraseña a través de este enlace:</p>
 
-<a href="@Html.Raw(Url.Action("recuperoconfirmar", "cuenta", new { email = Model.Email, token = Model.Token, area = "" }, Request.Url.Scheme))">
-    Confirmar cambio de contraseña
-</a>
-
-<p>Gracias, <br />
-Iglesia Brasil 1750.</p>
+                                    <a style="color: #f9780e;" href="@Html.Raw(Url.Action("recuperoconfirmar", "cuenta", new { email = Model.Email, token = Model.Token, area = "" }, Request.Url.Scheme))">
+                                        Confirmar cambio de contraseña
+                                    </a>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="left" valign="top">
+                        <table border="0" cellpadding="10" cellspacing="0" width="100%" id="emailFooter">
+                            <tr>
+                                <td align="left" valign="top">
+                                    <p>
+                                        Gracias, <br />
+                                        Iglesia Calle Brasil.
+                                    </p>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>

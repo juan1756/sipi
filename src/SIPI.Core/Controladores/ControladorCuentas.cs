@@ -64,7 +64,7 @@ namespace SIPI.Core.Controladores
         private void EnviarMailRecupero(Usuario usuario, string body)
         {
             var smtp = new SmtpClient();
-            var fromAddress = new MailAddress((smtp.Credentials as NetworkCredential).UserName);
+            var fromAddress = new MailAddress((smtp.Credentials as NetworkCredential).UserName, "Iglesia Calle Brasil");
             var toAddress = new MailAddress(usuario.Email, $"{usuario.Nombre} {usuario.Apellido}");
 
             using (var message = new MailMessage(fromAddress, toAddress)

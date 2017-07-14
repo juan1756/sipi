@@ -3,6 +3,7 @@ using SIPI.Presentation.Website.Areas.Admin.Models.Pedidos;
 using SIPI.Presentation.Website.Models.Shared;
 using System;
 using System.Web.Mvc;
+using static SIPI.Core.Entidades.Pedido;
 
 namespace SIPI.Presentation.Website.Areas.Admin.Controllers
 {
@@ -35,7 +36,7 @@ namespace SIPI.Presentation.Website.Areas.Admin.Controllers
             {
                 _controladorPedidos.CambiarEstadoPedido(numero, Usuario.Roles);
             }
-            catch (Exception ex)
+            catch (UsuarioNoTienePermisosParaModificarEstadoException ex)
             {
                 TempData.Add("Error-Notifications-CambiarEstado", ex.Message);
             }

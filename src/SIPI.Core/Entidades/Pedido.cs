@@ -50,9 +50,9 @@ namespace SIPI.Core.Entidades
         {
             return new PedidoOperadorView(
                 Numero,
-                Insumos.SelectMany(x => x.Medios.Select(y => y.Tema)).Distinct().ToList(), 
-                $"{Miembro.Nombre} {Miembro.Apellido}", 
-                CantidadPedido, 
+                Insumos.SelectMany(x => x.Medios.Select(y => y.Tema)).Distinct().ToList(),
+                $"{Miembro.Nombre} {Miembro.Apellido}",
+                CantidadPedido,
                 Fecha,
                 (Estados)Estado,
                 ObtenerEstadoSiguiente(),
@@ -64,7 +64,7 @@ namespace SIPI.Core.Entidades
         public void CambiarEstado(string[] roles)
         {
             if (!PuedeCambiarEstado(roles))
-                throw new Exception("El usuario no tiene permisos para cambiar el estado");
+                throw new UsuarioNoTienePermisosParaModificarEstadoException();
 
             Estado = (int)ObtenerEstadoSiguiente();
         }
@@ -72,10 +72,10 @@ namespace SIPI.Core.Entidades
         public PedidoMiembroView GetMiembroView()
         {
             return new PedidoMiembroView(
-                Insumos.SelectMany(x => x.Medios.Select(y => y.Tema)).Distinct().ToList(), 
-                CantidadPedido, 
-                Fecha, 
-                (Estados)Estado, 
+                Insumos.SelectMany(x => x.Medios.Select(y => y.Tema)).Distinct().ToList(),
+                CantidadPedido,
+                Fecha,
+                (Estados)Estado,
                 FechaEntregado);
         }
 
@@ -107,6 +107,13 @@ namespace SIPI.Core.Entidades
                 return true;
 
             return false;
+        }
+
+        public class UsuarioNoTienePermisosParaModificarEstadoException : Exception
+        {
+            public UsuarioNoTienePermisosParaModificarEstadoException()
+                : base("El usuario no tiene permisos para cambiar el estado")
+            { }
         }
     }
 }

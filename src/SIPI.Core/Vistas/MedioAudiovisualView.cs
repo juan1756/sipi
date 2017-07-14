@@ -29,6 +29,7 @@ namespace SIPI.Core.Vistas
 
         private string GenerateEmbedUrl(string url)
         {
+            // https://stackoverflow.com/a/15824742
             var rgx = new Regex(@"(?:https?:\/\/)?(?:www\.)?(?:(?:(?:youtube.com\/watch\?[^?]*v=|youtu.be\/)([\w\-]+))(?:[^\s?]+)?)");
             return rgx.Replace(url, "http://www.youtube.com/embed/$1");
         }

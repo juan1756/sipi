@@ -4,12 +4,6 @@
 }
 
 <article class="content items-list-page">
-    @if (TempData.ContainsKey("Error-Notifications-CambiarEstado"))
-    {
-        <div>
-            @TempData["Error-Notifications-CambiarEstado"]
-        </div>
-    }
     <div class="title-block">
         <h3 class="title">Pedidos</h3>
     </div>
@@ -67,3 +61,13 @@
         </form>
     </section>
 </article>
+
+@section scripts
+{
+    @if (TempData.ContainsKey("Error-Notifications-CambiarEstado"))
+    {
+        <script>
+            toastr.error('@TempData["Error-Notifications-CambiarEstado"]', 'Error');
+        </script>
+    }
+}

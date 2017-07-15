@@ -38,7 +38,10 @@ namespace SIPI.Presentation.Website.Areas.Admin.Controllers
             }
             catch (UsuarioNoTienePermisosParaModificarEstadoException ex)
             {
-                TempData.Add("Error-Notifications-CambiarEstado", ex.Message);
+                if (!TempData.ContainsKey("Error-Notifications-CambiarEstado"))
+                {
+                    TempData.Add("Error-Notifications-CambiarEstado", ex.Message);
+                }
             }
             return View(filtros);
         }

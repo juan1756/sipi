@@ -14,6 +14,7 @@ namespace SIPI.Presentation.Website
                 "~/Content/css/app.css",
                 "~/Content/css/bootstrap-table-1.11.1.css",
                 "~/Content/css/bootstrap-datepicker.css",
+                "~/Content/css/toastr.css",
                 "~/Content/css/site.css"
             ));
 
@@ -30,7 +31,8 @@ namespace SIPI.Presentation.Website
                 "~/Scripts/thirdparty/bootstrap-datepicker.es.min.js",
                 "~/Scripts/thirdparty/moment-2.18.1.js",
                 "~/Scripts/thirdparty/jquery.waypoints.js",
-                "~/Scripts/thirdparty/jquery.waypoints.infinite.js"
+                "~/Scripts/thirdparty/jquery.waypoints.infinite.js",
+                "~/Scripts/thirdparty/toastr.js"
             ));
 
             bundles.Add(new ScriptBundle("~/bundles/scripts/plugins").Include(
@@ -47,6 +49,7 @@ namespace SIPI.Presentation.Website
                 "~/Content/landing/css/bootstrap.css",
                 "~/Content/landing/css/font-awesome.css",
                 "~/Content/landing/css/magnific-popup.css",
+                "~/Content/css/toastr.css",
                 "~/Content/landing/css/creative.css"
             ));
 
@@ -56,7 +59,8 @@ namespace SIPI.Presentation.Website
                 "~/Scripts/landing/thirdparty/jquery.easing.js",
                 "~/Scripts/landing/thirdparty/scrollreveal.js",
                 "~/Scripts/landing/thirdparty/jquery.magnific-popup.js",
-                "~/Scripts/landing/thirdparty/creative.js"
+                "~/Scripts/landing/thirdparty/creative.js",
+                "~/Scripts/thirdparty/toastr.js"
             ));
         }
     }

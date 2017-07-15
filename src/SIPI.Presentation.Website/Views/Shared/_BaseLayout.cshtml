@@ -14,18 +14,13 @@
     @Styles.Render("~/Content/styles")
 </head>
 <body>
-    @if (TempData.ContainsKey("Notification"))
-    {
-        <p>@TempData["Notification"]</p>
-    }
+        @RenderBody()
 
-    @RenderBody()
+        @RenderSection("templates", required: false)
 
-    @RenderSection("templates", required: false)
-
-    @Scripts.Render("~/bundles/scripts/thirdparty")
-    @Scripts.Render("~/bundles/scripts/plugins")
-    @Scripts.Render("~/bundles/scripts/app")
-    @RenderSection("scripts", required: false)
+        @Scripts.Render("~/bundles/scripts/thirdparty")
+        @Scripts.Render("~/bundles/scripts/plugins")
+        @Scripts.Render("~/bundles/scripts/app")
+        @RenderSection("scripts", required: false)
 </body>
 </html>

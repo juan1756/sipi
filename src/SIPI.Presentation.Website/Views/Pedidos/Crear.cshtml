@@ -71,7 +71,7 @@
             <input type="hidden" name="SelectAll" />
             <input type="hidden" name="step" value="Confirm" />
             <div class="row infinite-container waypoint">
-                @foreach (var m in Model.Medios)
+                @foreach (var m in Model.Medios.Rows)
                 {
                     <div class="col-xl-3 infinite-item">
                         <div class="card card-default">

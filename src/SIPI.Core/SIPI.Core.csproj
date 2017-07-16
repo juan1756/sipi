@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -44,10 +45,13 @@
     <Compile Include="Controladores\ControladorMediosAudiovisuales.cs" />
     <Compile Include="Controladores\ControladorPedidos.cs" />
     <Compile Include="Controladores\ControladorCuentas.cs" />
+    <Compile Include="Controladores\ControladorLocalidades.cs" />
     <Compile Include="Controladores\ControladorReportes.cs" />
+    <Compile Include="Controladores\ControladorProvincias.cs" />
     <Compile Include="Controladores\ControladorTipos.cs" />
     <Compile Include="Data\DTO\IPagedCollection.cs" />
     <Compile Include="Data\IDataContext.cs" />
+    <Compile Include="Data\Mappers\ILocalidadMapper.cs" />
     <Compile Include="Data\Mappers\IMedioAudiovisualMapper.cs" />
     <Compile Include="Data\Mappers\IPedidosMapper.cs" />
     <Compile Include="Data\Mappers\IReportesMapper.cs" />

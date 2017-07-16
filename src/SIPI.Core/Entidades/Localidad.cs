@@ -1,4 +1,5 @@
 ﻿using SIPI.Core.Vistas;
+using System;
 
 namespace SIPI.Core.Entidades
 {
@@ -24,6 +25,19 @@ namespace SIPI.Core.Entidades
         public LocalidadView GetView()
         {
             return new LocalidadView(Id, Nombre, Provincia.Id);
+        }
+
+        public void ValidarProvincia(Provincia provincia)
+        {
+            if (Provincia.Id != provincia.Id)
+                throw new LocalidadNoPerteneceAProvinciaException();
+        }
+
+        public class LocalidadNoPerteneceAProvinciaException : Exception
+        {
+            public LocalidadNoPerteneceAProvinciaException()
+                : base("La localidad o la provincia son inválidas")
+            { }
         }
     }
 }

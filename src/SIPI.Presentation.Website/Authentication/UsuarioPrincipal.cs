@@ -34,6 +34,14 @@ namespace SIPI.Presentation.Website.Authentication
 
         public string Nombre { get; private set; }
 
+        public string Email
+        {
+            get
+            {
+                return Identity.Name;
+            }
+        }
+
         public IIdentity Identity { get; private set; }
 
         public string[] Roles { get; private set; }

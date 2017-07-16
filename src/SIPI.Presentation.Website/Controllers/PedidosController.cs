@@ -1,9 +1,6 @@
 ﻿using SIPI.Core.Controladores;
-using SIPI.Core.Data.DTO;
-using SIPI.Core.Vistas;
 using SIPI.Presentation.Website.Models.Pedidos;
 using SIPI.Presentation.Website.Models.Shared;
-using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 
@@ -16,17 +13,26 @@ namespace SIPI.Presentation.Website.Controllers
         private readonly ControladorMediosAudiovisuales _controladorMedios;
         private readonly ControladorCategorias _controladorCategorias;
         private readonly ControladorTipos _controladorTipos;
+        private readonly ControladorCuentas _controladorCuentas;
+        private readonly ControladorProvincias _controladorProvincias;
+        private readonly ControladorLocalidades _controladorLocalidades;
 
         public PedidosController(
             ControladorPedidos controladorPedidos,
             ControladorMediosAudiovisuales controladorMedios,
             ControladorCategorias controladorCategorias,
-            ControladorTipos controladorTipos)
+            ControladorTipos controladorTipos,
+            ControladorCuentas controladorCuentas,
+            ControladorProvincias controladorProvincias,
+            ControladorLocalidades controladorLocalidades)
         {
             _controladorPedidos = controladorPedidos;
             _controladorMedios = controladorMedios;
             _controladorCategorias = controladorCategorias;
             _controladorTipos = controladorTipos;
+            _controladorCuentas = controladorCuentas;
+            _controladorProvincias = controladorProvincias;
+            _controladorLocalidades = controladorLocalidades;
         }
 
         public ActionResult Index()
@@ -61,6 +67,7 @@ namespace SIPI.Presentation.Website.Controllers
         {
             var mediosViews = _controladorMedios
                 .ObtenerCatalogo(filtros.CategoriaId, filtros.Tema, filtros.FechaDesde, filtros.FechaHasta, filtros.TipoId, 0, int.MaxValue)
+                .Rows
                 .ToList();
 
             if (!crear.SelectAll)
@@ -70,8 +77,33 @@ namespace SIPI.Presentation.Website.Controllers
                     .ToList();
             }
 
-            return View("Confirmar", mediosViews);
-            //return Json(mediosViews);
+            return View(
+                "Confirmar",
+                new ConfirmarModel(
+                    provincias: _controladorProvincias.ObtenerProvincias(),
+                    localidades: _controladorLocalidades.ObtenerLocalidades(),
+                    medios: mediosViews,
+                    miembro: _controladorCuentas.BuscarMiembro(Usuario.Identity.Name)));
+        }
+
+        [HttpPost]
+        public ActionResult Confirmar(
+            ConfirmarPedidoModel confirmarPedidoModel, 
+            MiembroDireccionModel miembroDireccionModel)
+        {
+            _controladorCuentas
+                .ConfirmarDireccion(
+                    Usuario.Email,
+                    miembroDireccionModel.ProvinciaId, miembroDireccionModel.LocalidadId, miembroDireccionModel.Calle, miembroDireccionModel.Altura, miembroDireccionModel.Piso
+                );
+
+            _controladorPedidos
+                .AgregarPedido(
+                    Usuario.Email,
+                    confirmarPedidoModel.Medios, confirmarPedidoModel.CantidadCopias
+                );
+
+            return RedirectToAction("index", "pedidos", new { area = "" });
         }
     }
 }

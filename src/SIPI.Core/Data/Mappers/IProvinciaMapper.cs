@@ -5,6 +5,7 @@ namespace SIPI.Core.Data.Mappers
 {
     public interface IProvinciaMapper
     {
-        IList<Provincia> GetProvincias();
+        IList<Provincia> ObtenerProvincias();
+        Provincia ObtenerProvincia(int provinciaId);
     }
 }

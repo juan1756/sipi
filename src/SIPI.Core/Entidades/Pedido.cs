@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Configuration;
 using System.Linq;
 
 namespace SIPI.Core.Entidades
@@ -77,6 +78,37 @@ namespace SIPI.Core.Entidades
                 Fecha,
                 (Estados)Estado,
                 FechaEntregado);
+        }
+
+        public void AgregarMedio(MedioAudiovisual medio)
+        {
+            var insumo = ObtenerInsumoParaMedio(medio);
+
+            insumo.AgregarMedio(medio);
+        }
+
+        private Insumo CrearInsumo()
+        {
+            var insumo = new Insumo(
+                this, 
+                numero: Insumos.Count() + 1, 
+                precio: Convert.ToInt32(ConfigurationManager.AppSettings["Insumo.Precio"]), 
+                tamano: Convert.ToInt32(ConfigurationManager.AppSettings["Insumo.Tamano"])
+            );
+
+            Insumos.Add(insumo);
+
+            return insumo;
+        }
+
+        private Insumo ObtenerInsumoParaMedio(MedioAudiovisual medio)
+        {
+            foreach (var insumo in Insumos)
+            {
+                if (insumo.SoportaMedio(medio))
+                    return insumo;
+            }
+            return CrearInsumo();
         }
 
         //TODO: Cambiar DS

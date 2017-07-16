@@ -22,5 +22,13 @@ namespace SIPI.Core.Controladores
                 .ObtenerCatalogo(idCategoria, tema, fechaDesde, fechaHasta, idTipo, desde, cantidad)
                 .Convert(x => x.GetView());
         }
+
+        public IEnumerable<MedioAudiovisualView> ObtenerMedios(int[] medios)
+        {
+            return _medios
+                .ObtenerMedios(medios)
+                .Select(x => x.GetView())
+                .ToList();
+        }
     }
 }

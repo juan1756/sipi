@@ -31,7 +31,7 @@ namespace SIPI.Core.Vistas
         {
             // https://stackoverflow.com/a/15824742
             var rgx = new Regex(@"(?:https?:\/\/)?(?:www\.)?(?:(?:(?:youtube.com\/watch\?[^?]*v=|youtu.be\/)([\w\-]+))(?:[^\s?]+)?)");
-            return rgx.Replace(url, "http://www.youtube.com/embed/$1");
+            return rgx.Replace(url, "http://www.youtube.com/embed/$1?rel=0&amp;showinfo=0");
         }
     }
 }

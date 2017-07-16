@@ -34,4 +34,3 @@ var views;
         pedidos.confirmar = confirmar;
     })(pedidos = views.pedidos || (views.pedidos = {}));
 })(views || (views = {}));
-//# sourceMappingURL=confirmar.js.map

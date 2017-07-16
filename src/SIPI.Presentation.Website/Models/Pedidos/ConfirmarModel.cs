@@ -52,21 +52,25 @@ namespace SIPI.Presentation.Website.Models.Pedidos
             Altura = miembro.Altura;
             Calle = miembro.Calle;
             LocalidadId = miembro.Localidad.Id;
-            Telefono = miembro.Telefono;
             Piso = miembro.Piso;
             ProvinciaId = miembro.Provincia.Id;
         }
 
+        [Required(ErrorMessage = "El campo Altura es requerido")]
         public int Altura { get; set; }
 
+        [Required(ErrorMessage = "El campo Calle es requerido")]
+        [MaxLength(150, ErrorMessage = "El campo Calle puede contener como máximo 150 caracteres")]
         public string Calle { get; set; }
 
-        public virtual int LocalidadId { get; set; }
+        [Required(ErrorMessage = "El campo Localidad es requerido")]
+        public int LocalidadId { get; set; }
 
-        public string Telefono { get; set; }
-
+        [Required(ErrorMessage = "El campo Piso es requerido")]
+        [MaxLength(150, ErrorMessage = "El campo Piso puede contener como máximo 150 caracteres")]
         public string Piso { get; set; }
 
-        public virtual int ProvinciaId { get; set; }
+        [Required(ErrorMessage = "El campo Provincia es requerido")]
+        public int ProvinciaId { get; set; }
     }
 }

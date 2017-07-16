@@ -47,4 +47,3 @@ var Tables = (function () {
     };
     return Tables;
 }());
-//# sourceMappingURL=app.js.map

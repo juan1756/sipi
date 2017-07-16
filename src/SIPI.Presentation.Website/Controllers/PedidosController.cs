@@ -65,6 +65,9 @@ namespace SIPI.Presentation.Website.Controllers
         [HttpPost]
         public ActionResult Crear(Models.Catalogo.IndexFiltrosModel filtros, CrearModel crear)
         {
+            if (!ModelState.IsValid)
+                return RedirectToAction("crear", "pedidos", new { area = "" });
+
             var mediosViews = _controladorMedios
                 .ObtenerCatalogo(filtros.CategoriaId, filtros.Tema, filtros.FechaDesde, filtros.FechaHasta, filtros.TipoId, 0, int.MaxValue)
                 .Rows
@@ -88,9 +91,17 @@ namespace SIPI.Presentation.Website.Controllers
 
         [HttpPost]
         public ActionResult Confirmar(
-            ConfirmarPedidoModel confirmarPedidoModel, 
+            ConfirmarPedidoModel confirmarPedidoModel,
             MiembroDireccionModel miembroDireccionModel)
         {
+            if (!ModelState.IsValid)
+                return View(
+                    new ConfirmarModel(
+                        provincias: _controladorProvincias.ObtenerProvincias(),
+                        localidades: _controladorLocalidades.ObtenerLocalidades(),
+                        medios: _controladorMedios.ObtenerMedios(confirmarPedidoModel.Medios),
+                        miembro: _controladorCuentas.BuscarMiembro(Usuario.Identity.Name)));
+
             _controladorCuentas
                 .ConfirmarDireccion(
                     Usuario.Email,

@@ -1,4 +1,5 @@
-﻿@model SIPI.Presentation.Website.Models.Pedidos.ConfirmarModel
+﻿@using System.Configuration;
+@model SIPI.Presentation.Website.Models.Pedidos.ConfirmarModel
 @{
     ViewBag.Title = "Confirmar Pedido";
     var HtmlMiembro = Html.ToInnerModel(x => x.Miembro);
@@ -23,7 +24,7 @@
                             <div class="col-md-4"><h4>Tu selección:</h4></div>
                             <label class="col-md-4 form-control-label">Cantidad de copias</label>
                             <div class="col-md-2">
-                                @Html.TextBoxFor(x => x.CantidadCopias, new { @class = "form-control boxed", type = "number" })
+                                @Html.TextBoxFor(x => x.CantidadCopias, new { @class = "form-control boxed", type = "number", min=1 })
                             </div>
                         </div>
                     </div>
@@ -36,6 +37,41 @@
                         <button id="btnConfirm" class="btn btn-block btn-primary" data-toggle="modal" data-target="#modal-media">
                             Confirmar pedido
                         </button>
+                    </div>
+                </div>
+            </div>
+            <div class="row"><br /></div>
+            <div class="row">
+                <div class="col-md-12 dashboard-page">
+                    <div class="card stats">
+                        <div class="card-block">
+                            <div class="title-block">
+                                <h4 class="title"> Carrito </h4>
+                                <p class="title-description">
+                                    Los datos informados son definitivos
+                                </p>
+                            </div>
+                            <div class="row row-sm stats-container">
+                                <div class="col-xs-12 col-sm-6 stat-col">
+                                    <div class="stat-icon">
+                                        <i class="fa fa-shopping-cart"></i>
+                                    </div>
+                                    <div class="stat">
+                                        <div id="CantidadInsumos" class="value">@Model.Insumos</div>
+                                        <div class="name">DVDs</div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 stat-col">
+                                    <div class="stat-icon">
+                                        <i class="fa fa-dollar"></i>
+                                    </div>
+                                    <div class="stat">
+                                        <div id="CostoTotal" class="value">$@Model.CostoTotal</div>
+                                        <div class="name">Costo total</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -53,13 +89,13 @@
                             </div>
                             <div class="card-block">
                                 <iframe width="100%" height="100%"
-                                        src="@m.Url"
+                                        src=""
                                         frameborder="0" allowfullscreen></iframe>
                             </div>
                             <div class="card-footer">
                                 @m.FechaGrabacion.ToShortDateString()
                                 <input type="hidden" name="medios" value="@m.Id" />
-                                <button type="button" class="pull-right btn btn-xs trash">
+                                <button type="button" data-tamano="@m.Tamano" class="pull-right btn btn-xs trash">
                                     <i class="fa fa-trash"></i>
                                 </button>
                             </div>
@@ -90,8 +126,8 @@
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-xs-12">
-                                        <select name="ProvinciaId" class="c-select form-control boxed">
-                                            <option>Seleccione</option>
+                                        <select name="ProvinciaId" class="c-select form-control boxed" data-val="true" data-val-required="El campo Provincia es requerido">
+                                            <option value="">Seleccione</option>
                                             @foreach (var item in Model.Provincias)
                                             {
                                                 <option value="@item.Id" @Html.Raw(item.Id == Model.Miembro.ProvinciaId ? "selected=''" : "")>
@@ -99,39 +135,42 @@
                                                 </option>
                                             }
                                         </select>
+                                        @HtmlMiembro.ValidationMessageFor(x => x.ProvinciaId)
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-xs-12">
-                                        <select name="LocalidadId" class="c-select form-control boxed">
-                                            <option>Seleccione</option>
+                                        <select name="LocalidadId" class="c-select form-control boxed" data-val="true" data-val-required="El campo Localidad es requerido">
+                                            <option value="">Seleccione</option>
                                             @foreach (var item in Model.Localidades)
-                                    {
+                                            {
                                                 <option value="@item.Id" @Html.Raw(item.Id == Model.Miembro.LocalidadId ? "selected=''" : "")>
                                                     @item.Nombre
                                                 </option>
                                             }
                                         </select>
+                                        @HtmlMiembro.ValidationMessageFor(x => x.LocalidadId)
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-xs-12">
-                                        @HtmlMiembro.TextBoxFor(x => x.Calle, new { @class="form-control underlined", placeholder = "Calle" })
+                                        @HtmlMiembro.TextBoxFor(x => x.Calle, new { @class="form-control underlined", placeholder = "Calle", data_val="true", data_val_maxlength="El campo Calle puede contener como máximo 150 caracteres", data_val_maxlength_max="150", data_val_required="El campo Calle es requerido" })
+                                        @HtmlMiembro.ValidationMessageFor(x => x.Calle)
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-xs-6">
-                                        @HtmlMiembro.TextBoxFor(x => x.Altura, new { @class = "form-control underlined", placeholder = "Altura" })
-                                    </div>
-                                    <div class="col-xs-6">
-                                        @HtmlMiembro.TextBoxFor(x => x.Piso, new { @class = "form-control underlined", placeholder = "Piso" })
-                                    </div>
+                            <div class="row">
+                                <div class="form-group col-xs-6">
+                                    @HtmlMiembro.TextBoxFor(x => x.Altura, new { @class = "form-control underlined", placeholder = "Altura", data_val = "true", data_val_maxlength = "El campo Altura puede contener como máximo 150 caracteres", data_val_maxlength_max = "150", data_val_required = "El campo Altura es requerido", data_val_number="El campo Altura es númerico" })
+                                    @HtmlMiembro.ValidationMessageFor(x => x.Altura)
+                                </div>
+                                <div class="form-group col-xs-6">
+                                    @HtmlMiembro.TextBoxFor(x => x.Piso, new { @class = "form-control underlined", placeholder = "Piso", data_val = "true", data_val_maxlength = "El campo Piso puede contener como máximo 150 caracteres", data_val_maxlength_max = "150", data_val_required = "El campo Piso es requerido" })
+                                    @HtmlMiembro.ValidationMessageFor(x => x.Piso)
                                 </div>
                             </div>
                             @*<div class="form-group has-error">
@@ -152,7 +191,9 @@
     <script>
         var view;
         $(document).ready(function () {
-            view = new views.pedidos.confirmar();
+            view = new views.pedidos.confirmar(
+                @ConfigurationManager.AppSettings["Insumo.Tamano"],
+                @ConfigurationManager.AppSettings["Insumo.Precio"]);
         });
     </script>
 }

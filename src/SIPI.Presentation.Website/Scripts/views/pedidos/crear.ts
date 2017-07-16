@@ -72,7 +72,16 @@ module views.pedidos {
                 tamanoTotal += $e.data('tamano');
             });
 
+            if (!tamanoTotal) {
+                this.$cantidadInsumos.html('0');
+                this.$costoParcial.html('$0');
+                return;
+            }
+
             var insumosActuales = Math.floor(tamanoTotal / this.tamanoInsumo);
+
+            if (tamanoTotal % this.tamanoInsumo > 0)
+                insumosActuales++;
 
             if (insumosActuales != this.insumosAnteriores) {
                 this.$cantidadInsumos.html(insumosActuales.toString());

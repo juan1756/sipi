@@ -50,9 +50,7 @@ namespace SIPI.Core.Entidades
         {
             public InsumoNoSoportaMedioException()
                 :base("El insumo no soporta el medio que se quiere agregar")
-            {
-
-            }
+            { }
         }
     }
 }

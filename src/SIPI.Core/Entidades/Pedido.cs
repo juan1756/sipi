@@ -85,6 +85,8 @@ namespace SIPI.Core.Entidades
             var insumo = ObtenerInsumoParaMedio(medio);
 
             insumo.AgregarMedio(medio);
+
+            PrecioTotal += Convert.ToDecimal(ConfigurationManager.AppSettings["Insumo.Precio"]);
         }
 
         private Insumo CrearInsumo()
@@ -92,7 +94,7 @@ namespace SIPI.Core.Entidades
             var insumo = new Insumo(
                 this, 
                 numero: Insumos.Count() + 1, 
-                precio: Convert.ToInt32(ConfigurationManager.AppSettings["Insumo.Precio"]), 
+                precio: Convert.ToDecimal(ConfigurationManager.AppSettings["Insumo.Precio"]), 
                 tamano: Convert.ToInt32(ConfigurationManager.AppSettings["Insumo.Tamano"])
             );
 

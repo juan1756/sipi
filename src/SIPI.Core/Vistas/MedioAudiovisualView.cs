@@ -17,7 +17,9 @@ namespace SIPI.Core.Vistas
 
         public string Url { get; private set; }
 
-        public MedioAudiovisualView(int id, DateTime fechaGrabacion, string categoria, string tema, string tipo, string url)
+        public int Tamano { get; private set; }
+
+        public MedioAudiovisualView(int id, DateTime fechaGrabacion, string categoria, string tema, string tipo, string url, int tamano)
         {
             Id = id;
             FechaGrabacion = fechaGrabacion;
@@ -25,6 +27,7 @@ namespace SIPI.Core.Vistas
             Tema = tema;
             Tipo = tipo;
             Url = GenerateEmbedUrl(url);
+            Tamano = tamano;
         }
 
         private string GenerateEmbedUrl(string url)

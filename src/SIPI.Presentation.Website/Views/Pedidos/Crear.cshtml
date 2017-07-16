@@ -1,65 +1,114 @@
-﻿@model SIPI.Presentation.Website.Models.Catalogo.IndexModel
+﻿@using System.Configuration;
+@model SIPI.Presentation.Website.Models.Catalogo.IndexModel
 @{
     ViewBag.Title = "Crear Pedido";
     var HtmlFiltros = Html.ToInnerModel(x => x.Filtros);
 }
 
 <article class="content cards-page">
+    @if (TempData.ContainsKey("Error-Notifications-Confirmar"))
+    {
+        <div class="row">
+            <div class="col-md-12">
+                <div class="alert alert-danger alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    @TempData["Error-Notifications-Confirmar"]
+                </div>
+            </div>
+        </div>
+    }
     <div class="title-block">
         <h3 class="title">Contenido Multimedial</h3>
     </div>
     <section class="section">
-        <form id="frmFilters" method="get">
+        <div class="row">
             <div class="col-md-12">
-                <div class="col-md-8">
-                    <div class="form-group row">
+                <form id="frmFilters" method="get">
+                    <div class="col-md-8">
+                        <div class="form-group row">
+                            <div class="row">
+                                <label class="col-md-2 form-control-label">CATEGORÍA</label>
+                                <div class="col-md-4">
+                                    @HtmlFiltros.DropDownListFor(x => x.CategoriaId, Model.Categorias, "", new { @class = "c-select form-control boxed" })
+                                </div>
+                                <label class="col-md-2 form-control-label">TEMA</label>
+                                <div class="col-md-4">
+                                    @HtmlFiltros.TextBoxFor(x => x.Tema, new { @class = "form-control boxed" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="row">
+                                <label class="col-md-1 form-control-label">FECHA</label>
+                                <div class="col-md-3">
+                                    @HtmlFiltros.TextBoxFor(x => x.FechaDesde, "{0:dd/MM/yyyy}", new { @class = "form-control boxed", data_apply = "datepicker", placeholder = "dd/mm/aaaa" })
+                                </div>
+                                <label class="col-md-1 form-control-label">A</label>
+                                <div class="col-md-3">
+                                    @HtmlFiltros.TextBoxFor(x => x.FechaHasta, "{0:dd/MM/yyyy}", new { @class = "form-control boxed", data_apply = "datepicker", placeholder = "dd/mm/aaaa" })
+                                </div>
+                                <label class="col-md-1 form-control-label">TIPO</label>
+                                <div class="col-md-3">
+                                    @HtmlFiltros.DropDownListFor(x => x.TipoId, Model.Tipos, "", new { @class = "c-select form-control boxed" })
+                                </div>
+                            </div>
+                        </div>
                         <div class="row">
-                            <label class="col-md-2 form-control-label">CATEGORÍA</label>
-                            <div class="col-md-4">
-                                @HtmlFiltros.DropDownListFor(x => x.CategoriaId, Model.Categorias, "", new { @class = "c-select form-control boxed" })
-                            </div>
-                            <label class="col-md-2 form-control-label">TEMA</label>
-                            <div class="col-md-4">
-                                @HtmlFiltros.TextBoxFor(x => x.Tema, new { @class = "form-control boxed" })
+                            <div class="col-md-12">
+                                <label>
+                                    <input id="SelectAll" class="checkbox" type="checkbox">
+                                    <span>Seleccionar todos</span>
+                                </label>
                             </div>
                         </div>
                     </div>
-                    <div class="form-group row">
-                        <div class="row">
-                            <label class="col-md-1 form-control-label">FECHA</label>
-                            <div class="col-md-3">
-                                @HtmlFiltros.TextBoxFor(x => x.FechaDesde, "{0:dd/MM/yyyy}", new { @class = "form-control boxed", data_apply = "datepicker", placeholder = "dd/mm/aaaa" })
-                            </div>
-                            <label class="col-md-1 form-control-label">A</label>
-                            <div class="col-md-3">
-                                @HtmlFiltros.TextBoxFor(x => x.FechaHasta, "{0:dd/MM/yyyy}", new { @class = "form-control boxed", data_apply = "datepicker", placeholder = "dd/mm/aaaa" })
-                            </div>
-                            <label class="col-md-1 form-control-label">TIPO</label>
-                            <div class="col-md-3">
-                                @HtmlFiltros.DropDownListFor(x => x.TipoId, Model.Tipos, "", new { @class = "c-select form-control boxed" })
-                            </div>
+                    <div class="col-md-1">
+                        &nbsp;
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group row">
+                            <button type="submit" class="btn btn-block btn-primary">Buscar</button>
+                            <button id="btnOrder" type="button" class="btn btn-block btn-primary" value="Confirmar">Pedir</button>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <label>
-                                <input id="SelectAll" class="checkbox" type="checkbox">
-                                <span>Seleccionar todos</span>
-                            </label>
+                </form>
+            </div>
+        </div>
+        <div class="row"><br /></div>
+        <div class="row">
+            <div class="col-md-12 dashboard-page">
+                <div class="card stats">
+                    <div class="card-block">
+                        <div class="title-block">
+                            <h4 class="title"> Carrito </h4>
+                            <p class="title-description">
+                                Los datos informados son parciales
+                            </p>
                         </div>
-                    </div>
-                </div>
-                <div class="col-md-1">
-                    &nbsp;
-                </div>
-                <div class="col-md-3">
-                    <div class="form-group row">
-                        <button type="submit" class="btn btn-block btn-primary">Buscar</button>
-                        <button id="btnOrder" type="button" class="btn btn-block btn-primary" value="Confirmar">Pedir</button>
+                        <div class="row row-sm stats-container">
+                            <div class="col-xs-12 col-sm-6 stat-col">
+                                <div class="stat-icon">
+                                    <i class="fa fa-shopping-cart"></i>
+                                </div>
+                                <div class="stat">
+                                    <div id="CantidadInsumos" class="value">0</div>
+                                    <div class="name">DVD</div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 stat-col">
+                                <div class="stat-icon">
+                                    <i class="fa fa-dollar"></i>
+                                </div>
+                                <div class="stat">
+                                    <div id="CostoParcial" class="value">$0</div>
+                                    <div class="name">Costo parcial</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </form>
+        </div>
     </section>
     <section class="section">
         <form id="frmMedios" method="post">
@@ -88,7 +137,7 @@
                             <div class="card-footer">
                                 @m.FechaGrabacion.ToShortDateString()
                                 <label class="pull-right">
-                                    <input name="Medios" type="checkbox" class="checkbox" value="@m.Id" />
+                                    <input name="Medios" type="checkbox" class="checkbox" data-tamano="@m.Tamano" value="@m.Id" />
                                     <span></span>
                                 </label>
                             </div>
@@ -115,7 +164,9 @@
     <script>
         var view;
         $(document).ready(function () {
-            view = new views.pedidos.crear(10);
+            view = new views.pedidos.crear(
+                @ConfigurationManager.AppSettings["Insumo.Tamano"],
+                @ConfigurationManager.AppSettings["Insumo.Precio"]);
         });
     </script>
 }

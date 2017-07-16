@@ -68,6 +68,19 @@ namespace SIPI.Presentation.Website.Controllers
             if (!ModelState.IsValid)
                 return RedirectToAction("crear", "pedidos", new { area = "" });
 
+            if (crear.Medios == null || !crear.Medios.Any())
+            {
+                var offsetParams = new OffsetParams() { Offset = 0, Limit = 8 };
+                TempData["Error-Notifications-Confirmar"] = "Debe pedir al menos un medio";
+                return View(
+                    new Models.Catalogo.IndexModel(
+                        categorias: _controladorCategorias.ObtenerCategorias(),
+                        tipos: _controladorTipos.ObtenerTipos(),
+                        filtros: filtros,
+                        medios: _controladorMedios.ObtenerCatalogo(filtros.CategoriaId, filtros.Tema, filtros.FechaDesde, filtros.FechaHasta, filtros.TipoId, offsetParams.Offset, offsetParams.Limit),
+                        offsetParams: offsetParams));
+            }
+
             var mediosViews = _controladorMedios
                 .ObtenerCatalogo(filtros.CategoriaId, filtros.Tema, filtros.FechaDesde, filtros.FechaHasta, filtros.TipoId, 0, int.MaxValue)
                 .Rows

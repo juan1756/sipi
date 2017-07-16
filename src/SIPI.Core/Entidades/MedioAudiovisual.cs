@@ -40,7 +40,9 @@ namespace SIPI.Core.Entidades
 
         public MedioAudiovisualView GetView()
         {
-            return new MedioAudiovisualView(Id, FechaGrabacion, Categoria.Nombre, Tema, Tipo.Nombre, Url);
+            return new MedioAudiovisualView(
+                Id, FechaGrabacion, Categoria.Nombre, 
+                Tema, Tipo.Nombre, Url, Tamano);
         }
     }
 }

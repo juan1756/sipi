@@ -3,16 +3,22 @@ var views;
     var pedidos;
     (function (pedidos) {
         var crear = (function () {
-            function crear(tamanoInsumo) {
+            function crear(tamanoInsumo, precioInsumo) {
                 var _this = this;
-                this._tamanoInsumo = tamanoInsumo;
+                this.tamanoInsumo = tamanoInsumo;
+                this.precioInsumo = precioInsumo;
+                this.insumosAnteriores = 0;
                 this._infinite = new Waypoint.Infinite({
                     context: $('.main-wrapper')[0],
                     element: $('.infinite-container')[0],
                     onAfterPageLoad: function ($items) {
                         _this.setMediosCheck($items);
+                        if (_this.$frmFilters_SelectAll.prop('checked'))
+                            _this.calcularInsumos();
                     }
                 });
+                this.$cantidadInsumos = $('#CantidadInsumos');
+                this.$costoParcial = $('#CostoParcial');
                 this.$frmMedios = $('#frmMedios');
                 this.$btnOrder = $('#btnOrder');
                 this.$btnOrder.click(function (e) { return _this.onBtnOrderClick(e); });
@@ -26,6 +32,8 @@ var views;
             };
             crear.prototype.onFrmFiltersSelectAllChange = function (e) {
                 this.setMediosCheck($('.infinite-item'));
+                this.calcularInsumos();
+                //if (this.$frmFilters_SelectAll.prop('checked'))
             };
             crear.prototype.setMediosCheck = function ($items) {
                 $items.find('[name=Medios]').prop('checked', this.$frmFilters_SelectAll.prop('checked'));
@@ -33,9 +41,24 @@ var views;
             crear.prototype.onMediosChange = function (e) {
                 var $medios = $('[name=Medios]');
                 this.$frmFilters_SelectAll.prop('checked', $medios.length == $medios.filter(':checked').length);
+                this.calcularInsumos();
+            };
+            crear.prototype.calcularInsumos = function () {
+                var tamanoTotal = 0;
+                $('[name=Medios]').filter(':checked').each(function (i, e) {
+                    var $e = $(e);
+                    tamanoTotal += $e.data('tamano');
+                });
+                var insumosActuales = Math.floor(tamanoTotal / this.tamanoInsumo);
+                if (insumosActuales != this.insumosAnteriores) {
+                    this.$cantidadInsumos.html(insumosActuales.toString());
+                    this.$costoParcial.html('$' + (insumosActuales * this.precioInsumo));
+                    this.insumosAnteriores = insumosActuales;
+                }
             };
             return crear;
         }());
         pedidos.crear = crear;
     })(pedidos = views.pedidos || (views.pedidos = {}));
 })(views || (views = {}));
+//# sourceMappingURL=crear.js.map

@@ -201,6 +201,7 @@
     <Content Include="Content\assets\page-bg-2.svg" />
     <Content Include="Content\css\bootstrap-datepicker.css" />
     <Content Include="Content\css\bootstrap-table-1.11.1.css" />
+    <Content Include="Content\css\toastr.css" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\css\vendor.css" />
     <Content Include="Content\landing\assets\header.jpg" />
@@ -249,6 +250,8 @@
     <Content Include="Scripts\thirdparty\moment-2.18.1.js" />
     <Content Include="Scripts\thirdparty\mustache.js" />
     <Content Include="Scripts\thirdparty\respond.js" />
+    <Content Include="Scripts\thirdparty\toastr.js" />
+    <Content Include="Scripts\thirdparty\toastr.min.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">

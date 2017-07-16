@@ -39,7 +39,11 @@ namespace SIPI.Presentation.Website.Controllers
 
             if (usuario == null)
             {
-                TempData.Add("Error-Notifications-Login", "El usuario o contraseña ingresados son inválidos");
+                if (!TempData.ContainsKey("Error-Notifications-Login"))
+                {
+                    TempData.Add("Error-Notifications-Login", "El usuario o contraseña ingresados son inválidos");
+                }
+
                 return View(model);
             }
 
@@ -105,8 +109,10 @@ namespace SIPI.Presentation.Website.Controllers
             _controladorCuenta
                 .RecuperarContrasena(model.Email, model.Contrasena, this);
 
-            // TODO: Show on layout
-            TempData.Add("Notification", "Se envió un mail de recupero de contraseña al mail ingresado");
+            if (!TempData.ContainsKey("Success-Notifications-Recupero"))
+            { 
+                TempData.Add("Success-Notifications-Recupero", "Se envió un mail de recupero de contraseña al mail ingresado");
+            }
 
             return RedirectToHome();
         }
@@ -145,7 +151,7 @@ namespace SIPI.Presentation.Website.Controllers
                 JsonRequestBehavior.AllowGet);
         }
 
-        // TODO: prueba para el styling del body del mail.
+        // TODO: BORRAME!! - prueba para el styling del body del mail.
         [HttpGet]
         public ActionResult RecuperoMail()
         {

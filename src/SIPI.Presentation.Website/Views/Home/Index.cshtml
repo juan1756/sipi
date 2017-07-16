@@ -35,7 +35,6 @@
 </head>
 
 <body id="page-top">
-
     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -139,6 +138,13 @@
     </section>
 
     @Scripts.Render("~/bundles/landing/scripts/thirdparty")
+
+    @if (TempData.ContainsKey("Success-Notifications-Recupero"))
+    {
+        <script>
+            toastr.success('@TempData["Success-Notifications-Recupero"]', 'Aviso');
+        </script>
+    }
 
 </body>
 

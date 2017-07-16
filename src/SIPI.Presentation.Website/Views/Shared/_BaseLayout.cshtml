@@ -14,12 +14,9 @@
     @Styles.Render("~/Content/styles")
 </head>
 <body>
-    @if (TempData.ContainsKey("Notification"))
-    {
-        <p>@TempData["Notification"]</p>
-    }
+        @RenderBody()
 
-    @RenderBody()
+        @RenderSection("templates", required: false)
 
     @RenderSection("templates", required: false)
 

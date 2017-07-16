@@ -53,6 +53,7 @@
     <Compile Include="DTO\PagedCollection.cs" />
     <Compile Include="Extensions\IQueryableExtensions.cs" />
     <Compile Include="Mappers\CategoriaMapper.cs" />
+    <Compile Include="Mappers\LocalidadMapper.cs" />
     <Compile Include="Mappers\MedioAudiovisualMapper.cs" />
     <Compile Include="Mappers\PedidosMapper.cs" />
     <Compile Include="Mappers\ReportesMapper.cs" />
@@ -76,6 +77,10 @@
     <Compile Include="Migrations\201707042225129_Pedido_FechaEntrega_Nullable.Designer.cs">
       <DependentUpon>201707042225129_Pedido_FechaEntrega_Nullable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201707152254516_Miembro_Remove_Direccion.cs" />
+    <Compile Include="Migrations\201707152254516_Miembro_Remove_Direccion.Designer.cs">
+      <DependentUpon>201707152254516_Miembro_Remove_Direccion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -94,6 +99,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201707042225129_Pedido_FechaEntrega_Nullable.resx">
       <DependentUpon>201707042225129_Pedido_FechaEntrega_Nullable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707152254516_Miembro_Remove_Direccion.resx">
+      <DependentUpon>201707152254516_Miembro_Remove_Direccion.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

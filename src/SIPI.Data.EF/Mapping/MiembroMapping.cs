@@ -10,9 +10,6 @@ namespace SIPI.Data.EF.Mapping
             Property(x => x.Calle)
                 .IsRequired();
 
-            Property(x => x.Direccion)
-                .IsRequired();
-
             Property(x => x.Piso)
                 .IsRequired();
 

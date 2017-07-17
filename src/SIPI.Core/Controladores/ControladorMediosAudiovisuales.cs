@@ -2,6 +2,8 @@
 using SIPI.Core.Data.Mappers;
 using SIPI.Core.Vistas;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace SIPI.Core.Controladores
 {
@@ -19,6 +21,14 @@ namespace SIPI.Core.Controladores
             return _medios
                 .ObtenerCatalogo(idCategoria, tema, fechaDesde, fechaHasta, idTipo, desde, cantidad)
                 .Convert(x => x.GetView());
+        }
+
+        public IEnumerable<MedioAudiovisualView> ObtenerMedios(int[] medios)
+        {
+            return _medios
+                .ObtenerMedios(medios)
+                .Select(x => x.GetView())
+                .ToList();
         }
     }
 }

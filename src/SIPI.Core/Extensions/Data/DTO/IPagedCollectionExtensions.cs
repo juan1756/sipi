@@ -23,16 +23,6 @@ namespace SIPI.Core.Data.DTO
                 Rows = page.Rows.Select(converter).ToList();
                 Total = page.Total;
             }
-
-            public IEnumerator<T2> GetEnumerator()
-            {
-                return Rows.GetEnumerator();
-            }
-
-            IEnumerator IEnumerable.GetEnumerator()
-            {
-                return Rows.GetEnumerator();
-            }
         }
     }
 }

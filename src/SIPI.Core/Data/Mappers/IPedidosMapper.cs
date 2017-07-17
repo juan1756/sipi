@@ -11,5 +11,7 @@ namespace SIPI.Core.Data.Mappers
         IPagedCollection<Pedido> ObtenerPedidos(string[] roles, string nombreApellidoMiembro, DateTime? fechaDesde, DateTime? fechaHasta, int desde, int cantidad);
 
         Pedido ObtenerPedido(int numero);
+
+        void Agregar(Pedido pedido);
     }
 }

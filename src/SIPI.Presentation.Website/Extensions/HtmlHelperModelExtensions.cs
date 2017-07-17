@@ -15,7 +15,12 @@
 
         private static HtmlHelper<TModel> ToModel<TModel>(this HtmlHelper htmlHelper, TModel model = default(TModel), bool defaultModel = false)
         {
-            return new HtmlHelper<TModel>(htmlHelper.ViewContext, new CustomViewDataContainer<TModel>(htmlHelper.ViewData, model, defaultModel));
+            return new HtmlHelper<TModel>(
+                htmlHelper.ViewContext, 
+                new CustomViewDataContainer<TModel>(
+                    htmlHelper.ViewData, 
+                    model, 
+                    defaultModel));
         }
 
         private class CustomViewDataContainer<TModel> : IViewDataContainer

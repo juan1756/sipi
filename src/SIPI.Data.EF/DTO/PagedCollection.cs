@@ -19,15 +19,5 @@ namespace SIPI.Data.EF.DTO
                 .Take(limit)
                 .ToList();
         }
-
-        public IEnumerator<T> GetEnumerator()
-        {
-            return Rows.GetEnumerator();
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return Rows.GetEnumerator();
-        }
     }
 }

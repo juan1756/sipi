@@ -17,6 +17,11 @@ namespace SIPI.Data.EF.Mappers
             _dbCtx = dbCtx;
         }
 
+        public void Agregar(Pedido pedido)
+        {
+            _dbCtx.Pedidos.Add(pedido);
+        }
+
         public Pedido ObtenerPedido(int numero)
         {
             return _dbCtx.Pedidos.Find(numero);

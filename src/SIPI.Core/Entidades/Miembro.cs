@@ -1,4 +1,5 @@
-﻿using SIPI.Core.Vistas;
+﻿using System;
+using SIPI.Core.Vistas;
 
 namespace SIPI.Core.Entidades
 {
@@ -13,7 +14,6 @@ namespace SIPI.Core.Entidades
             : base(id, email, nombre, apellido, contrasena)
         {
             Calle = calle;
-            Direccion = direccion;
             Altura = altura;
             Piso = piso;
             Telefono = telefono;
@@ -25,8 +25,6 @@ namespace SIPI.Core.Entidades
 
         public string Calle { get; private set; }
 
-        public string Direccion { get; private set; }
-
         public virtual Localidad Localidad { get; private set; }
 
         public string Telefono { get; private set; }
@@ -37,7 +35,18 @@ namespace SIPI.Core.Entidades
 
         public override UsuarioView GetView()
         {
-            return new MiembroView(Id, Nombre, Apellido, Email);
+            return new MiembroView(Id, Nombre, Apellido, Email, Altura, Calle, Localidad.GetView(), Telefono, Piso, Provincia.GetView());
+        }
+
+        public void ConfirmarDireccion(Provincia provincia, Localidad localidad, string calle, int altura, string piso)
+        {
+            localidad.ValidarProvincia(provincia);
+
+            Provincia = provincia;
+            Localidad = localidad;
+            Calle = calle;
+            Altura = altura;
+            Piso = piso;
         }
     }
 }

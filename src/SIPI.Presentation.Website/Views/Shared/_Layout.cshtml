@@ -7,29 +7,36 @@
         <header class="header no-sidebar">
             <div class="sidebar-header">
                 <div class="brand brand-header">
-                    <div class="logo"><img class="logo-header" src="@Url.Content("~/content/assets/logo.png")" alt="logo" /></div> <div class="pull-right">Iglesia Calle Brasil</div>
+                    <a href="@Url.Action("index", "home", new { area = "" })">
+                        <div class="logo">
+                            <img class="logo-header" src="@Url.Content("~/content/assets/logo.png")" alt="logo" />
+                        </div> <div class="pull-right">Iglesia Calle Brasil</div>
+                    </a>
                 </div>
             </div>
             <div class="header-block header-block-nav">
-                <ul class="nav-profile">
-                    <li class="profile dropdown">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)" role="button" aria-haspopup="true" aria-expanded="false">
-                            <div class="img" style="background-image: url('@Url.Content($"~/content/assets/faces/{this.Usuario().NombreArchivoAvatar}")')"> </div> <span class="name">
-                                Bienvenido, @this.Usuario().Nombre @this.Usuario().Apellido
-                            </span>
-                        </a>
-                        <div class="dropdown-menu profile-dropdown-menu" aria-labelledby="dropdownMenu1">
-                            <a class="dropdown-item" href="@Url.Action("index", "pedidos", new { area = "" })">
-                                <i class="fa fa-shopping-cart icon"></i>
-                                Mis pedidos
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <ul class="nav-profile">
+                        <li class="profile dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)" role="button" aria-haspopup="true" aria-expanded="false">
+                                <div class="img" style="background-image: url('@Url.Content($"~/content/assets/faces/{this.Usuario().NombreArchivoAvatar}")')"> </div> <span class="name">
+                                    Bienvenido, @this.Usuario().Nombre @this.Usuario().Apellido
+                                </span>
                             </a>
-                            <a class="dropdown-item" href="@Url.Action("logout", "cuenta", new { area = "" })">
-                                <i class="fa fa-power-off icon"></i>
-                                Cerrar sesión
-                            </a>
-                        </div>
-                    </li>
-                </ul>
+                            <div class="dropdown-menu profile-dropdown-menu" aria-labelledby="dropdownMenu1">
+                                <a class="dropdown-item" href="@Url.Action("index", "pedidos", new { area = "" })">
+                                    <i class="fa fa-shopping-cart icon"></i>
+                                    Mis pedidos
+                                </a>
+                                <a class="dropdown-item" href="@Url.Action("logout", "cuenta", new { area = "" })">
+                                    <i class="fa fa-power-off icon"></i>
+                                    Cerrar sesión
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                }
             </div>
         </header>
 
@@ -43,6 +50,8 @@
                 </ul>
             </div>
         </footer>
+
+        @RenderSection("modals", required: false)
     </div>
 </div>
 

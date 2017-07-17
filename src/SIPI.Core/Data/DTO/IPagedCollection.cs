@@ -2,7 +2,7 @@
 
 namespace SIPI.Core.Data.DTO
 {
-    public interface IPagedCollection<T> : IEnumerable<T>
+    public interface IPagedCollection<T>
     {
         int Total { get; }
 

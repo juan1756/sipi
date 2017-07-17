@@ -159,7 +159,6 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
 
   Waypoint.offsetAliases = {
     'bottom-in-view': function() {
-        debugger;
       return this.context.innerHeight() - this.adapter.outerHeight()
     },
     'right-in-view': function() {

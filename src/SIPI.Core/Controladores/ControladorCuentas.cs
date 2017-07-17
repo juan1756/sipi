@@ -5,25 +5,32 @@ using SIPI.Core.Entidades;
 using SIPI.Core.Vistas;
 using System.Net;
 using System.Net.Mail;
+using System;
 
 namespace SIPI.Core.Controladores
 {
     public class ControladorCuentas
     {
         private readonly IDataContext _dataCtx;
-        private readonly IUsuarioMapper _mapper;
+        private readonly IProvinciaMapper _provincias;
+        private readonly ILocalidadMapper _localidades;
+        private readonly IUsuarioMapper _usuarios;
 
         public ControladorCuentas(
-            IUsuarioMapper mapper,
+            IUsuarioMapper usuarios,
+            IProvinciaMapper provincias,
+            ILocalidadMapper localidades,
             IDataContext dataCtx)
         {
-            _mapper = mapper;
+            _usuarios = usuarios;
+            _provincias = provincias;
+            _localidades = localidades;
             _dataCtx = dataCtx;
         }
 
         public UsuarioView IniciarSesion(string email, string contrasena)
         {
-            var usuario = _mapper.BuscarUsuario(email, contrasena);
+            var usuario = _usuarios.BuscarUsuario(email, contrasena);
 
             if (usuario == null)
                 return null;
@@ -34,7 +41,7 @@ namespace SIPI.Core.Controladores
         // TODO: Actualizar DS
         public void RecuperarContrasena(string email, string contrasena, IRecuperoMailBuilder mail)
         {
-            var usuario = _mapper.BuscarUsuario(email);
+            var usuario = _usuarios.BuscarUsuario(email);
 
             if (usuario == null)
                 return;
@@ -49,7 +56,7 @@ namespace SIPI.Core.Controladores
         // TODO: Actualizar DS
         public void RecuperarContrasena(string email, byte[] hashBytes)
         {
-            var usuario = _mapper.BuscarUsuario(email);
+            var usuario = _usuarios.BuscarUsuario(email);
 
             if (usuario == null)
                 return;
@@ -79,9 +86,26 @@ namespace SIPI.Core.Controladores
 
         public IPagedCollection<UsuarioView> BuscarUsuarios(string nombre, string apellido, int desde, int cantidad)
         {
-            return _mapper
+            return _usuarios
                 .BuscarUsuarios(nombre, apellido, desde, cantidad)
                 .Convert(x => x.GetView());
+        }
+
+        public MiembroView BuscarMiembro(string email)
+        {
+            return _usuarios
+                .BuscarUsuario(email)
+                .GetView() as MiembroView;
+        }
+
+        public void ConfirmarDireccion(string email, int provinciaId, int localidadId, string calle, int altura, string piso)
+        {
+            var miembro = _usuarios.BuscarUsuario(email) as Miembro;
+            var provincia = _provincias.ObtenerProvincia(provinciaId);
+            var localidad = _localidades.ObtenerLocalidad(localidadId);
+
+            miembro.ConfirmarDireccion(provincia, localidad, calle, altura, piso);
+            _dataCtx.Save();
         }
     }
 

@@ -12,16 +12,6 @@ namespace SIPI.Core.Entidades
             Oradores = new Collection<Orador>();
         }
 
-        public MedioAudiovisual(Categoria categoria, string tema, Tipo tipo, string url, int tamano)
-            : this()
-        {
-            Categoria = categoria;
-            Tema = tema;
-            Tipo = tipo;
-            Url = url;
-            Tamano = tamano;
-        }
-
         public int Id { get; private set; }
 
         public virtual Categoria Categoria { get; private set; }

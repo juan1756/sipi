@@ -4,6 +4,7 @@ using SIPI.Core.Data.Mappers;
 using SIPI.Core.Entidades;
 using SIPI.Core.Vistas;
 using System;
+using System.Linq;
 
 namespace SIPI.Core.Controladores
 {
@@ -27,26 +28,29 @@ namespace SIPI.Core.Controladores
         }
 
         // TODO: Corregir DS
-        public IPagedCollection<PedidoMiembroView> SeguirPedidosMiembro(int id, int desde, int cantidad)
+        public IPagedCollection<PedidoMiembroView> SeguirPedidosMiembro(string email, int desde, int cantidad)
         {
             return _pedidos
-                .ObtenerPedidos(id, desde, cantidad)
+                .ObtenerPedidos(email, desde, cantidad)
                 .Convert(x => x.GetMiembroView());
         }
 
-        public IPagedCollection<PedidoOperadorView> SeguirPedidosOperador(string[] roles, string nombreApellidoMiembro, DateTime? fechaDesde, DateTime? fechaHasta, int desde, int cantidad)
+        public IPagedCollection<PedidoOperadorView> SeguirPedidosOperador(string email, string nombreApellidoMiembro, DateTime? fechaDesde, DateTime? fechaHasta, int desde, int cantidad)
         {
+            var operador = _usuarios.BuscarUsuario(email) as Operador;
+
             return _pedidos
-                .ObtenerPedidos(roles, nombreApellidoMiembro, fechaDesde, fechaHasta, desde, cantidad)
-                .Convert(x => x.GetOperadorView(roles));
+                .ObtenerPedidos(operador.Roles.Select(x => x.Nombre).ToArray(), nombreApellidoMiembro, fechaDesde, fechaHasta, desde, cantidad)
+                .Convert(x => x.GetOperadorView(operador));
         }
 
         // TODO: Cambiar DS
-        public void CambiarEstadoPedido(int numero, string[] roles)
+        public void CambiarEstadoPedido(int numero, string email)
         {
+            var operador = _usuarios.BuscarUsuario(email) as Operador;
             var pedido = _pedidos.ObtenerPedido(numero);
 
-            pedido.CambiarEstado(roles);
+            pedido.CambiarEstado(operador);
 
             _dataCtx.Save();
         }
@@ -54,8 +58,8 @@ namespace SIPI.Core.Controladores
         public void AgregarPedido(string email, int[] idsMediosAudioVisuales, int cantidadCopias)
         {
             var miembro = _usuarios.BuscarUsuario(email) as Miembro;
-            var pedido = new Pedido(cantidadCopias, miembro);
             var medios = _medios.ObtenerMedios(idsMediosAudioVisuales);
+            var pedido = new Pedido(cantidadCopias, miembro);
 
             foreach (var medio in medios)
             {

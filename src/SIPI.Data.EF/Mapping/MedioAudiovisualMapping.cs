@@ -12,6 +12,8 @@ namespace SIPI.Data.EF.Mapping
                 .HasMaxLength(5000);
 
             HasRequired(x => x.Categoria);
+
+            HasMany(x => x.Oradores).WithMany();
         }
     }
 }

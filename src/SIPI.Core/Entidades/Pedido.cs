@@ -47,7 +47,7 @@ namespace SIPI.Core.Entidades
         public DateTime? FechaEntregado { get; private set; }
 
         // TODO: Cambiar DS
-        public PedidoOperadorView GetOperadorView(string[] roles)
+        public PedidoOperadorView GetOperadorView(Operador operador)
         {
             return new PedidoOperadorView(
                 Numero,
@@ -57,14 +57,14 @@ namespace SIPI.Core.Entidades
                 Fecha,
                 (Estados)Estado,
                 ObtenerEstadoSiguiente(),
-                PuedeCambiarEstado(roles));
+                PuedeCambiarEstado(operador));
         }
 
         // TODO: Cambiar DC
         // TODO: Cambiar DS
-        public void CambiarEstado(string[] roles)
+        public void CambiarEstado(Operador operador)
         {
-            if (!PuedeCambiarEstado(roles))
+            if (!PuedeCambiarEstado(operador))
                 throw new UsuarioNoTienePermisosParaModificarEstadoException();
 
             Estado = (int)ObtenerEstadoSiguiente();
@@ -131,13 +131,13 @@ namespace SIPI.Core.Entidades
 
         //TODO: Cambiar DS
         //TODO: Cambiar DC
-        private bool PuedeCambiarEstado(string[] roles)
+        private bool PuedeCambiarEstado(Operador operador)
         {
             var estado = (Estados)Estado;
-            if (estado == Estados.Nuevo && roles.Contains("Packaging"))
+            if (estado == Estados.Nuevo && operador.TengoRol("Packaging"))
                 return true;
 
-            if (estado == Estados.Listo && roles.Contains("Vendedor"))
+            if (estado == Estados.Listo && operador.TengoRol("Vendedor"))
                 return true;
 
             return false;

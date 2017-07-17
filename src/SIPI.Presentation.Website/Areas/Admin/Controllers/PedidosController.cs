@@ -25,7 +25,7 @@ namespace SIPI.Presentation.Website.Areas.Admin.Controllers
         public ActionResult IndexTable(IndexFiltrosModel filtros, OffsetParams offsetParams)
         {
             return Json(
-                _controladorPedidos.SeguirPedidosOperador(Usuario.Roles, filtros.Miembro, filtros.Desde, filtros.Hasta, offsetParams.Offset, offsetParams.Limit),
+                _controladorPedidos.SeguirPedidosOperador(Usuario.Email, filtros.Miembro, filtros.Desde, filtros.Hasta, offsetParams.Offset, offsetParams.Limit),
                 JsonRequestBehavior.AllowGet);
         }
 
@@ -34,7 +34,7 @@ namespace SIPI.Presentation.Website.Areas.Admin.Controllers
         {
             try
             {
-                _controladorPedidos.CambiarEstadoPedido(numero, Usuario.Roles);
+                _controladorPedidos.CambiarEstadoPedido(numero, Usuario.Email);
             }
             catch (UsuarioNoTienePermisosParaModificarEstadoException ex)
             {

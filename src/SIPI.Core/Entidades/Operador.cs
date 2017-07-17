@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System;
 
 namespace SIPI.Core.Entidades
 {
@@ -30,6 +31,11 @@ namespace SIPI.Core.Entidades
                 Apellido,
                 Email,
                 Roles.Select(x => x.GetView()).ToList());
+        }
+
+        public bool TengoRol(string rol)
+        {
+            return Roles.Any(r => r.Nombre.Equals(rol, StringComparison.OrdinalIgnoreCase));
         }
     }
 }

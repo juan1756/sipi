@@ -9,18 +9,6 @@ namespace SIPI.Core.Entidades
         {
         }
 
-        public Miembro(int id, string email, string nombre, string apellido, string contrasena,
-            string calle, string direccion, int altura, string piso, string telefono, Localidad localidad, Provincia provincia)
-            : base(id, email, nombre, apellido, contrasena)
-        {
-            Calle = calle;
-            Altura = altura;
-            Piso = piso;
-            Telefono = telefono;
-            Localidad = localidad;
-            Provincia = provincia;
-        }
-
         public int Altura { get; private set; }
 
         public string Calle { get; private set; }

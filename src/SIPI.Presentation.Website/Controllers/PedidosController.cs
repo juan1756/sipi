@@ -44,7 +44,7 @@ namespace SIPI.Presentation.Website.Controllers
         {
             return Json(
                 _controladorPedidos
-                    .SeguirPedidosMiembro(Usuario.Id, offsetParams.Offset, offsetParams.Limit),
+                    .SeguirPedidosMiembro(Usuario.Email, offsetParams.Offset, offsetParams.Limit),
                 JsonRequestBehavior.AllowGet);
         }
 

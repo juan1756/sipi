@@ -27,10 +27,10 @@ namespace SIPI.Data.EF.Mappers
             return _dbCtx.Pedidos.Find(numero);
         }
 
-        public IPagedCollection<Pedido> ObtenerPedidos(int id, int desde, int cantidad)
+        public IPagedCollection<Pedido> ObtenerPedidos(string email, int desde, int cantidad)
         {
             return _dbCtx.Pedidos
-                .Where(x => x.Miembro.Id == id)
+                .Where(x => x.Miembro.Email == email)
                 .OrderByDescending(x => x.Fecha)
                 .ToPagedCollection(desde, cantidad);
         }

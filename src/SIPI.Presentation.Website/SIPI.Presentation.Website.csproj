@@ -302,6 +302,10 @@
       <Project>{39fee8f7-5ad5-4c26-a256-f5263bd09151}</Project>
       <Name>SIPI.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SIPI.Data.EF\SIPI.Data.EF.csproj">
+      <Project>{40953de9-6c15-4391-ab27-4688f752514e}</Project>
+      <Name>SIPI.Data.EF</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\app.ts" />

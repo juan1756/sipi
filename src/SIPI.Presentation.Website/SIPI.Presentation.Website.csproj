@@ -162,6 +162,7 @@
     <Compile Include="Authentication\UsuarioPrincipal.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CuentaController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\CatalogoController.cs" />
     <Compile Include="Controllers\PedidosController.cs" />
@@ -240,6 +241,8 @@
     <Content Include="Content\landing\fonts\fontawesome-webfont.woff" />
     <Content Include="Content\landing\fonts\fontawesome-webfont.woff2" />
     <Content Include="Content\landing\fonts\FontAwesome.otf" />
+    <None Include="Properties\PublishProfiles\Azure-FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\Azure-WD.pubxml" />
     <None Include="Scripts\thirdparty\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\thirdparty\jquery-3.2.1.js" />
     <Content Include="Scripts\thirdparty\jquery.mustache.js" />
@@ -253,7 +256,9 @@
     <Content Include="Scripts\thirdparty\respond.js" />
     <Content Include="Scripts\thirdparty\toastr.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -270,9 +275,9 @@
     </Content>
     <Content Include="Views\Cuenta\RecuperoMail.cshtml" />
     <Content Include="Views\Cuenta\Recupero.cshtml" />
-    <Content Include="Views\Shared\500.cshtml" />
-    <Content Include="Views\Shared\404.cshtml" />
-    <Content Include="Views\Shared\503.cshtml" />
+    <Content Include="Views\Error\500.cshtml" />
+    <Content Include="Views\Error\404.cshtml" />
+    <Content Include="Views\Error\501.cshtml" />
     <Content Include="Views\Cuenta\Index.cshtml" />
     <Content Include="Views\Pedidos\Index.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
@@ -280,6 +285,11 @@
     <Content Include="Views\Catalogo\Index.cshtml" />
     <Content Include="Views\Pedidos\Crear.cshtml" />
     <Content Include="Views\Pedidos\Confirmar.cshtml" />
+    <Content Include="Web.Azure-WD.config">
+      <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Azure.ConnectionStrings.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

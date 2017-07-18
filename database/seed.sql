@@ -3,6 +3,11 @@
 PRINT 'BORRANDO CONTENIDO DE LAS TABLAS'
 
 PRINT ''
+PRINT 'Tabla: MedioAudiovisualOrador'
+DELETE FROM MedioAudiovisualOrador
+GO
+
+PRINT ''
 PRINT 'Tabla: Orador'
 DELETE FROM Orador
 DBCC CHECKIDENT ('[Orador]', RESEED, 1);
@@ -91,13 +96,13 @@ PRINT ''
 PRINT 'Tabla: Usuario'
 SET IDENTITY_INSERT Usuario ON 
 GO
-INSERT INTO Usuario (Id, Email, Nombre, Apellido, Contrasena, ContrasenaNueva, Hash, Altura, Calle, Direccion, Telefono, Piso, Discriminator, Localidad_Id, Provincia_Id) VALUES (1, 'miembro@mail.com', 'Don', 'Miembro', '1234', NULL, NULL, 4792, 'Charcas', 'Direccion', '47760626', '1', 'Miembro', 1, 1)
+INSERT INTO Usuario (Id, Email, Nombre, Apellido, Contrasena, ContrasenaNueva, Hash, Altura, Calle, Telefono, Piso, Discriminator, Localidad_Id, Provincia_Id) VALUES (1, 'miembro@mail.com', 'Don', 'Miembro', '1234', NULL, NULL, 4792, 'Charcas', '47760626', '1', 'Miembro', 1, 1)
 GO
-INSERT INTO Usuario (Id, Email, Nombre, Apellido, Contrasena, ContrasenaNueva, Hash, Altura, Calle, Direccion, Telefono, Piso, Discriminator, Localidad_Id, Provincia_Id) VALUES (2, 'operador_contenido@mail.com', 'Don', 'Operador Contenido', '1234', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Operador', NULL, NULL)
+INSERT INTO Usuario (Id, Email, Nombre, Apellido, Contrasena, ContrasenaNueva, Hash, Altura, Calle, Telefono, Piso, Discriminator, Localidad_Id, Provincia_Id) VALUES (2, 'operador_contenido@mail.com', 'Don', 'Operador Contenido', '1234', NULL, NULL, NULL, NULL, NULL, NULL, 'Operador', NULL, NULL)
 GO
-INSERT INTO Usuario (Id, Email, Nombre, Apellido, Contrasena, ContrasenaNueva, Hash, Altura, Calle, Direccion, Telefono, Piso, Discriminator, Localidad_Id, Provincia_Id) VALUES (3, 'operador_packaging@mail.com', 'Don', 'Operador Packaging', '1234', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Operador', NULL, NULL)
+INSERT INTO Usuario (Id, Email, Nombre, Apellido, Contrasena, ContrasenaNueva, Hash, Altura, Calle, Telefono, Piso, Discriminator, Localidad_Id, Provincia_Id) VALUES (3, 'operador_packaging@mail.com', 'Don', 'Operador Packaging', '1234', NULL, NULL, NULL, NULL, NULL, NULL, 'Operador', NULL, NULL)
 GO
-INSERT INTO Usuario (Id, Email, Nombre, Apellido, Contrasena, ContrasenaNueva, Hash, Altura, Calle, Direccion, Telefono, Piso, Discriminator, Localidad_Id, Provincia_Id) VALUES (4, 'operador_vendedor@mail.com', 'Don', 'Operador Vendedor', '1234', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Operador', NULL, NULL)
+INSERT INTO Usuario (Id, Email, Nombre, Apellido, Contrasena, ContrasenaNueva, Hash, Altura, Calle, Telefono, Piso, Discriminator, Localidad_Id, Provincia_Id) VALUES (4, 'operador_vendedor@mail.com', 'Don', 'Operador Vendedor', '1234', NULL, NULL, NULL, NULL, NULL, NULL, 'Operador', NULL, NULL)
 GO
 SET IDENTITY_INSERT Usuario OFF
 GO
@@ -298,17 +303,33 @@ GO
 
 PRINT ''
 PRINT 'Tabla: Orador'
-INSERT INTO Orador (Nombre, Apellido, FechaCreacion, Operador_Id, MedioAudiovisual_Id) VALUES ('Hernán', 'Rodriguez', '20140105', 2, 1)
+SET IDENTITY_INSERT Orador ON
+INSERT INTO Orador (Id, Nombre, Apellido, FechaCreacion, Operador_Id) VALUES (1, 'Hernán', 'Rodriguez', '20140105', 2)
 GO
-INSERT INTO Orador (Nombre, Apellido, FechaCreacion, Operador_Id, MedioAudiovisual_Id) VALUES ('Mariela', 'Lentini', '20140105', 2, 2)
+INSERT INTO Orador (Id, Nombre, Apellido, FechaCreacion, Operador_Id) VALUES (2, 'Mariela', 'Lentini', '20140105', 2)
 GO
-INSERT INTO Orador (Nombre, Apellido, FechaCreacion, Operador_Id, MedioAudiovisual_Id) VALUES ('Paola', 'Casas', '20140105', 2, 3)
+INSERT INTO Orador (Id, Nombre, Apellido, FechaCreacion, Operador_Id) VALUES (3, 'Paola', 'Casas', '20140105', 2)
 GO
-INSERT INTO Orador (Nombre, Apellido, FechaCreacion, Operador_Id, MedioAudiovisual_Id) VALUES ('José',  'King', '20140105', 2, 4)
+INSERT INTO Orador (Id, Nombre, Apellido, FechaCreacion, Operador_Id) VALUES (4, 'José',  'King', '20140105', 2)
 GO
-INSERT INTO Orador (Nombre, Apellido, FechaCreacion, Operador_Id, MedioAudiovisual_Id) VALUES ('Carla', 'Mayada', '20140105', 2, 5)
+INSERT INTO Orador (Id, Nombre, Apellido, FechaCreacion, Operador_Id) VALUES (5, 'Carla', 'Mayada', '20140105', 2)
 GO
+SET IDENTITY_INSERT Orador OFF
 
+PRINT ''
+PRINT 'Tabla: MedioAudiovisualOrador'
+INSERT INTO MedioAudiovisualOrador (MedioAudiovisual_Id, Orador_Id)
+VALUES 
+	(1,1),(2,2),(3,3),(4,4),(5,5),
+	(6,1),(7,2),(8,3),(9,4),(10,5),
+	(11,1),(12,2),(13,3),(14,4),(15,5),
+	(16,1),(17,2),(18,3),(19,4),(20,5),
+	(21,1),(22,2),(23,3),(24,4),(25,5),
+	(26,1),(27,2),(28,3),(29,4),(30,5),
+	(31,1),(32,2),(33,3),(34,4),(35,5),
+	(36,1),(37,2),(38,3),(39,4),(40,5),
+	(41,1),(42,2),(43,3),(44,4),(45,5),
+	(46,1),(47,2),(48,3),(49,4),(50,5)
 
 /* Verficación */
 

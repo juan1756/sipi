@@ -9,7 +9,7 @@ namespace SIPI.Presentation.Website
         {
             // Main 
 
-            bundles.Add(new StyleBundle("~/Content/styles").Include(
+            bundles.Add(new StyleBundle("~/Content/styles/css").Include(
                 "~/Content/css/vendor.css",
                 "~/Content/css/app.css",
                 "~/Content/css/bootstrap-table-1.11.1.css",

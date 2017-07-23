@@ -41,7 +41,7 @@ namespace SIPI.Presentation.Website.Controllers
             {
                 if (!TempData.ContainsKey("Error-Notifications-Login"))
                 {
-                    TempData.Add("Error-Notifications-Login", "El usuario o contraseña ingresados son inválidos");
+                    TempData.Add("Error-Notifications-Login", "El email y/o la contraseña son incorrectos");
                 }
 
                 return View(model);

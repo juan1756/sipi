@@ -57,7 +57,7 @@
         <div class="row infinite-container waypoint">
             @foreach (var m in Model.Medios.Rows)
             {
-                <div class="col-xl-3 infinite-item">
+                <div class="col-xl-4 col-md-4 infinite-item">
                     <div class="card card-default">
                         <div class="card-header">
                             <div class="header-block">
@@ -69,7 +69,11 @@
                                     src="@m.Url" 
                                     frameborder="0" allowfullscreen></iframe>
                         </div>
-                        <div class="card-footer">@m.FechaGrabacion.ToShortDateString()</div>
+                        <div class="card-footer">
+                            <span class="date pull-left">
+                                @m.FechaGrabacion.ToShortDateString()
+                            </span>
+                        </div>
                     </div>
                 </div>
             }

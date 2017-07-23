@@ -34,7 +34,8 @@
 		line-height: 20px;
 	}
 	.no-sidebar .logo,
-	.no-sidebar .logo-header {
+	.no-sidebar .logo-header,
+    .no-sidebar .logo-image {
 		display: none;
 	}
 	.header .header-block-nav > ul > li > a {
@@ -116,4 +117,11 @@ label {
 
 .pointer {
     cursor: pointer;
+}
+
+.card-footer .date {
+    display: inline-block;
+    margin-bottom: .5rem;
+    margin-top: .5rem;
+    line-height: 31px;
 }

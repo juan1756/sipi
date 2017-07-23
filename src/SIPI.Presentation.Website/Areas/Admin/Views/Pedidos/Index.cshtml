@@ -38,7 +38,7 @@
             </div>
         </form>
     </section>
-    <section class="section">
+    <section id="tblContainer" class="section">
         <form action="@Url.PostTable("index", "pedidos", new { area = "admin" })" method="post">
             <table class="table fixed-table-pagination table-striped table-bordered table-hover"
                    data-toggle="table"
@@ -62,8 +62,50 @@
     </section>
 </article>
 
+@section modals{
+    <div class="modal fade" id="modal-confirm">
+        <div class="modal-dialog modal-xs">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title">Confirmar cambio de estado</h4>
+                </div>
+                <div class="modal-body">
+                    <p id="modal-text" class="text-xs-left" data-text="¿Esta seguro/a que quiere pasar el pedido al estado '{estado}'?"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button id="btnConfirm" type="button" class="btn btn-primary">Confirmar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
 @section scripts
 {
+    <script>
+        $(document).ready(function () {
+            $('#tblContainer').on('click', '.cambiarEstado', function (e) {
+                var $btn = $(this);
+                var $mdlText = $('#modal-text');
+
+                $mdlText
+                    .html($mdlText
+                        .data('text')
+                        .replace('{estado}', $btn.html()));
+
+                var $modal = $('#modal-confirm').modal('show');
+
+                $('#btnConfirm').off('click').click(function () {
+                    $btn.attr('type', 'submit').click();
+                })
+            })
+        });
+    </script>
     @if (TempData.ContainsKey("Error-Notifications-CambiarEstado"))
     {
         <script>

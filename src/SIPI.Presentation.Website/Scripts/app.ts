@@ -59,7 +59,7 @@ class Tables {
             return;
 
         if (row.puedeCambiarEstado)
-            return "<button type='submit' name='numero' value='" + row.numero + "' class='btn btn-" + (value == "Listo" ? "info" : "success") + "'>" + value + "</button>";
+            return "<button type='button' name='numero' value='" + row.numero + "' class='cambiarEstado btn btn-" + (value == "Listo" ? "info" : "success") + "'>" + value + "</button>";
 
         return "<div class='btn btn-" + (value == "Listo" ? "info" : "success") + "-outline btn-static'>" + value + "</div>";
     }

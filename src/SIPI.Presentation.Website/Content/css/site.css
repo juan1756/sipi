@@ -16,8 +16,9 @@
 	right: 0;
 }
 
-.logo-header {
-	width: 50%;
+.logo-image {
+    width: 50px;
+    margin-bottom: 10px;
 }
 
 .brand-header {
@@ -101,6 +102,7 @@ label {
 
 .logo-text {
     display: inline-block;
+    margin-left: 10px;
 }
 
 .logo {

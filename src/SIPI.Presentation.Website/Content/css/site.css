@@ -16,8 +16,9 @@
 	right: 0;
 }
 
-.logo-header {
-	width: 50%;
+.logo-image {
+    width: 50px;
+    margin-bottom: 10px;
 }
 
 .brand-header {
@@ -33,7 +34,8 @@
 		line-height: 20px;
 	}
 	.no-sidebar .logo,
-	.no-sidebar .logo-header {
+	.no-sidebar .logo-header,
+    .no-sidebar .logo-image {
 		display: none;
 	}
 	.header .header-block-nav > ul > li > a {
@@ -101,6 +103,7 @@ label {
 
 .logo-text {
     display: inline-block;
+    margin-left: 10px;
 }
 
 .logo {
@@ -110,4 +113,15 @@ label {
 
 .auth-header > a {
     text-decoration: none !important;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.card-footer .date {
+    display: inline-block;
+    margin-bottom: .5rem;
+    margin-top: .5rem;
+    line-height: 31px;
 }

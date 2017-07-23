@@ -19,7 +19,7 @@
             return 'Buscar';
         },
         formatNoMatches: function () {
-            return 'No se encontraron registros';
+            return 'No se encontraron resultados para su búsqueda';
         },
         formatAllRows: function () {
             return 'Todo';

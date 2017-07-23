@@ -57,7 +57,7 @@
                             <div class="col-md-12">
                                 <label>
                                     <input id="SelectAll" class="checkbox" type="checkbox">
-                                    <span>Seleccionar todos</span>
+                                    <span class="pointer">Seleccionar todos</span>
                                 </label>
                             </div>
                         </div>
@@ -69,6 +69,9 @@
                         <div class="form-group row">
                             <button type="submit" class="btn btn-block btn-primary">Buscar</button>
                             <button id="btnOrder" type="button" class="btn btn-block btn-primary" value="Confirmar">Pedir</button>
+                            <button type="button" class="btn btn-block btn-primary" onclick="app.go('@Url.Action("index","catalogo", new { area = "" })')">
+                                Cancelar
+                            </button>
                         </div>
                     </div>
                 </form>
@@ -122,7 +125,7 @@
             <div class="row infinite-container waypoint">
                 @foreach (var m in Model.Medios.Rows)
                 {
-                    <div class="col-xl-3 infinite-item">
+                    <div class="col-xl-4 col-md-4 infinite-item">
                         <div class="card card-default">
                             <div class="card-header">
                                 <div class="header-block">
@@ -135,10 +138,12 @@
                                         frameborder="0" allowfullscreen></iframe>
                             </div>
                             <div class="card-footer">
-                                @m.FechaGrabacion.ToShortDateString()
+                                <span class="date pull-left">
+                                    @m.FechaGrabacion.ToShortDateString()
+                                </span>
                                 <label class="pull-right">
                                     <input name="Medios" type="checkbox" class="checkbox" data-tamano="@m.Tamano" value="@m.Id" />
-                                    <span></span>
+                                    <span class="pointer"></span>
                                 </label>
                             </div>
                         </div>

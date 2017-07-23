@@ -71,7 +71,7 @@ namespace SIPI.Presentation.Website.Controllers
             if (crear.Medios == null || !crear.Medios.Any())
             {
                 var offsetParams = new OffsetParams() { Offset = 0, Limit = 8 };
-                TempData["Error-Notifications-Confirmar"] = "Debe pedir al menos un medio";
+                TempData["Error-Notifications-Confirmar"] = "El pedido debe contener al menos un medio audiovisual seleccionado";
                 return View(
                     new Models.Catalogo.IndexModel(
                         categorias: _controladorCategorias.ObtenerCategorias(),

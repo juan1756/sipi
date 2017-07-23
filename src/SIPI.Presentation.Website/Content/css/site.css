@@ -98,3 +98,16 @@ label {
     font-size: .75em;
     color: #B4B7B9;
 }
+
+.logo-text {
+    display: inline-block;
+}
+
+.logo {
+    padding: 20px 20px 0px 20px;
+    margin-bottom: 0px;
+}
+
+.auth-header > a {
+    text-decoration: none !important;
+}

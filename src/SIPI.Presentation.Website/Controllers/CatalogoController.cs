@@ -27,6 +27,13 @@ namespace SIPI.Presentation.Website.Controllers
             if (Usuario != null && !Usuario.IsInRole("Miembro"))
                 return new HttpUnauthorizedResult();
 
+            if (filtros.FechaDesde.HasValue && filtros.FechaHasta.HasValue
+                && filtros.FechaHasta < filtros.FechaDesde)
+            {
+                TempData.Add("Error-Notifications-Filtros", "La Fecha desde debe ser menor o igual a la Fecha hasta");
+                return RedirectToAction("index", "catalogo", new { area = "" });
+            }
+
             if (offsetParams.Limit == 0)
                 offsetParams.Limit = 8;
 

@@ -50,6 +50,13 @@ namespace SIPI.Presentation.Website.Controllers
 
         public ActionResult Crear(Models.Catalogo.IndexFiltrosModel filtros, OffsetParams offsetParams)
         {
+            if (filtros.FechaDesde.HasValue && filtros.FechaHasta.HasValue
+                && filtros.FechaHasta < filtros.FechaDesde)
+            {
+                TempData.Add("Error-Notifications-Filtros", "La Fecha desde debe ser menor o igual a la Fecha hasta");
+                return RedirectToAction("crear", "pedidos", new { area = "" });
+            }
+
             if (offsetParams.Limit == 0)
                 offsetParams.Limit = 8;
 
@@ -66,7 +73,22 @@ namespace SIPI.Presentation.Website.Controllers
         public ActionResult Crear(Models.Catalogo.IndexFiltrosModel filtros, CrearModel crear)
         {
             if (!ModelState.IsValid)
+                return RedirectToAction("crear", "pedidos", new
+                {
+                    area = "",
+                    CategoriaId = filtros.CategoriaId,
+                    Tema = filtros.Tema,
+                    FechaDesde = filtros.FechaDesde,
+                    FechaHasta = filtros.FechaHasta,
+                    TipoId = filtros.TipoId
+                });
+
+            if (filtros.FechaDesde.HasValue && filtros.FechaHasta.HasValue
+                && filtros.FechaHasta < filtros.FechaDesde)
+            {
+                TempData.Add("Error-Notifications-Filtros", "La Fecha desde debe ser menor o igual a la Fecha hasta");
                 return RedirectToAction("crear", "pedidos", new { area = "" });
+            }
 
             if (crear.Medios == null || !crear.Medios.Any())
             {

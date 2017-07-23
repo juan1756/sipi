@@ -6,17 +6,6 @@
 }
 
 <article class="content cards-page">
-    @if (TempData.ContainsKey("Error-Notifications-Confirmar"))
-    {
-        <div class="row">
-            <div class="col-md-12">
-                <div class="alert alert-danger alert-dismissible" role="alert">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    @TempData["Error-Notifications-Confirmar"]
-                </div>
-            </div>
-        </div>
-    }
     <div class="title-block">
         <h3 class="title">Contenido Multimedial</h3>
     </div>
@@ -174,4 +163,16 @@
                 @ConfigurationManager.AppSettings["Insumo.Precio"]);
         });
     </script>
+    @if (TempData.ContainsKey("Error-Notifications-Filtros"))
+    {
+        <script>
+            toastr.error('@TempData["Error-Notifications-Filtros"]', 'Error');
+        </script>
+    }
+    @if (TempData.ContainsKey("Error-Notifications-Confirmar"))
+    {
+        <script>
+            toastr.error('@TempData["Error-Notifications-Confirmar"]', 'Error');
+        </script>
+    }
 }

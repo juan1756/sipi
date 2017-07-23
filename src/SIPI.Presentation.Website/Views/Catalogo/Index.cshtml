@@ -104,4 +104,10 @@
             });
         })();
     </script>
+    @if (TempData.ContainsKey("Error-Notifications-Filtros"))
+    {
+        <script>
+            toastr.error('@TempData["Error-Notifications-Filtros"]', 'Error');
+        </script>
+    }
 }

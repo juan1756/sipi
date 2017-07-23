@@ -68,9 +68,16 @@
                 insumos++;
 
             var insumosPorCantidadCopias = this.$cantidadCopias.val() * insumos;
-
+            var cantidadAnterior = parseInt(this.$cantidadInsumos.html());
             this.$cantidadInsumos.html(insumosPorCantidadCopias.toString());
             this.$costoTotal.html('$' + (insumosPorCantidadCopias * this.precioInsumo));
+
+            if (cantidadAnterior != insumosPorCantidadCopias) {
+                toastr.clear();
+                toastr.warning(
+                    'Se superó el espacio del DVD. El pedido ahora tiene: ' + insumosPorCantidadCopias + ' unidades',
+                    'Información');
+            }
         }
     }
 }

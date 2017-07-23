@@ -56,12 +56,16 @@ var views;
                 var insumosActuales = Math.floor(tamanoTotal / this.tamanoInsumo);
                 if (tamanoTotal % this.tamanoInsumo > 0)
                     insumosActuales++;
+                var cantidadAnterior = parseInt(this.$cantidadInsumos.html());
                 this.$cantidadInsumos.html(insumosActuales.toString());
                 this.$costoParcial.html('$' + (insumosActuales * this.precioInsumo));
+                if (cantidadAnterior != insumosActuales) {
+                    toastr.clear();
+                    toastr.warning('Se superó el espacio del DVD. El pedido ahora tiene: ' + insumosActuales + ' unidades', 'Información');
+                }
             };
             return crear;
         }());
         pedidos.crear = crear;
     })(pedidos = views.pedidos || (views.pedidos = {}));
 })(views || (views = {}));
-//# sourceMappingURL=crear.js.map

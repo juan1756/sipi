@@ -1,4 +1,5 @@
 ﻿declare var Waypoint: any;
+declare var toastr: any;
 
 module views.pedidos {
     export class crear {
@@ -81,8 +82,16 @@ module views.pedidos {
             if (tamanoTotal % this.tamanoInsumo > 0)
                 insumosActuales++;
 
+            var cantidadAnterior = parseInt(this.$cantidadInsumos.html());
             this.$cantidadInsumos.html(insumosActuales.toString());
             this.$costoParcial.html('$' + (insumosActuales * this.precioInsumo));
+
+            if (cantidadAnterior != insumosActuales) {
+                toastr.clear();
+                toastr.warning(
+                    'Se superó el espacio del DVD. El pedido ahora tiene: ' + insumosActuales + ' unidades',
+                    'Información');
+            }
         }
     }
 }

@@ -28,6 +28,10 @@ class App {
     public go(url: string) {
         window.location.href = url;
     }
+
+    public goBack() {
+        window.history.back();
+    }
 }
 
 class Tables {

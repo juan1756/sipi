@@ -18,6 +18,9 @@ var App = (function () {
     App.prototype.go = function (url) {
         window.location.href = url;
     };
+    App.prototype.goBack = function () {
+        window.history.back();
+    };
     return App;
 }());
 var Tables = (function () {

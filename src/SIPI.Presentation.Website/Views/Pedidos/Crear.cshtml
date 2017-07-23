@@ -69,6 +69,9 @@
                         <div class="form-group row">
                             <button type="submit" class="btn btn-block btn-primary">Buscar</button>
                             <button id="btnOrder" type="button" class="btn btn-block btn-primary" value="Confirmar">Pedir</button>
+                            <button type="button" class="btn btn-block btn-primary" onclick="app.go('@Url.Action("index","catalogo", new { area = "" })')">
+                                Cancelar
+                            </button>
                         </div>
                     </div>
                 </form>

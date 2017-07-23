@@ -11,7 +11,7 @@
                 <h2 class="error-sub-title"> Error interno del servidor </h2>
             </div>
             <div class="error-container">
-                <p>Intente recargar la página nuevamente,<br />o contáctese con el administrador</p> <a class="btn btn-primary" href="@Url.Action("index", "home", new { area = "" })">
+                <p>Intente recargar la página nuevamente,<br />o contáctese con el administrador</p> <a class="btn btn-primary" href="@Url.PreviousLocalOrHome()">
                     <i class="fa fa-angle-left"></i>
                     Volver
                 </a>

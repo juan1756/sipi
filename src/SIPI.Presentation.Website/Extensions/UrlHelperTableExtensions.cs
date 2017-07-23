@@ -32,5 +32,21 @@ namespace System.Web.Mvc
                     ? "?" + request.QueryString.ToString()
                     : string.Empty);
         }
+
+        public static string PreviousLocal(this UrlHelper url, string action, string controller, object routeData = null)
+        {
+            if (url.RequestContext.HttpContext.Request.UrlReferrer != null 
+                && url.IsLocalUrl(url.RequestContext.HttpContext.Request.UrlReferrer.AbsolutePath))
+            {
+                return url.RequestContext.HttpContext.Request.UrlReferrer.ToString();
+            }
+
+            return url.Action(action, controller, routeData);
+        }
+
+        public static string PreviousLocalOrHome(this UrlHelper url)
+        {
+            return url.PreviousLocal("index", "home", new { area = "" });
+        }
     }
 }

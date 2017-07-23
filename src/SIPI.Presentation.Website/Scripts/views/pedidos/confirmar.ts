@@ -24,6 +24,9 @@
             var $button = $(e.target);
             $button.closest('.col-xl-3').remove();
             this.calcularInsumos();
+            toastr.warning(
+                'Medio Audiovisual eliminado del pedido',
+                'Información');
 
             if (!$('.col-xl-3').length) {
                 //$('#container').append('No hay mas medios');

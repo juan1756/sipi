@@ -103,46 +103,62 @@
         </div>
     </section>
     <section class="section">
-        <form id="frmMedios" method="post">
-            @HtmlFiltros.HiddenFor(x => x.CategoriaId)
-            @HtmlFiltros.HiddenFor(x => x.Tema)
-            @HtmlFiltros.HiddenFor(x => x.FechaDesde)
-            @HtmlFiltros.HiddenFor(x => x.FechaHasta)
-            @HtmlFiltros.HiddenFor(x => x.TipoId)
-            <input type="hidden" name="SelectAll" />
-            <input type="hidden" name="step" value="Confirm" />
-            <div class="row infinite-container waypoint">
-                @foreach (var m in Model.Medios.Rows)
-                {
-                    <div class="col-xl-4 col-md-4 infinite-item">
-                        <div class="card card-default">
-                            <div class="card-header">
-                                <div class="header-block">
-                                    <p class="title">@m.Tema</p>
+        @if (Model.Medios.Rows.Any())
+        {
+
+            <form id="frmMedios" method="post">
+                @HtmlFiltros.HiddenFor(x => x.CategoriaId)
+                @HtmlFiltros.HiddenFor(x => x.Tema)
+                @HtmlFiltros.HiddenFor(x => x.FechaDesde)
+                @HtmlFiltros.HiddenFor(x => x.FechaHasta)
+                @HtmlFiltros.HiddenFor(x => x.TipoId)
+                <input type="hidden" name="SelectAll" />
+                <input type="hidden" name="step" value="Confirm" />
+                <div class="row infinite-container waypoint">
+                    @foreach (var m in Model.Medios.Rows)
+                    {
+                        <div class="col-xl-4 col-md-4 infinite-item">
+                            <div class="card card-default">
+                                <div class="card-header">
+                                    <div class="header-block">
+                                        <p class="title">@m.Tema</p>
+                                    </div>
+                                </div>
+                                <div class="card-block">
+                                    <iframe width="100%" height="100%"
+                                            src="@m.Url"
+                                            frameborder="0" allowfullscreen></iframe>
+                                </div>
+                                <div class="card-footer">
+                                    <span class="date pull-left">
+                                        @m.FechaGrabacion.ToShortDateString()
+                                    </span>
+                                    <label class="pull-right">
+                                        <input name="Medios" type="checkbox" class="checkbox" data-tamano="@m.Tamano" value="@m.Id" />
+                                        <span class="pointer"></span>
+                                    </label>
                                 </div>
                             </div>
-                            <div class="card-block">
-                                <iframe width="100%" height="100%"
-                                        src="@m.Url"
-                                        frameborder="0" allowfullscreen></iframe>
-                            </div>
-                            <div class="card-footer">
-                                <span class="date pull-left">
-                                    @m.FechaGrabacion.ToShortDateString()
-                                </span>
-                                <label class="pull-right">
-                                    <input name="Medios" type="checkbox" class="checkbox" data-tamano="@m.Tamano" value="@m.Id" />
-                                    <span class="pointer"></span>
-                                </label>
-                            </div>
                         </div>
-                    </div>
-                }
-            </div>
-        </form>
+                    }
+                </div>
+            </form>
+        }
+        else
+        {
+            <table class="table fixed-table-pagination table-striped table-bordered table-hover">
+                <tbody>
+                    <tr class="no-records-found">
+                        <td align="center">No se encontraron resultados para su búsqueda</td>
+                    </tr>
+                </tbody>
+            </table>
+        }
     </section>
 </article>
-<a class="infinite-more-link" href="@Html.Raw(Url.Action("crear", "pedidos", new
+@if (Model.Medios.Rows.Any())
+{
+    <a class="infinite-more-link" href="@Html.Raw(Url.Action("crear", "pedidos", new
     {
         area = "",
         Offset = Model.OffsetParams.Offset + Model.OffsetParams.Limit,
@@ -153,7 +169,7 @@
         FechaHasta = Model.Filtros.FechaHasta,
         TipoId = Model.Filtros.TipoId
     }))">Página siguiente</a>
-
+}
 @section scripts{
     <script>
         var view;

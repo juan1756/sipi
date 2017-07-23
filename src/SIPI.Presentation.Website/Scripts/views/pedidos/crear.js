@@ -7,15 +7,17 @@ var views;
                 var _this = this;
                 this.tamanoInsumo = tamanoInsumo;
                 this.precioInsumo = precioInsumo;
-                this._infinite = new Waypoint.Infinite({
-                    context: $('.main-wrapper')[0],
-                    element: $('.infinite-container')[0],
-                    onAfterPageLoad: function ($items) {
-                        _this.setMediosCheck($items);
-                        if (_this.$frmFilters_SelectAll.prop('checked'))
-                            _this.calcularInsumos();
-                    }
-                });
+                if ($('.infinite-container').length) {
+                    this._infinite = new Waypoint.Infinite({
+                        context: $('.main-wrapper')[0],
+                        element: $('.infinite-container')[0],
+                        onAfterPageLoad: function ($items) {
+                            _this.setMediosCheck($items);
+                            if (_this.$frmFilters_SelectAll.prop('checked'))
+                                _this.calcularInsumos();
+                        }
+                    });
+                }
                 this.$cantidadInsumos = $('#CantidadInsumos');
                 this.$costoParcial = $('#CostoParcial');
                 this.$frmMedios = $('#frmMedios');
@@ -69,3 +71,4 @@ var views;
         pedidos.crear = crear;
     })(pedidos = views.pedidos || (views.pedidos = {}));
 })(views || (views = {}));
+//# sourceMappingURL=crear.js.map

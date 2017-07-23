@@ -18,16 +18,18 @@ module views.pedidos {
             this.tamanoInsumo = tamanoInsumo;
             this.precioInsumo = precioInsumo;
 
-            this._infinite = new Waypoint.Infinite({
-                context: $('.main-wrapper')[0],
-                element: $('.infinite-container')[0],
-                onAfterPageLoad: $items => {
-                    this.setMediosCheck($items);
+            if ($('.infinite-container').length) {
+                this._infinite = new Waypoint.Infinite({
+                    context: $('.main-wrapper')[0],
+                    element: $('.infinite-container')[0],
+                    onAfterPageLoad: $items => {
+                        this.setMediosCheck($items);
 
-                    if (this.$frmFilters_SelectAll.prop('checked'))
-                        this.calcularInsumos();
-                }
-            });
+                        if (this.$frmFilters_SelectAll.prop('checked'))
+                            this.calcularInsumos();
+                    }
+                });
+            }
 
             this.$cantidadInsumos = $('#CantidadInsumos');
             this.$costoParcial = $('#CostoParcial');

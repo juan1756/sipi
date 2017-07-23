@@ -54,56 +54,73 @@
         </form>
     </section>
     <section class="section">
-        <div class="row infinite-container waypoint">
-            @foreach (var m in Model.Medios.Rows)
-            {
-                <div class="col-xl-4 col-md-4 infinite-item">
-                    <div class="card card-default">
-                        <div class="card-header">
-                            <div class="header-block">
-                                <p class="title">@m.Tema</p>
+        @if (Model.Medios.Rows.Any())
+        {
+            <div class="row infinite-container waypoint">
+                @foreach (var m in Model.Medios.Rows)
+                {
+                    <div class="col-xl-4 col-md-4 infinite-item">
+                        <div class="card card-default">
+                            <div class="card-header">
+                                <div class="header-block">
+                                    <p class="title">@m.Tema</p>
+                                </div>
+                            </div>
+                            <div class="card-block">
+                                <iframe width="100%" height="100%"
+                                        src="@m.Url"
+                                        frameborder="0" allowfullscreen></iframe>
+                            </div>
+                            <div class="card-footer">
+                                <span class="date pull-left">
+                                    @m.FechaGrabacion.ToShortDateString()
+                                </span>
                             </div>
                         </div>
-                        <div class="card-block">
-                            <iframe width="100%" height="100%" 
-                                    src="@m.Url" 
-                                    frameborder="0" allowfullscreen></iframe>
-                        </div>
-                        <div class="card-footer">
-                            <span class="date pull-left">
-                                @m.FechaGrabacion.ToShortDateString()
-                            </span>
-                        </div>
                     </div>
-                </div>
-            }
-        </div>
+                }
+            </div>
+        }
+        else
+        {
+            <table class="table fixed-table-pagination table-striped table-bordered table-hover">
+                <tbody>
+                    <tr class="no-records-found">
+                        <td align="center">No se encontraron resultados para su búsqueda</td>
+                    </tr>
+                </tbody>
+            </table>
+        }
     </section>
-    
 </article>
-<a class="infinite-more-link" href="@Html.Raw(Url.Action("index", "catalogo", new
-    {
-        area = "",
-        Offset = Model.OffsetParams.Offset + Model.OffsetParams.Limit,
-        Limit = Model.OffsetParams.Limit,
-        CategoriaId = Model.Filtros.CategoriaId,
-        Tema = Model.Filtros.Tema,
-        FechaDesde = Model.Filtros.FechaDesde,
-        FechaHasta = Model.Filtros.FechaHasta,
-        TipoId = Model.Filtros.TipoId
-    }))">Página siguiente</a>
-
+@if (Model.Medios.Rows.Any())
+{
+    <a class="infinite-more-link" href="@Html.Raw(Url.Action("index", "catalogo", new
+        {
+            area = "",
+            Offset = Model.OffsetParams.Offset + Model.OffsetParams.Limit,
+            Limit = Model.OffsetParams.Limit,
+            CategoriaId = Model.Filtros.CategoriaId,
+            Tema = Model.Filtros.Tema,
+            FechaDesde = Model.Filtros.FechaDesde,
+            FechaHasta = Model.Filtros.FechaHasta,
+            TipoId = Model.Filtros.TipoId
+        }))">Página siguiente</a>
+}
 @section scripts{
-    <script>
-        var view = (function () {
-            $(document).ready(function () {
-                var infinite = new Waypoint.Infinite({
-                    context: $('.main-wrapper')[0],
-                    element: $('.infinite-container')[0]
+    @if (Model.Medios.Rows.Any())
+    {
+        <script>
+            var view = (function () {
+                $(document).ready(function () {
+                    var infinite = new Waypoint.Infinite({
+                        context: $('.main-wrapper')[0],
+                        element: $('.infinite-container')[0]
+                    });
                 });
-            });
-        })();
-    </script>
+            })();
+        </script>
+    }
     @if (TempData.ContainsKey("Error-Notifications-Filtros"))
     {
         <script>

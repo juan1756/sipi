@@ -30,5 +30,11 @@
         })
     </script>
     @RenderSection("scripts", required: false)
+    @if (TempData.ContainsKey("Success-Notifications-PedidoCreado"))
+    {
+        <script>
+            toastr.success('@TempData["Success-Notifications-PedidoCreado"]');
+        </script>
+    }
 </body>
 </html>

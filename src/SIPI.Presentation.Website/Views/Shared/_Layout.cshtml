@@ -38,6 +38,11 @@
                         </li>
                     </ul>
                 }
+                else
+                {
+                    <a class="btn btn-primary" href="@Url.Action("registro", "cuenta", new { area = "" })">Registrarse</a>
+                    <a class="btn btn-primary" href="@Url.Action("login", "cuenta", new { area = "" })">Iniciar Sesión</a>
+                }
             </div>
         </header>
 

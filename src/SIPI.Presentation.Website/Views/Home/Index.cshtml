@@ -48,12 +48,21 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a class="page-scroll" href="@Url.Action("registro", "cuenta", new { area = "" })">Registrarse</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="@Url.Action("login", "cuenta", new { area = "" })">Iniciar Sesión</a>
-                    </li>
+                    @if (this.Usuario() == null)
+                    {
+                        <li>
+                            <a class="page-scroll" href="@Url.Action("registro", "cuenta", new { area = "" })">Registrarse</a>
+                        </li>
+                        <li>
+                            <a class="page-scroll" href="@Url.Action("login", "cuenta", new { area = "" })">Iniciar Sesión</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+                            <a class="page-scroll" href="@Url.Action("logout", "cuenta", new { area = "" })">Cerrar Sesión</a>
+                        </li>
+                    }
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

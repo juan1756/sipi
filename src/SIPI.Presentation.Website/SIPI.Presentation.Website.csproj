@@ -190,9 +190,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\assets\faces\jperez.jpg" />
     <Content Include="Content\assets\faces\miembro.jpg" />
+    <Content Include="Content\assets\faces\mlopez.jpg" />
     <Content Include="Content\assets\faces\operador_contenido.jpg" />
     <Content Include="Content\assets\faces\operador_packaging.jpg" />
+    <Content Include="Content\assets\faces\rgomez.jpg" />
+    <Content Include="Content\assets\faces\yamilacariati.jpg" />
     <Content Include="Content\css\app.css" />
     <Content Include="Content\assets\faces\operador_vendedor.jpg" />
     <Content Include="Content\assets\favicon.ico" />

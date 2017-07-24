@@ -28,6 +28,14 @@
 	padding: 10px;
 }
 
+.brand-header > a {
+    color: #3a4651 !important;
+}
+
+.brand-header > a:hover {
+    color: #fe821d !important;
+}
+
   @media (max-width: 767px) {
 	.sidebar-header .brand-header {
 		font-size: 18px !important;

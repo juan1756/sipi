@@ -39,8 +39,6 @@
   @media (max-width: 767px) {
 	.sidebar-header .brand-header {
 		font-size: 18px !important;
-		//line-height: 20px;
-        //padding: 0px;
 	}
 	.no-sidebar .logo,
 	.no-sidebar .logo-header,
@@ -53,9 +51,6 @@
 	}
 	.header .header-block-collapse {
 		width: 50px;
-	}
-	.no-sidebar .pull-right {
-		// float: none;
 	}
     .header {
         justify-content: flex-start;

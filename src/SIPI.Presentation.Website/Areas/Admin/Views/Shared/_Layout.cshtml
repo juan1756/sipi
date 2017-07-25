@@ -69,10 +69,7 @@
 
         <footer class="footer">
             <div class="footer-block author">
-                <ul>
-                    <li> Iglesia Calle Brasil </li>
-                    <li> 2017 </li>
-                </ul>
+                Iglesia Calle Brasil | 2017
             </div>
         </footer>
 
@@ -99,4 +96,25 @@
 
 @section scripts{
     @RenderSection("scripts", required: false)
+
+    <script>
+        $(function () {
+
+            $('#sidebar-menu, #customize-menu').metisMenu({
+                activeClass: 'open'
+            });
+
+
+            $('#sidebar-collapse-btn').on('click', function (event) {
+                event.preventDefault();
+
+                $("#app").toggleClass("sidebar-open");
+            });
+
+            $("#sidebar-overlay").on('click', function () {
+                $("#app").removeClass("sidebar-open");
+            });
+
+        });
+    </script>
 }

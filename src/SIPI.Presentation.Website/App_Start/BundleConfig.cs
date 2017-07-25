@@ -32,7 +32,8 @@ namespace SIPI.Presentation.Website
                 "~/Scripts/thirdparty/moment-2.18.1.js",
                 "~/Scripts/thirdparty/jquery.waypoints.js",
                 "~/Scripts/thirdparty/jquery.waypoints.infinite.js",
-                "~/Scripts/thirdparty/toastr.js"
+                "~/Scripts/thirdparty/toastr.js",
+                "~/Scripts/thirdparty/metisMenu.js"
             ));
 
             bundles.Add(new ScriptBundle("~/bundles/scripts/plugins").Include(

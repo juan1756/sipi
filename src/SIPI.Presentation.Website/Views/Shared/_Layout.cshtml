@@ -40,8 +40,23 @@
                 }
                 else
                 {
-                    <a class="btn btn-primary" href="@Url.Action("registro", "cuenta", new { area = "" })">Registrarse</a>
-                    <a class="btn btn-primary" href="@Url.Action("login", "cuenta", new { area = "" })">Iniciar Sesión</a>
+                    <ul class="nav-profile">
+                        <li class="profile dropdown">
+                            <a class="nav-link navbar-toggle" data-toggle="dropdown" href="javascript:void(0)" role="button" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-bars"></i>
+                            </a>
+                            <div class="dropdown-menu profile-dropdown-menu" aria-labelledby="dropdownMenu1">
+                                <a class="dropdown-item" href="@Url.Action("registro", "cuenta", new { area = "" })">
+                                    <i class="fa fa-user icon"></i>
+                                    Registrarse
+                                </a>
+                                <a class="dropdown-item" href="@Url.Action("login", "cuenta", new { area = "" })">
+                                    <i class="fa fa-sign-in icon"></i>
+                                    Iniciar sesión
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
                 }
             </div>
         </header>
@@ -50,10 +65,7 @@
 
         <footer class="footer no-sidebar">
             <div class="footer-block author">
-                <ul>
-                    <li> Iglesia Calle Brasil </li>
-                    <li> 2017 </li>
-                </ul>
+                Iglesia Calle Brasil | 2017
             </div>
         </footer>
 

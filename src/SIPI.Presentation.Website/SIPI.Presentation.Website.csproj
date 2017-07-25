@@ -254,6 +254,7 @@
     <Content Include="Scripts\thirdparty\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\thirdparty\jquery.waypoints.infinite.js" />
     <Content Include="Scripts\thirdparty\jquery.waypoints.js" />
+    <Content Include="Scripts\thirdparty\metismenu.js" />
     <Content Include="Scripts\thirdparty\modernizr-2.6.2.js" />
     <Content Include="Scripts\thirdparty\moment-2.18.1.js" />
     <Content Include="Scripts\thirdparty\mustache.js" />

@@ -1,13 +1,13 @@
 ﻿@using System.Configuration;
 @model SIPI.Presentation.Website.Models.Pedidos.ConfirmarModel
 @{
-    ViewBag.Title = "Confirmar Pedido";
+    ViewBag.Title = "Confirmar pedido";
     var HtmlMiembro = Html.ToInnerModel(x => x.Miembro);
 }
 
 <article class="content cards-page">
     <div class="title-block">
-        <h3 class="title">Contenido Multimedial</h3>
+        <h3 class="title">Contenido multimedial</h3>
     </div>
     <form id="frmMedios" method="post">
         @HtmlMiembro.HiddenFor(x => x.ProvinciaId)

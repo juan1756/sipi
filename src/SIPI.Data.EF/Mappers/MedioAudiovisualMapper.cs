@@ -5,6 +5,7 @@ using System;
 using System.Data.Entity;
 using System.Linq;
 using System.Collections.Generic;
+using System.Data.Entity.Core.Objects;
 
 namespace SIPI.Data.EF.Mappers
 {
@@ -19,16 +20,17 @@ namespace SIPI.Data.EF.Mappers
 
         public IPagedCollection<MedioAudiovisual> ObtenerCatalogo(int? idCategoria, string tema, DateTime? fechaDesde, DateTime? fechaHasta, int? idTipo, int desde, int cantidad)
         {
-            return _dbCtx.MediosAudiovisuales
+            var res = _dbCtx.MediosAudiovisuales
                 .Include(x => x.Categoria)
                 .Include(x => x.Tipo)
                 .Where(idCategoria.HasValue, x => x.Categoria.Id == idCategoria)
                 .Where(!string.IsNullOrWhiteSpace(tema), x => x.Tema.Contains(tema))
-                .Where(fechaDesde.HasValue, x => fechaDesde <= x.FechaGrabacion)
-                .Where(fechaHasta.HasValue, x => x.FechaGrabacion <= fechaHasta)
+                .Where(fechaDesde.HasValue, x => DbFunctions.TruncateTime(x.FechaGrabacion) >= DbFunctions.TruncateTime(fechaDesde.Value))
+                .Where(fechaHasta.HasValue, x => DbFunctions.TruncateTime(x.FechaGrabacion) <= DbFunctions.TruncateTime(fechaHasta.Value))
                 .Where(idTipo.HasValue, x => x.Tipo.Id == idTipo)
-                .OrderByDescending(x => x.FechaGrabacion)
-                .ToPagedCollection(desde, cantidad);
+                .OrderByDescending(x => x.FechaGrabacion);
+
+            return res.ToPagedCollection(desde, cantidad);
         }
 
         public IList<MedioAudiovisual> ObtenerMedios(int[] medios)

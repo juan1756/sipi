@@ -42,7 +42,12 @@ class Tables {
     }
 
     public dateFormat(value, row, index) {
-        return moment(value).format('DD/MM/YYYY');
+        if (value != null) {
+            return moment(value).format('DD/MM/YYYY');
+        }
+        else {
+            return "";
+        }
     }
 
     public estadoFormatter(value, row, index) {

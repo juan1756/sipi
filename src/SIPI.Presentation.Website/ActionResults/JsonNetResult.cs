@@ -19,7 +19,8 @@ namespace SIPI.Presentation.Website.ActionResults
             {
                 ContractResolver = new CamelCasePropertyNamesContractResolver(),
                 ReferenceLoopHandling = ReferenceLoopHandling.Error,
-                Formatting = Formatting.Indented
+                Formatting = Formatting.Indented,
+                NullValueHandling = NullValueHandling.Include
             };
 
             Settings.Converters.Add(new StringEnumConverter());

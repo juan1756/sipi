@@ -71,4 +71,3 @@ var views;
         pedidos.crear = crear;
     })(pedidos = views.pedidos || (views.pedidos = {}));
 })(views || (views = {}));
-//# sourceMappingURL=crear.js.map

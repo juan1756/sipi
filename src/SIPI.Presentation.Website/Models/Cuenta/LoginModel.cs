@@ -4,7 +4,7 @@ namespace SIPI.Presentation.Website.Models.Cuenta
 {
     public class LoginModel
     {
-        [Required(ErrorMessage = "El campo Email es obligatorio")]
+        [Required(ErrorMessage = "El campo Usuario es obligatorio")]
         [EmailAddress(ErrorMessage = "El campo Email debe ser una dirección de email válida")]
         [MaxLength(150, ErrorMessage = "El campo Email puede contener como máximo 150 caracteres")]
         public string Email { get; set; }

@@ -28,7 +28,12 @@ var Tables = (function () {
         this._dateFormat = dateFormat;
     }
     Tables.prototype.dateFormat = function (value, row, index) {
-        return moment(value).format('DD/MM/YYYY');
+        if (value != null) {
+            return moment(value).format('DD/MM/YYYY');
+        }
+        else {
+            return "";
+        }
     };
     Tables.prototype.estadoFormatter = function (value, row, index) {
         return "<div class='btn btn-" +
@@ -50,4 +55,3 @@ var Tables = (function () {
     };
     return Tables;
 }());
-//# sourceMappingURL=app.js.map

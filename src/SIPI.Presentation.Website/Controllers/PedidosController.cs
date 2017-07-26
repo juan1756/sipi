@@ -149,7 +149,7 @@ namespace SIPI.Presentation.Website.Controllers
                     confirmarPedidoModel.Medios, confirmarPedidoModel.CantidadCopias
                 );
 
-            TempData.Add("Success-Notifications-PedidoCreado", "Pedido realizado exitósamente");
+            TempData.Add("Success-Notifications-PedidoCreado", "Pedido realizado exitosamente");
 
             return RedirectToAction("index", "pedidos", new { area = "" });
         }

@@ -17,10 +17,9 @@ var views;
             confirmar.prototype.onBtnCardDeleteClick = function (e) {
                 var $button = $(e.target);
                 $button.closest('.col-xl-3').remove();
-                this.calcularInsumos();
-                toastr.warning('Medio Audiovisual eliminado del pedido', 'Información');
+                this.calcularInsumos(true);
                 if (!$('.col-xl-3').length) {
-                    //$('#container').append('No hay mas medios');
+                    $('#container').replaceWith('<table class="table fixed-table-pagination table-striped table-bordered table-hover"><tbody><tr class="no-records-found"><td align="center">Se eliminaron todos los medios del pedido</td></tr></tbody></table>');
                     $('#btnConfirm').prop('disabled', true);
                 }
             };
@@ -38,9 +37,9 @@ var views;
                 $frmMedios.submit();
             };
             confirmar.prototype.onCantidadCopiasChange = function (e) {
-                this.calcularInsumos();
+                this.calcularInsumos(false);
             };
-            confirmar.prototype.calcularInsumos = function () {
+            confirmar.prototype.calcularInsumos = function (deleted) {
                 var tamanoTotal = 0;
                 $('[data-tamano]').each(function (i, e) {
                     tamanoTotal += $(e).data('tamano');
@@ -59,7 +58,11 @@ var views;
                 this.$costoTotal.html('$' + (insumosPorCantidadCopias * this.precioInsumo));
                 if (cantidadAnterior != insumosPorCantidadCopias) {
                     toastr.clear();
-                    toastr.warning('Se superó el espacio del DVD. El pedido ahora tiene: ' + insumosPorCantidadCopias + ' unidades', 'Información');
+                    toastr.warning('Medio Audiovisual eliminado del pedido.<br />El pedido ahora tiene: ' + insumosPorCantidadCopias + ' unidades', 'Información');
+                }
+                else {
+                    toastr.clear();
+                    toastr.warning('Medio Audiovisual eliminado del pedido', 'Información');
                 }
             };
             return confirmar;
@@ -67,4 +70,3 @@ var views;
         pedidos.confirmar = confirmar;
     })(pedidos = views.pedidos || (views.pedidos = {}));
 })(views || (views = {}));
-//# sourceMappingURL=confirmar.js.map

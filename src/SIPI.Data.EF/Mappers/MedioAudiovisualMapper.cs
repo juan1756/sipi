@@ -5,7 +5,6 @@ using System;
 using System.Data.Entity;
 using System.Linq;
 using System.Collections.Generic;
-using System.Data.Entity.Core.Objects;
 
 namespace SIPI.Data.EF.Mappers
 {

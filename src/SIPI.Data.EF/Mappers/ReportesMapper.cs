@@ -2,6 +2,7 @@
 using SIPI.Core.Data.Mappers;
 using SIPI.Core.Vistas;
 using System;
+using System.Data.Entity;
 using System.Linq;
 
 namespace SIPI.Data.EF.Mappers
@@ -18,8 +19,8 @@ namespace SIPI.Data.EF.Mappers
         public IPagedCollection<ReporteVentasPorCategoriaView> VentasPorCategoria(int? idCategoria, DateTime? fechaDesde, DateTime? fechaHasta, int desde, int cantidad)
         {
             return _dbCtx.Pedidos
-                .Where(fechaDesde.HasValue, x => x.Fecha >= fechaDesde)
-                .Where(fechaHasta.HasValue, x => x.Fecha <= fechaHasta)
+                .Where(fechaDesde.HasValue, x => DbFunctions.TruncateTime(x.Fecha) >= DbFunctions.TruncateTime(fechaDesde.Value))
+                .Where(fechaHasta.HasValue, x => DbFunctions.TruncateTime(x.Fecha) <= DbFunctions.TruncateTime(fechaHasta.Value))
                 .SelectMany(x => x.Insumos)
                 .SelectMany(x => x.Medios)
                 .Where(idCategoria.HasValue, x => x.Categoria.Id == idCategoria)

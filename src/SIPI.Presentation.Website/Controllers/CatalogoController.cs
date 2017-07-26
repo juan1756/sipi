@@ -54,8 +54,8 @@ namespace SIPI.Presentation.Website.Controllers
                     area = "",
                     CategoriaId = filtros.CategoriaId,
                     Tema = filtros.Tema,
-                    FechaDesde = filtros.FechaDesde,
-                    FechaHasta = filtros.FechaHasta,
+                    FechaDesde = filtros.FechaDesde?.ToShortDateString(),
+                    FechaHasta = filtros.FechaHasta?.ToShortDateString(),
                     TipoId = filtros.TipoId
                 });
             }

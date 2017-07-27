@@ -99,21 +99,20 @@ namespace SIPI.Presentation.Website.Controllers
                         categorias: _controladorCategorias.ObtenerCategorias(),
                         tipos: _controladorTipos.ObtenerTipos(),
                         filtros: filtros,
-                        medios: _controladorMedios.ObtenerCatalogo(filtros.CategoriaId, filtros.Tema, filtros.FechaDesde, filtros.FechaHasta, filtros.TipoId, offsetParams.Offset, offsetParams.Limit),
+                        medios: _controladorMedios.ObtenerCatalogo(
+                            filtros.CategoriaId, 
+                            filtros.Tema, 
+                            filtros.FechaDesde, 
+                            filtros.FechaHasta, 
+                            filtros.TipoId, 
+                            offsetParams.Offset, 
+                            offsetParams.Limit),
                         offsetParams: offsetParams));
             }
 
             var mediosViews = _controladorMedios
-                .ObtenerCatalogo(filtros.CategoriaId, filtros.Tema, filtros.FechaDesde, filtros.FechaHasta, filtros.TipoId, 0, int.MaxValue)
-                .Rows
+                .ObtenerMedios(crear.Medios)
                 .ToList();
-
-            if (!crear.SelectAll)
-            {
-                mediosViews = mediosViews
-                    .Where(x => crear.Medios.Contains(x.Id))
-                    .ToList();
-            }
 
             return View(
                 "Confirmar",

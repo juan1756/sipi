@@ -266,6 +266,16 @@ INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_I
 GO
 INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (40, '20140722', 'Fidelidad', 'https://www.youtube.com/watch?v=PIVDZTyt6z0', 20, 1, 2)
 GO
+INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (41, '20140722', 'Canción de Navidad', 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/334269643&amp;auto_play=false&amp;hide_related=true&amp;show_comments=false&amp;show_user=true&amp;show_reposts=false&amp;visual=true', 20, 3, 1)
+GO
+INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (42, '20140722', 'Canción de Navidad', 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/334269643&amp;auto_play=false&amp;hide_related=true&amp;show_comments=false&amp;show_user=true&amp;show_reposts=false&amp;visual=true', 20, 3, 1)
+GO
+INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (43, '20140722', 'Canción de Navidad', 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/334269643&amp;auto_play=false&amp;hide_related=true&amp;show_comments=false&amp;show_user=true&amp;show_reposts=false&amp;visual=true', 20, 3, 1)
+GO
+INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (44, '20140722', 'Canción de Navidad', 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/334269643&amp;auto_play=false&amp;hide_related=true&amp;show_comments=false&amp;show_user=true&amp;show_reposts=false&amp;visual=true', 20, 3, 1)
+GO
+INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (45, '20140722', 'Canción de Navidad', 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/334269643&amp;auto_play=false&amp;hide_related=true&amp;show_comments=false&amp;show_user=true&amp;show_reposts=false&amp;visual=true', 20, 3, 1)
+GO
 SET IDENTITY_INSERT MedioAudiovisual OFF
 
 PRINT ''
@@ -319,7 +329,8 @@ VALUES
 	(21,1),(22,2),(23,3),(24,4),(25,5),
 	(26,1),(27,2),(28,3),(29,4),(30,5),
 	(31,1),(32,2),(33,3),(34,4),(35,5),
-	(36,1),(37,2),(38,3),(39,4),(40,5)
+	(36,1),(37,2),(38,3),(39,4),(40,5),
+	(41,4),(42,4),(43,4),(44,4),(45,4)
 
 /* Verficación */
 

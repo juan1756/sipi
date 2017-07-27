@@ -42,12 +42,13 @@ class Tables {
     }
 
     public dateFormat(value, row, index) {
-        if (value != null) {
-            return moment(value).format('DD/MM/YYYY');
-        }
-        else {
-            return "";
-        }
+        if (value != null)
+            return moment
+                .utc(value)
+                .tz("America/Argentina/Buenos_Aires")
+                .format('DD/MM/YYYY');
+
+        return "";
     }
 
     public estadoFormatter(value, row, index) {

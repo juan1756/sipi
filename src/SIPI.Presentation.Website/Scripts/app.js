@@ -28,12 +28,12 @@ var Tables = (function () {
         this._dateFormat = dateFormat;
     }
     Tables.prototype.dateFormat = function (value, row, index) {
-        if (value != null) {
-            return moment(value).format('DD/MM/YYYY');
-        }
-        else {
-            return "";
-        }
+        if (value != null)
+            return moment
+                .utc(value)
+                .tz("America/Argentina/Buenos_Aires")
+                .format('DD/MM/YYYY');
+        return "";
     };
     Tables.prototype.estadoFormatter = function (value, row, index) {
         return "<div class='btn btn-" +

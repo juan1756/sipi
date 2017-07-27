@@ -18,9 +18,12 @@ namespace SIPI.Data.EF.Mappers
 
         public IPagedCollection<ReporteVentasPorCategoriaView> VentasPorCategoria(int? idCategoria, DateTime? fechaDesde, DateTime? fechaHasta, int desde, int cantidad)
         {
+            fechaDesde = fechaDesde.ConvertFromClientToUTC();
+            fechaHasta = fechaHasta?.AddDays(1).ConvertFromClientToUTC();
+
             return _dbCtx.Pedidos
-                .Where(fechaDesde.HasValue, x => DbFunctions.TruncateTime(x.Fecha) >= DbFunctions.TruncateTime(fechaDesde.Value))
-                .Where(fechaHasta.HasValue, x => DbFunctions.TruncateTime(x.Fecha) <= DbFunctions.TruncateTime(fechaHasta.Value))
+                .Where(fechaDesde.HasValue, x => x.Fecha >= fechaDesde.Value)
+                .Where(fechaHasta.HasValue, x => x.Fecha <= fechaHasta.Value)
                 .SelectMany(x => x.Insumos)
                 .SelectMany(x => x.Medios)
                 .Where(idCategoria.HasValue, x => x.Categoria.Id == idCategoria)

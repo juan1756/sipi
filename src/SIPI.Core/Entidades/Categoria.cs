@@ -9,14 +9,6 @@ namespace SIPI.Core.Entidades
         {
         }
 
-        public Categoria(int id, string nombre, Operador operador)
-        {
-            Id = id;
-            Nombre = nombre;
-            FechaCreacion = DateTime.Now;
-            Operador = operador;
-        }
-
         public int Id { get; private set; }
 
         public string Nombre { get; private set; }

@@ -19,13 +19,16 @@ namespace SIPI.Data.EF.Mappers
 
         public IPagedCollection<MedioAudiovisual> ObtenerCatalogo(int? idCategoria, string tema, DateTime? fechaDesde, DateTime? fechaHasta, int? idTipo, int desde, int cantidad)
         {
+            fechaDesde = fechaDesde.ConvertFromClientToUTC();
+            fechaHasta = fechaHasta?.AddDays(1).ConvertFromClientToUTC();
+
             var res = _dbCtx.MediosAudiovisuales
                 .Include(x => x.Categoria)
                 .Include(x => x.Tipo)
                 .Where(idCategoria.HasValue, x => x.Categoria.Id == idCategoria)
                 .Where(!string.IsNullOrWhiteSpace(tema), x => x.Tema.Contains(tema))
-                .Where(fechaDesde.HasValue, x => DbFunctions.TruncateTime(x.FechaGrabacion) >= DbFunctions.TruncateTime(fechaDesde.Value))
-                .Where(fechaHasta.HasValue, x => DbFunctions.TruncateTime(x.FechaGrabacion) <= DbFunctions.TruncateTime(fechaHasta.Value))
+                .Where(fechaDesde.HasValue, x => x.FechaGrabacion >= fechaDesde.Value)
+                .Where(fechaHasta.HasValue, x => x.FechaGrabacion <= fechaHasta.Value)
                 .Where(idTipo.HasValue, x => x.Tipo.Id == idTipo)
                 .OrderByDescending(x => x.FechaGrabacion);
 

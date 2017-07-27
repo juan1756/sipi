@@ -25,6 +25,8 @@ namespace SIPI.Presentation.Website
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             ModelBindersConfig.RegisterModelBinders();
+
+            DateTimeExtensions.Offset = TimeSpan.FromHours(-3);
         }
 
         protected void Application_AcquireRequestState(object sender, EventArgs e)

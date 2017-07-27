@@ -30,6 +30,7 @@ namespace SIPI.Presentation.Website
                 "~/Scripts/thirdparty/bootstrap-datepicker.js",
                 "~/Scripts/thirdparty/bootstrap-datepicker.es.min.js",
                 "~/Scripts/thirdparty/moment-2.18.1.js",
+                "~/Scripts/thirdparty/moment-timezone-with-data-2012-2022.js",
                 "~/Scripts/thirdparty/jquery.waypoints.js",
                 "~/Scripts/thirdparty/jquery.waypoints.infinite.js",
                 "~/Scripts/thirdparty/toastr.js",

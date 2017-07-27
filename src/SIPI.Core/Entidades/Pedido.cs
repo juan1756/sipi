@@ -25,7 +25,7 @@ namespace SIPI.Core.Entidades
         {
             CantidadPedido = cantidadPedido;
             Estado = (int)Estados.Nuevo;
-            Fecha = DateTime.Now;
+            Fecha = DateTime.UtcNow;
             Miembro = miembro;
             Insumos = new Collection<Insumo>();
         }
@@ -68,7 +68,7 @@ namespace SIPI.Core.Entidades
 
             if (Estado == (int)Estados.Entregado)
             { 
-                FechaEntregado = DateTime.Now;
+                FechaEntregado = DateTime.UtcNow;
             }
         }
 

@@ -141,11 +141,11 @@ PRINT ''
 PRINT 'Tabla: Pedido'
 SET IDENTITY_INSERT Pedido ON
 GO
-INSERT INTO Pedido (Numero, CantidadPedido, Estado, Fecha, PrecioTotal, FechaEntregado, Miembro_Id) VALUES (1, 3, 1, '20160411', 10.5, null, 1)
+INSERT INTO Pedido (Numero, CantidadPedido, Estado, Fecha, PrecioTotal, FechaEntregado, Miembro_Id) VALUES (1, 3, 1, '20160411 03:00:00', 10.5, null, 1)
 GO
-INSERT INTO Pedido (Numero, CantidadPedido, Estado, Fecha, PrecioTotal, FechaEntregado, Miembro_Id) VALUES (2, 3, 1, '20160412', 150.5, null, 1)
+INSERT INTO Pedido (Numero, CantidadPedido, Estado, Fecha, PrecioTotal, FechaEntregado, Miembro_Id) VALUES (2, 3, 1, '20160412 03:00:00', 150.5, null, 1)
 GO
-INSERT INTO Pedido (Numero, CantidadPedido, Estado, Fecha, PrecioTotal, FechaEntregado, Miembro_Id) VALUES (3, 1, 1, '20160413', 210.5, null, 1)
+INSERT INTO Pedido (Numero, CantidadPedido, Estado, Fecha, PrecioTotal, FechaEntregado, Miembro_Id) VALUES (3, 1, 1, '20160413 03:00:00', 210.5, null, 1)
 GO
 SET IDENTITY_INSERT Pedido OFF
 GO
@@ -186,97 +186,97 @@ GO
 PRINT ''
 PRINT 'Tabla: MedioAudiovisual'
 SET IDENTITY_INSERT MedioAudiovisual ON 
-INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (1, '20160506', 'Paz en la Familia', 'https://www.youtube.com/watch?v=ynIgAMOd-SI', 100, 1, 2)
+INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (1, '20160506 03:00:00', 'Paz en la Familia', 'https://www.youtube.com/watch?v=ynIgAMOd-SI', 100, 1, 2)
 GO
-INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (2, '20150119', 'Adolescencia y Juventud', 'https://www.youtube.com/watch?v=kjx0Y3QBOKw', 70, 2, 2)
+INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (2, '20150119 03:00:00', 'Adolescencia y Juventud', 'https://www.youtube.com/watch?v=kjx0Y3QBOKw', 70, 2, 2)
 GO
-INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (3, '20170322', 'Paternidad y felicidad', 'https://www.youtube.com/watch?v=Ibb3ex25G6E', 800, 3, 2)
+INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (3, '20170322 03:00:00', 'Paternidad y felicidad', 'https://www.youtube.com/watch?v=Ibb3ex25G6E', 800, 3, 2)
 GO
-INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (4, '20140722', 'Fidelidad', 'https://www.youtube.com/watch?v=PIVDZTyt6z0', 20, 1, 2)
+INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (4, '20140722 03:00:00', 'Fidelidad', 'https://www.youtube.com/watch?v=PIVDZTyt6z0', 20, 1, 2)
 GO
-INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (5, '20160506', 'Paz en la Familia', 'https://www.youtube.com/watch?v=ynIgAMOd-SI', 100, 1, 2)
+INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (5, '20160506 03:00:00', 'Paz en la Familia', 'https://www.youtube.com/watch?v=ynIgAMOd-SI', 100, 1, 2)
 GO
-INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (6, '20150119', 'Adolescencia y Juventud', 'https://www.youtube.com/watch?v=kjx0Y3QBOKw', 70, 2, 2)
+INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (6, '20150119 03:00:00', 'Adolescencia y Juventud', 'https://www.youtube.com/watch?v=kjx0Y3QBOKw', 70, 2, 2)
 GO
-INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (7, '20170322', 'Paternidad y felicidad', 'https://www.youtube.com/watch?v=Ibb3ex25G6E', 800, 3, 2)
+INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (7, '20170322 03:00:00', 'Paternidad y felicidad', 'https://www.youtube.com/watch?v=Ibb3ex25G6E', 800, 3, 2)
 GO
-INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (8, '20140722', 'Fidelidad', 'https://www.youtube.com/watch?v=PIVDZTyt6z0', 20, 1, 2)
+INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (8, '20140722 03:00:00', 'Fidelidad', 'https://www.youtube.com/watch?v=PIVDZTyt6z0', 20, 1, 2)
 GO
-INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (9, '20160506', 'Paz en la Familia', 'https://www.youtube.com/watch?v=ynIgAMOd-SI', 100, 1, 2)
+INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (9, '20160506 03:00:00', 'Paz en la Familia', 'https://www.youtube.com/watch?v=ynIgAMOd-SI', 100, 1, 2)
 GO
-INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (10, '20150119', 'Adolescencia y Juventud', 'https://www.youtube.com/watch?v=kjx0Y3QBOKw', 70, 2, 2)
+INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (10, '20150119 03:00:00', 'Adolescencia y Juventud', 'https://www.youtube.com/watch?v=kjx0Y3QBOKw', 70, 2, 2)
 GO
-INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (11, '20170322', 'Paternidad y felicidad', 'https://www.youtube.com/watch?v=Ibb3ex25G6E', 800, 3, 2)
+INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (11, '20170322 03:00:00', 'Paternidad y felicidad', 'https://www.youtube.com/watch?v=Ibb3ex25G6E', 800, 3, 2)
 GO
-INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (12, '20140722', 'Fidelidad', 'https://www.youtube.com/watch?v=PIVDZTyt6z0', 20, 1, 2)
+INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (12, '20140722 03:00:00', 'Fidelidad', 'https://www.youtube.com/watch?v=PIVDZTyt6z0', 20, 1, 2)
 GO
-INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (13, '20160506', 'Paz en la Familia', 'https://www.youtube.com/watch?v=ynIgAMOd-SI', 100, 1, 2)
+INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (13, '20160506 03:00:00', 'Paz en la Familia', 'https://www.youtube.com/watch?v=ynIgAMOd-SI', 100, 1, 2)
 GO
-INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (14, '20150119', 'Adolescencia y Juventud', 'https://www.youtube.com/watch?v=kjx0Y3QBOKw', 70, 2, 2)
+INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (14, '20150119 03:00:00', 'Adolescencia y Juventud', 'https://www.youtube.com/watch?v=kjx0Y3QBOKw', 70, 2, 2)
 GO
-INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (15, '20170322', 'Paternidad y felicidad', 'https://www.youtube.com/watch?v=Ibb3ex25G6E', 800, 3, 2)
+INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (15, '20170322 03:00:00', 'Paternidad y felicidad', 'https://www.youtube.com/watch?v=Ibb3ex25G6E', 800, 3, 2)
 GO
-INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (16, '20140722', 'Fidelidad', 'https://www.youtube.com/watch?v=PIVDZTyt6z0', 20, 1, 2)
+INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (16, '20140722 03:00:00', 'Fidelidad', 'https://www.youtube.com/watch?v=PIVDZTyt6z0', 20, 1, 2)
 GO
-INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (17, '20160506', 'Paz en la Familia', 'https://www.youtube.com/watch?v=ynIgAMOd-SI', 100, 1, 2)
+INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (17, '20160506 03:00:00', 'Paz en la Familia', 'https://www.youtube.com/watch?v=ynIgAMOd-SI', 100, 1, 2)
 GO
-INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (18, '20150119', 'Adolescencia y Juventud', 'https://www.youtube.com/watch?v=kjx0Y3QBOKw', 70, 2, 2)
+INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (18, '20150119 03:00:00', 'Adolescencia y Juventud', 'https://www.youtube.com/watch?v=kjx0Y3QBOKw', 70, 2, 2)
 GO
-INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (19, '20170322', 'Paternidad y felicidad', 'https://www.youtube.com/watch?v=Ibb3ex25G6E', 800, 3, 2)
+INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (19, '20170322 03:00:00', 'Paternidad y felicidad', 'https://www.youtube.com/watch?v=Ibb3ex25G6E', 800, 3, 2)
 GO
-INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (20, '20140722', 'Fidelidad', 'https://www.youtube.com/watch?v=PIVDZTyt6z0', 20, 1, 2)
+INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (20, '20140722 03:00:00', 'Fidelidad', 'https://www.youtube.com/watch?v=PIVDZTyt6z0', 20, 1, 2)
 GO
-INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (21, '20160506', 'Paz en la Familia', 'https://www.youtube.com/watch?v=ynIgAMOd-SI', 100, 1, 2)
+INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (21, '20160506 03:00:00', 'Paz en la Familia', 'https://www.youtube.com/watch?v=ynIgAMOd-SI', 100, 1, 2)
 GO
-INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (22, '20150119', 'Adolescencia y Juventud', 'https://www.youtube.com/watch?v=kjx0Y3QBOKw', 70, 2, 2)
+INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (22, '20150119 03:00:00', 'Adolescencia y Juventud', 'https://www.youtube.com/watch?v=kjx0Y3QBOKw', 70, 2, 2)
 GO
-INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (23, '20170322', 'Paternidad y felicidad', 'https://www.youtube.com/watch?v=Ibb3ex25G6E', 800, 3, 2)
+INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (23, '20170322 03:00:00', 'Paternidad y felicidad', 'https://www.youtube.com/watch?v=Ibb3ex25G6E', 800, 3, 2)
 GO
-INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (24, '20140722', 'Fidelidad', 'https://www.youtube.com/watch?v=PIVDZTyt6z0', 20, 1, 2)
+INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (24, '20140722 03:00:00', 'Fidelidad', 'https://www.youtube.com/watch?v=PIVDZTyt6z0', 20, 1, 2)
 GO
-INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (25, '20160506', 'Paz en la Familia', 'https://www.youtube.com/watch?v=ynIgAMOd-SI', 100, 1, 2)
+INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (25, '20160506 03:00:00', 'Paz en la Familia', 'https://www.youtube.com/watch?v=ynIgAMOd-SI', 100, 1, 2)
 GO
-INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (26, '20150119', 'Adolescencia y Juventud', 'https://www.youtube.com/watch?v=kjx0Y3QBOKw', 70, 2, 2)
+INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (26, '20150119 03:00:00', 'Adolescencia y Juventud', 'https://www.youtube.com/watch?v=kjx0Y3QBOKw', 70, 2, 2)
 GO
-INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (27, '20170322', 'Paternidad y felicidad', 'https://www.youtube.com/watch?v=Ibb3ex25G6E', 800, 3, 2)
+INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (27, '20170322 03:00:00', 'Paternidad y felicidad', 'https://www.youtube.com/watch?v=Ibb3ex25G6E', 800, 3, 2)
 GO
-INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (28, '20140722', 'Fidelidad', 'https://www.youtube.com/watch?v=PIVDZTyt6z0', 20, 1, 2)
+INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (28, '20140722 03:00:00', 'Fidelidad', 'https://www.youtube.com/watch?v=PIVDZTyt6z0', 20, 1, 2)
 GO
-INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (29, '20160506', 'Paz en la Familia', 'https://www.youtube.com/watch?v=ynIgAMOd-SI', 100, 1, 2)
+INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (29, '20160506 03:00:00', 'Paz en la Familia', 'https://www.youtube.com/watch?v=ynIgAMOd-SI', 100, 1, 2)
 GO
-INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (30, '20150119', 'Adolescencia y Juventud', 'https://www.youtube.com/watch?v=kjx0Y3QBOKw', 70, 2, 2)
+INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (30, '20150119 03:00:00', 'Adolescencia y Juventud', 'https://www.youtube.com/watch?v=kjx0Y3QBOKw', 70, 2, 2)
 GO
-INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (31, '20170322', 'Paternidad y felicidad', 'https://www.youtube.com/watch?v=Ibb3ex25G6E', 800, 3, 2)
+INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (31, '20170322 03:00:00', 'Paternidad y felicidad', 'https://www.youtube.com/watch?v=Ibb3ex25G6E', 800, 3, 2)
 GO
-INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (32, '20140722', 'Fidelidad', 'https://www.youtube.com/watch?v=PIVDZTyt6z0', 20, 1, 2)
+INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (32, '20140722 03:00:00', 'Fidelidad', 'https://www.youtube.com/watch?v=PIVDZTyt6z0', 20, 1, 2)
 GO
-INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (33, '20160506', 'Paz en la Familia', 'https://www.youtube.com/watch?v=ynIgAMOd-SI', 100, 1, 2)
+INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (33, '20160506 03:00:00', 'Paz en la Familia', 'https://www.youtube.com/watch?v=ynIgAMOd-SI', 100, 1, 2)
 GO
-INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (34, '20150119', 'Adolescencia y Juventud', 'https://www.youtube.com/watch?v=kjx0Y3QBOKw', 70, 2, 2)
+INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (34, '20150119 03:00:00', 'Adolescencia y Juventud', 'https://www.youtube.com/watch?v=kjx0Y3QBOKw', 70, 2, 2)
 GO
-INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (35, '20170322', 'Paternidad y felicidad', 'https://www.youtube.com/watch?v=Ibb3ex25G6E', 800, 3, 2)
+INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (35, '20170322 03:00:00', 'Paternidad y felicidad', 'https://www.youtube.com/watch?v=Ibb3ex25G6E', 800, 3, 2)
 GO
-INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (36, '20140722', 'Fidelidad', 'https://www.youtube.com/watch?v=PIVDZTyt6z0', 20, 1, 2)
+INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (36, '20140722 03:00:00', 'Fidelidad', 'https://www.youtube.com/watch?v=PIVDZTyt6z0', 20, 1, 2)
 GO
-INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (37, '20160506', 'Paz en la Familia', 'https://www.youtube.com/watch?v=ynIgAMOd-SI', 100, 1, 2)
+INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (37, '20160506 03:00:00', 'Paz en la Familia', 'https://www.youtube.com/watch?v=ynIgAMOd-SI', 100, 1, 2)
 GO
-INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (38, '20150119', 'Adolescencia y Juventud', 'https://www.youtube.com/watch?v=kjx0Y3QBOKw', 70, 2, 2)
+INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (38, '20150119 03:00:00', 'Adolescencia y Juventud', 'https://www.youtube.com/watch?v=kjx0Y3QBOKw', 70, 2, 2)
 GO
-INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (39, '20170322', 'Paternidad y felicidad', 'https://www.youtube.com/watch?v=Ibb3ex25G6E', 800, 3, 2)
+INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (39, '20170322 03:00:00', 'Paternidad y felicidad', 'https://www.youtube.com/watch?v=Ibb3ex25G6E', 800, 3, 2)
 GO
-INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (40, '20140722', 'Fidelidad', 'https://www.youtube.com/watch?v=PIVDZTyt6z0', 20, 1, 2)
+INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (40, '20140722 03:00:00', 'Fidelidad', 'https://www.youtube.com/watch?v=PIVDZTyt6z0', 20, 1, 2)
 GO
-INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (41, '20140722', 'Canción de Navidad', 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/334269643&amp;auto_play=false&amp;hide_related=true&amp;show_comments=false&amp;show_user=true&amp;show_reposts=false&amp;visual=true', 20, 3, 1)
+INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (41, '20140722 03:00:00', 'Canción de Navidad', 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/334269643&amp;auto_play=false&amp;hide_related=true&amp;show_comments=false&amp;show_user=true&amp;show_reposts=false&amp;visual=true', 20, 3, 1)
 GO
-INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (42, '20140722', 'Canción de Navidad', 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/334269643&amp;auto_play=false&amp;hide_related=true&amp;show_comments=false&amp;show_user=true&amp;show_reposts=false&amp;visual=true', 20, 3, 1)
+INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (42, '20140722 03:00:00', 'Canción de Navidad', 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/334269643&amp;auto_play=false&amp;hide_related=true&amp;show_comments=false&amp;show_user=true&amp;show_reposts=false&amp;visual=true', 20, 3, 1)
 GO
-INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (43, '20140722', 'Canción de Navidad', 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/334269643&amp;auto_play=false&amp;hide_related=true&amp;show_comments=false&amp;show_user=true&amp;show_reposts=false&amp;visual=true', 20, 3, 1)
+INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (43, '20140722 03:00:00', 'Canción de Navidad', 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/334269643&amp;auto_play=false&amp;hide_related=true&amp;show_comments=false&amp;show_user=true&amp;show_reposts=false&amp;visual=true', 20, 3, 1)
 GO
-INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (44, '20140722', 'Canción de Navidad', 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/334269643&amp;auto_play=false&amp;hide_related=true&amp;show_comments=false&amp;show_user=true&amp;show_reposts=false&amp;visual=true', 20, 3, 1)
+INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (44, '20140722 03:00:00', 'Canción de Navidad', 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/334269643&amp;auto_play=false&amp;hide_related=true&amp;show_comments=false&amp;show_user=true&amp;show_reposts=false&amp;visual=true', 20, 3, 1)
 GO
-INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (45, '20140722', 'Canción de Navidad', 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/334269643&amp;auto_play=false&amp;hide_related=true&amp;show_comments=false&amp;show_user=true&amp;show_reposts=false&amp;visual=true', 20, 3, 1)
+INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (45, '20140722 03:00:00', 'Canción de Navidad', 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/334269643&amp;auto_play=false&amp;hide_related=true&amp;show_comments=false&amp;show_user=true&amp;show_reposts=false&amp;visual=true', 20, 3, 1)
 GO
-INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (46, '20170414', 'Semana Santa - Predicación', 'https://www.youtube.com/watch?v=ynIgAMOd-SI', 100, 1, 2)
+INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (46, '20170414 03:00:00', 'Semana Santa - Predicación', 'https://www.youtube.com/watch?v=ynIgAMOd-SI', 100, 1, 2)
 GO
 SET IDENTITY_INSERT MedioAudiovisual OFF
 
@@ -308,15 +308,15 @@ GO
 PRINT ''
 PRINT 'Tabla: Orador'
 SET IDENTITY_INSERT Orador ON
-INSERT INTO Orador (Id, Nombre, Apellido, FechaCreacion, Operador_Id) VALUES (1, 'Hernán', 'Rodriguez', '20140105', 2)
+INSERT INTO Orador (Id, Nombre, Apellido, FechaCreacion, Operador_Id) VALUES (1, 'Hernán', 'Rodriguez', '20140105 03:00:00', 2)
 GO
-INSERT INTO Orador (Id, Nombre, Apellido, FechaCreacion, Operador_Id) VALUES (2, 'Mariela', 'Lentini', '20140105', 2)
+INSERT INTO Orador (Id, Nombre, Apellido, FechaCreacion, Operador_Id) VALUES (2, 'Mariela', 'Lentini', '20140105 03:00:00', 2)
 GO
-INSERT INTO Orador (Id, Nombre, Apellido, FechaCreacion, Operador_Id) VALUES (3, 'Paola', 'Casas', '20140105', 2)
+INSERT INTO Orador (Id, Nombre, Apellido, FechaCreacion, Operador_Id) VALUES (3, 'Paola', 'Casas', '20140105 03:00:00', 2)
 GO
-INSERT INTO Orador (Id, Nombre, Apellido, FechaCreacion, Operador_Id) VALUES (4, 'José',  'King', '20140105', 2)
+INSERT INTO Orador (Id, Nombre, Apellido, FechaCreacion, Operador_Id) VALUES (4, 'José',  'King', '20140105 03:00:00', 2)
 GO
-INSERT INTO Orador (Id, Nombre, Apellido, FechaCreacion, Operador_Id) VALUES (5, 'Carla', 'Mayada', '20140105', 2)
+INSERT INTO Orador (Id, Nombre, Apellido, FechaCreacion, Operador_Id) VALUES (5, 'Carla', 'Mayada', '20140105 03:00:00', 2)
 GO
 SET IDENTITY_INSERT Orador OFF
 

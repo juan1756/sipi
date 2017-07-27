@@ -258,6 +258,7 @@
     <Content Include="Scripts\thirdparty\metismenu.js" />
     <Content Include="Scripts\thirdparty\modernizr-2.6.2.js" />
     <Content Include="Scripts\thirdparty\moment-2.18.1.js" />
+    <Content Include="Scripts\thirdparty\moment-timezone-with-data-2012-2022.js" />
     <Content Include="Scripts\thirdparty\mustache.js" />
     <Content Include="Scripts\thirdparty\respond.js" />
     <Content Include="Scripts\thirdparty\toastr.js" />

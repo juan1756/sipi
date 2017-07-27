@@ -72,15 +72,23 @@
             this.$cantidadInsumos.html(insumosPorCantidadCopias.toString());
             this.$costoTotal.html('$' + (insumosPorCantidadCopias * this.precioInsumo));
 
-            if (cantidadAnterior != insumosPorCantidadCopias) {
+            if (deleted) {
+                if (cantidadAnterior != insumosPorCantidadCopias) {
+                    toastr.clear();
+                    toastr.warning(
+                        'Medio Audiovisual eliminado del pedido.<br />El pedido ahora tiene: ' + insumosPorCantidadCopias + ' unidades',
+                        'Información');
+                } else {
+                    toastr.clear();
+                    toastr.warning(
+                        'Medio Audiovisual eliminado del pedido',
+                        'Información');
+                }
+            }
+            else {
                 toastr.clear();
                 toastr.warning(
-                    'Medio Audiovisual eliminado del pedido.<br />El pedido ahora tiene: ' + insumosPorCantidadCopias + ' unidades',
-                    'Información');
-            } else {
-                toastr.clear();
-                toastr.warning(
-                    'Medio Audiovisual eliminado del pedido',
+                    'El pedido ahora tiene: ' + insumosPorCantidadCopias + ' unidades',
                     'Información');
             }
         }

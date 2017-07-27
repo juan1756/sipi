@@ -38,7 +38,6 @@ namespace SIPI.Core.Controladores
             return usuario.GetView();
         }
 
-        // TODO: Actualizar DS
         public void RecuperarContrasena(string email, string contrasena, IRecuperoMailBuilder mail)
         {
             var usuario = _usuarios.BuscarUsuario(email);
@@ -53,7 +52,6 @@ namespace SIPI.Core.Controladores
             EnviarMailRecupero(usuario, mail.RecuperoMailBody(usuario.GetView(), hash));
         }
 
-        // TODO: Actualizar DS
         public void RecuperarContrasena(string email, byte[] hashBytes)
         {
             var usuario = _usuarios.BuscarUsuario(email);
@@ -66,7 +64,6 @@ namespace SIPI.Core.Controladores
             _dataCtx.Save();
         }
 
-        // TODO: Actualizar DS
         private void EnviarMailRecupero(Usuario usuario, string body)
         {
             var smtp = new SmtpClient();

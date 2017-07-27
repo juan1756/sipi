@@ -27,7 +27,6 @@ namespace SIPI.Core.Controladores
             _dataCtx = dataCtx;
         }
 
-        // TODO: Corregir DS
         public IPagedCollection<PedidoMiembroView> SeguirPedidosMiembro(string email, int desde, int cantidad)
         {
             return _pedidos
@@ -44,7 +43,6 @@ namespace SIPI.Core.Controladores
                 .Convert(x => x.GetOperadorView(operador));
         }
 
-        // TODO: Cambiar DS
         public void CambiarEstadoPedido(int numero, string email)
         {
             var operador = _usuarios.BuscarUsuario(email) as Operador;

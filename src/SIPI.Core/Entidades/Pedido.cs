@@ -46,7 +46,6 @@ namespace SIPI.Core.Entidades
 
         public DateTime? FechaEntregado { get; private set; }
 
-        // TODO: Cambiar DS
         public PedidoOperadorView GetOperadorView(Operador operador)
         {
             return new PedidoOperadorView(
@@ -60,8 +59,6 @@ namespace SIPI.Core.Entidades
                 PuedeCambiarEstado(operador));
         }
 
-        // TODO: Cambiar DC
-        // TODO: Cambiar DS
         public void CambiarEstado(Operador operador)
         {
             if (!PuedeCambiarEstado(operador))
@@ -118,8 +115,6 @@ namespace SIPI.Core.Entidades
             return CrearInsumo();
         }
 
-        //TODO: Cambiar DS
-        //TODO: Cambiar DC
         private Estados? ObtenerEstadoSiguiente()
         {
             var estado = (Estados)Estado;
@@ -134,8 +129,6 @@ namespace SIPI.Core.Entidades
             return estadoSiguiente;
         }
 
-        //TODO: Cambiar DS
-        //TODO: Cambiar DC
         private bool PuedeCambiarEstado(Operador operador)
         {
             var estado = (Estados)Estado;

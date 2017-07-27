@@ -141,25 +141,6 @@ namespace SIPI.Presentation.Website.Controllers
             return View(new IndexModel { Filters = filters });
         }
 
-        // TODO: PRUEBA DE CONCEPTO - BORRAME!!
-        // POR CONVENCION LAS TABLAS VAN A SER: <Action_Original>Table, por eso este es IndexTable
-        [HttpGet]
-        public ActionResult IndexTable(IndexFiltersModel filters, OffsetParams offsetParams)
-        {
-            return Json(
-                _controladorCuenta.BuscarUsuarios(filters.Nombre, filters.Apellido, offsetParams.Offset, offsetParams.Limit),
-                JsonRequestBehavior.AllowGet);
-        }
-
-        // TODO: BORRAME!! - prueba para el styling del body del mail.
-        [HttpGet]
-        public ActionResult RecuperoMail()
-        {
-            RecuperoMailModel model = new RecuperoMailModel("tipitotipin@mail.com", "acaVaElToken", "Tipito", "Tipín");
-
-            return View(model);
-        }
-
         private void Authenticate(UsuarioView usuario)
         {
             var identity = new GenericIdentity($"{usuario.Nombre} {usuario.Apellido}");

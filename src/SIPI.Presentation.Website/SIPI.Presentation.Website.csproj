@@ -218,6 +218,7 @@
     <Content Include="Content\landing\fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\css\site.css" />
+    <Content Include="Scripts\app.js" />
     <Content Include="Scripts\landing\thirdparty\bootstrap.js" />
     <Content Include="Scripts\landing\thirdparty\creative.js" />
     <Content Include="Scripts\landing\thirdparty\jquery.easing.js" />

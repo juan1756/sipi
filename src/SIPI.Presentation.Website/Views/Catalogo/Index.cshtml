@@ -73,7 +73,7 @@
                             </div>
                             <div class="card-footer">
                                 <span class="date pull-left">
-                                    @m.FechaGrabacion.ToShortDateString()
+                                    @m.FechaGrabacion.ConvertFromUTCToClient().ToShortDateString()
                                 </span>
                             </div>
                         </div>

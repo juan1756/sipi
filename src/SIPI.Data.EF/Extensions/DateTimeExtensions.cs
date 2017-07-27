@@ -13,5 +13,10 @@
         {
             return datetime?.ConvertFromClientToUTC();
         }
+
+        public static DateTime ConvertFromUTCToClient(this DateTime datetime)
+        {
+            return new DateTimeOffset(datetime, TimeSpan.FromHours(0)).ToOffset(Offset).DateTime;
+        }
     }
 }

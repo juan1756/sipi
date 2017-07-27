@@ -23,13 +23,10 @@
         private onBtnCardDeleteClick(e: JQueryEventObject) {
             var $button = $(e.target);
             $button.closest('.col-xl-3').remove();
-            this.calcularInsumos();
-            toastr.warning(
-                'Medio Audiovisual eliminado del pedido',
-                'Información');
+            this.calcularInsumos(true);
 
             if (!$('.col-xl-3').length) {
-                //$('#container').append('No hay mas medios');
+                $('#container').replaceWith('<table class="table fixed-table-pagination table-striped table-bordered table-hover"><tbody><tr class="no-records-found"><td align="center">Se eliminaron todos los medios del pedido</td></tr></tbody></table>');
                 $('#btnConfirm').prop('disabled', true);
             }
         }
@@ -51,10 +48,10 @@
         }
 
         private onCantidadCopiasChange(e: JQueryEventObject) {
-            this.calcularInsumos();
+            this.calcularInsumos(false);
         }
 
-        private calcularInsumos() {
+        private calcularInsumos(deleted: boolean) {
             var tamanoTotal = 0;
             $('[data-tamano]').each((i, e) => {
                 tamanoTotal += $(e).data('tamano');
@@ -78,7 +75,12 @@
             if (cantidadAnterior != insumosPorCantidadCopias) {
                 toastr.clear();
                 toastr.warning(
-                    'Se superó el espacio del DVD. El pedido ahora tiene: ' + insumosPorCantidadCopias + ' unidades',
+                    'Medio Audiovisual eliminado del pedido.<br />El pedido ahora tiene: ' + insumosPorCantidadCopias + ' unidades',
+                    'Información');
+            } else {
+                toastr.clear();
+                toastr.warning(
+                    'Medio Audiovisual eliminado del pedido',
                     'Información');
             }
         }

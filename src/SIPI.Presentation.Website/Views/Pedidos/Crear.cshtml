@@ -165,8 +165,8 @@
         Limit = Model.OffsetParams.Limit,
         CategoriaId = Model.Filtros.CategoriaId,
         Tema = Model.Filtros.Tema,
-        FechaDesde = Model.Filtros.FechaDesde,
-        FechaHasta = Model.Filtros.FechaHasta,
+        FechaDesde = Model.Filtros.FechaDesde?.ToShortDateString(),
+        FechaHasta = Model.Filtros.FechaHasta?.ToShortDateString(),
         TipoId = Model.Filtros.TipoId
     }))">Página siguiente</a>
 }

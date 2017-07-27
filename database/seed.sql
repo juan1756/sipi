@@ -104,6 +104,14 @@ INSERT INTO Usuario (Id, Email, Nombre, Apellido, Contrasena, ContrasenaNueva, H
 GO
 INSERT INTO Usuario (Id, Email, Nombre, Apellido, Contrasena, ContrasenaNueva, Hash, Altura, Calle, Telefono, Piso, Discriminator, Localidad_Id, Provincia_Id) VALUES (4, 'operador_vendedor@mail.com', 'Don', 'Operador Vendedor', '1234', NULL, NULL, NULL, NULL, NULL, NULL, 'Operador', NULL, NULL)
 GO
+INSERT INTO Usuario (Id, Email, Nombre, Apellido, Contrasena, ContrasenaNueva, Hash, Altura, Calle, Telefono, Piso, Discriminator, Localidad_Id, Provincia_Id) VALUES (5, 'rgomez@uade.edu.ar', 'Raúl', 'Gómez', 'asd123', NULL, NULL, 123, 'Santa Fe', '45856879', '2', 'Miembro', 1, 1)
+GO
+INSERT INTO Usuario (Id, Email, Nombre, Apellido, Contrasena, ContrasenaNueva, Hash, Altura, Calle, Telefono, Piso, Discriminator, Localidad_Id, Provincia_Id) VALUES (6, 'jperez@uade.edu.ar', 'Jorge', 'Perez', 'asd123', NULL, NULL, NULL, NULL, NULL, NULL, 'Operador', NULL, NULL)
+GO
+INSERT INTO Usuario (Id, Email, Nombre, Apellido, Contrasena, ContrasenaNueva, Hash, Altura, Calle, Telefono, Piso, Discriminator, Localidad_Id, Provincia_Id) VALUES (7, 'foloth@gmail.com', 'Marcelo Martín Teodoro', 'Maldonado', 'asd123', NULL, NULL, NULL, NULL, NULL, NULL, 'Miembro', NULL, NULL)
+GO
+INSERT INTO Usuario (Id, Email, Nombre, Apellido, Contrasena, ContrasenaNueva, Hash, Altura, Calle, Telefono, Piso, Discriminator, Localidad_Id, Provincia_Id) VALUES (8, 'mlopez@uade.edu.ar', 'Maite', 'López', 'asd123', NULL, NULL, NULL, NULL, NULL, NULL, 'Operador', NULL, NULL)
+GO
 SET IDENTITY_INSERT Usuario OFF
 GO
 
@@ -124,16 +132,20 @@ INSERT INTO OperadorRol (Operador_Id, Rol_Id) VALUES (3, 2)
 GO
 INSERT INTO OperadorRol (Operador_Id, Rol_Id) VALUES (4, 3)
 GO
+INSERT INTO OperadorRol (Operador_Id, Rol_Id) VALUES (6, 2)
+GO
+INSERT INTO OperadorRol (Operador_Id, Rol_Id) VALUES (8, 3)
+GO
 
 PRINT ''
 PRINT 'Tabla: Pedido'
 SET IDENTITY_INSERT Pedido ON
 GO
-INSERT INTO Pedido (Numero, CantidadPedido, Estado, Fecha, PrecioTotal, FechaEntregado, Miembro_Id) VALUES (1, 3, 1, '20170707', 10.5, null, 1)
+INSERT INTO Pedido (Numero, CantidadPedido, Estado, Fecha, PrecioTotal, FechaEntregado, Miembro_Id) VALUES (1, 3, 1, '20160411', 10.5, null, 1)
 GO
-INSERT INTO Pedido (Numero, CantidadPedido, Estado, Fecha, PrecioTotal, FechaEntregado, Miembro_Id) VALUES (2, 3, 1, '20170707', 150.5, null, 1)
+INSERT INTO Pedido (Numero, CantidadPedido, Estado, Fecha, PrecioTotal, FechaEntregado, Miembro_Id) VALUES (2, 3, 1, '20160412', 150.5, null, 1)
 GO
-INSERT INTO Pedido (Numero, CantidadPedido, Estado, Fecha, PrecioTotal, FechaEntregado, Miembro_Id) VALUES (3, 1, 1, '20170708', 210.5, null, 1)
+INSERT INTO Pedido (Numero, CantidadPedido, Estado, Fecha, PrecioTotal, FechaEntregado, Miembro_Id) VALUES (3, 1, 1, '20160413', 210.5, null, 1)
 GO
 SET IDENTITY_INSERT Pedido OFF
 GO
@@ -264,6 +276,8 @@ INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_I
 GO
 INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (45, '20140722', 'Canción de Navidad', 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/334269643&amp;auto_play=false&amp;hide_related=true&amp;show_comments=false&amp;show_user=true&amp;show_reposts=false&amp;visual=true', 20, 3, 1)
 GO
+INSERT INTO MedioAudiovisual (Id, FechaGrabacion, Tema, Url, Tamano, Categoria_Id, Tipo_Id) VALUES (46, '20170414', 'Semana Santa - Predicación', 'https://www.youtube.com/watch?v=ynIgAMOd-SI', 100, 1, 2)
+GO
 SET IDENTITY_INSERT MedioAudiovisual OFF
 
 PRINT ''
@@ -318,8 +332,9 @@ VALUES
 	(26,1),(27,2),(28,3),(29,4),(30,5),
 	(31,1),(32,2),(33,3),(34,4),(35,5),
 	(36,1),(37,2),(38,3),(39,4),(40,5),
-	(41,4),(42,4),(43,4),(44,4),(45,4)
-
+	(41,4),(42,4),(43,4),(44,4),(45,4),
+	(46,2)
+	
 /* Verficación */
 
 --SELECT * FROM Provincia

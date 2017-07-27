@@ -68,7 +68,11 @@ namespace SIPI.Core.Entidades
                 throw new UsuarioNoTienePermisosParaModificarEstadoException();
 
             Estado = (int)ObtenerEstadoSiguiente();
-            FechaEntregado = DateTime.Now;
+
+            if (Estado == (int)Estados.Entregado)
+            { 
+                FechaEntregado = DateTime.Now;
+            }
         }
 
         public PedidoMiembroView GetMiembroView()

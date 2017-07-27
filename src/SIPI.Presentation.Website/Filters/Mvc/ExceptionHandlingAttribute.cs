@@ -15,6 +15,9 @@ namespace SIPI.Presentation.Website.Filters.Mvc
             if (ex is NotImplementedException)
                 throw new HttpException((int)System.Net.HttpStatusCode.NotImplemented, "Not Implemented", ex);
 
+            if (ex is HttpException)
+                return;
+
             throw new HttpException((int)System.Net.HttpStatusCode.InternalServerError, "InternalServerError", ex);
         }
     }

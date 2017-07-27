@@ -21,5 +21,11 @@ namespace SIPI.Presentation.Website.Controllers
         {
             return View();
         }
+
+        [ActionName("403")]
+        public ActionResult Forbidden()
+        {
+            return View();
+        }
     }
 }

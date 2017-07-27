@@ -38,21 +38,10 @@ namespace SIPI.Data.EF.Mappers
 
         public IPagedCollection<Pedido> ObtenerPedidos(string[] roles, string nombreApellidoMiembro, DateTime? fechaDesde, DateTime? fechaHasta, int desde, int cantidad)
         {
-            List<int> estados = new List<int>();
-            if (roles.Contains("Packaging"))
-            {
-                estados.Add((int)Estados.Nuevo);
-            }
-            if (roles.Contains("Vendedor"))
-            {
-                estados.Add((int)Estados.Listo);
-            }
-
             return _dbCtx.Pedidos
                 .Where(!string.IsNullOrEmpty(nombreApellidoMiembro), x => (x.Miembro.Nombre + " " + x.Miembro.Apellido).Contains(nombreApellidoMiembro))
                 .Where(fechaDesde.HasValue, x => DbFunctions.TruncateTime(x.Fecha) >= DbFunctions.TruncateTime(fechaDesde.Value))
                 .Where(fechaHasta.HasValue, x => DbFunctions.TruncateTime(x.Fecha) <= DbFunctions.TruncateTime(fechaHasta.Value))
-                .Where(x => estados.Contains(x.Estado))
                 .OrderByDescending(x => x.Fecha)
                 .ToPagedCollection(desde, cantidad);
         }

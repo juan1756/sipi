@@ -23,7 +23,7 @@ namespace SIPI.Presentation.Website.Areas.Admin.Controllers
                 && filtros.Desde > filtros.Hasta)
             {
                 TempData.Add("Error-Notifications-Filtros", "La Fecha desde debe ser menor o igual a la Fecha hasta");
-                return RedirectToAction("index", "pedidos", new { area = "admin", Miembro = filtros.Miembro });
+                return RedirectToAction("index", "pedidos", new { area = "admin" });
             }
 
             return View(filtros);

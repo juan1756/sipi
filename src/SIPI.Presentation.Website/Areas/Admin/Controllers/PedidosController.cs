@@ -19,6 +19,13 @@ namespace SIPI.Presentation.Website.Areas.Admin.Controllers
 
         public ActionResult Index(IndexFiltrosModel filtros)
         {
+            if (filtros.Desde.HasValue && filtros.Hasta.HasValue
+                && filtros.Desde > filtros.Hasta)
+            {
+                TempData.Add("Error-Notifications-Filtros", "La Fecha desde debe ser menor o igual a la Fecha hasta");
+                return RedirectToAction("index", "pedidos", new { area = "admin", Miembro = filtros.Miembro });
+            }
+
             return View(filtros);
         }
 

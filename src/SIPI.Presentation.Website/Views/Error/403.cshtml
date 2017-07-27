@@ -1,0 +1,43 @@
+﻿@{
+    Layout = "~/Views/Shared/_BaseLayout.cshtml";
+    ViewBag.Title = "No tiene los privilegios suficientes para acceder a esta página";
+}
+
+<div class="app blank sidebar-opened">
+    <article class="content">
+        <div class="error-card global">
+            <div class="error-title-block">
+                <h1 class="error-title">403</h1>
+                <h2 class="error-sub-title"> No tiene los privilegios suficientes para acceder a esta página </h2>
+            </div>
+            <div class="error-container">
+                <a class="btn btn-primary" href="@Url.PreviousLocalOrHome()">
+                    <i class="fa fa-angle-left"></i>
+                    Volver
+                </a>
+            </div>
+        </div>
+    </article>
+</div>
+
+@section scripts{
+    <script>
+        $(function () {
+            animate({
+                name: 'flipInY',
+                selector: '.error-card > .error-title-block'
+            });
+
+            setTimeout(function () {
+                var $el = $('.error-card > .error-container');
+
+                animate({
+                    name: 'fadeInUp',
+                    selector: $el
+                });
+
+                $el.addClass('visible');
+            }, 1000);
+        });
+    </script>
+}

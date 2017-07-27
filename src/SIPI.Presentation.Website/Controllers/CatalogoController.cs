@@ -1,7 +1,8 @@
 ﻿using SIPI.Core.Controladores;
 using SIPI.Presentation.Website.Models.Catalogo;
 using SIPI.Presentation.Website.Models.Shared;
-using System.Linq;
+using System.Net;
+using System.Web;
 using System.Web.Mvc;
 
 namespace SIPI.Presentation.Website.Controllers
@@ -25,7 +26,7 @@ namespace SIPI.Presentation.Website.Controllers
         public ActionResult Index(IndexFiltrosModel filtros, OffsetParams offsetParams, string createOrder)
         {
             if (Usuario != null && !Usuario.IsInRole("Miembro"))
-                return new HttpUnauthorizedResult();
+                throw new HttpException((int)HttpStatusCode.Forbidden, "Forbidden");
 
             if (filtros.FechaDesde.HasValue && filtros.FechaHasta.HasValue
                 && filtros.FechaHasta < filtros.FechaDesde)
